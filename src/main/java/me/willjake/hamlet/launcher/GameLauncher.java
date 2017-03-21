@@ -1,4 +1,4 @@
-package me.willjake.hamlet;
+package me.willjake.hamlet.launcher;
 
 /**
  * Created by will on 3/15/17 at 11:12 AM.
