@@ -48,7 +48,7 @@ public class Mob extends Entity {
 	public void tick() {
 		
 		time++;
-		level.getTile((x) >> Screen.TILE_SIZE, (y) >> Screen.TILE_SIZE).mobIn(this);
+		level.getTile((x) >> Screen.TILE_SIZE, (y) >> Screen.TILE_SIZE).mobIntersects(this);
 		if (isOutSideLevel()) {
 			x = spawnX;
 			y = spawnY;

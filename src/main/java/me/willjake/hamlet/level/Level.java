@@ -2,20 +2,18 @@ package me.willjake.hamlet.level;
 
 import me.willjake.hamlet.game.Tile;
 
+import java.util.ArrayList;
+
 /**
  * Created by jakekinsella on 3/21/17.
  */
 public class Level {
 	
-	private int width;
-	private int height;
-	
+	private int width, height;
+	private ArrayList<Tile> tileMap = new ArrayList<Tile>();
+
 	public Level(String levelFile) {
 		this.setup(levelFile);
-	}
-	
-	private void setup(String levelFile) {
-		
 	}
 	
 	public void tick() {
@@ -27,11 +25,17 @@ public class Level {
 	}
 	
 	public Tile getTile(int x, int y) {
-		return null; // jake implement this
+		for (Tile tile : this.tileMap) {
+		    if (tile.contains(x, y)) {
+		        return tile;
+            }
+        }
+
+        return null;
 	}
 	
 	public double getLightValue(int x, int y) {
-		// TODO: NYI may not use
+		// TODO: Lets avoid light for now
 		return 1.0D;
 	}
 	
@@ -42,5 +46,12 @@ public class Level {
 	public int getHeight() {
 		return height;
 	}
-	
+
+	private void setup(String levelFile) {
+        LevelParser levelParser = new LevelParser(levelFile);
+
+        this.width = levelParser.getWidth();
+        this.height = levelParser.getHeight();
+        this.tileMap = levelParser.getTiles();
+	}
 }
