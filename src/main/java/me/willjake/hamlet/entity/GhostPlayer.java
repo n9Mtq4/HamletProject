@@ -10,8 +10,6 @@ import me.willjake.hamlet.input.KeyBoard;
  */
 public class GhostPlayer extends Player {
 	
-	private static final int SPEED_MULTIPLE = 2;
-	
 	public GhostPlayer(int x, int y, KeyBoard keyBoard) {
 		super(x, y, keyBoard);
 		this.forward = Sprites.ghostForward;
@@ -19,6 +17,11 @@ public class GhostPlayer extends Player {
 		this.left = Sprites.ghostLeft;
 		this.right = Sprites.ghostLeft.clone();
 		this.right.flipY();
+	}
+	
+	@Override
+	public void tick() {
+		super.tick();
 	}
 	
 }

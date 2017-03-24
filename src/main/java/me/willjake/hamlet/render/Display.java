@@ -90,7 +90,6 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		hud = new Hud();
 		
-		keyBoard = new KeyBoard(this);
 		player = new GhostPlayer(16, 2, keyBoard);
 		
 		level = new DebugLevel();
@@ -173,6 +172,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 //		playMusic();
 		thread = new Thread(this, "Game Thread");
 		thread.start();
+		gameState = GameState.IN_GAME;
 		
 	}
 	
