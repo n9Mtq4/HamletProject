@@ -18,15 +18,15 @@ public class Entity {
 	public Level level;
 	public Display display;
 	protected Sprite sprite;
-
+	
 	public int getX() {
 		return this.x;
 	}
-
+	
 	public int getY() {
 		return this.y;
 	}
-
+	
 	public void init(Level level, Display display) {
 		this.level = level;
 		this.display = display;

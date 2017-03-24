@@ -24,14 +24,12 @@ public class Mob extends Entity {
 	
 	public Direction dir = Direction.FORWARD;
 	public boolean moving = false;
-	
-	private Player player;
-	protected int xd;
-	protected int yd;
 	public int spawnX;
 	public int spawnY;
-	
+	protected int xd;
+	protected int yd;
 	protected int time;
+	private Player player;
 	
 	public Mob(int x, int y) {
 		this.spawnX = x;

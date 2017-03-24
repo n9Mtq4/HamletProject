@@ -27,10 +27,10 @@ public class Texture {
 	
 	/**
 	 * Takes a filePath and returns a Render with the pixels
-	 * 
+	 *
 	 * @param filePath The file location inside the jar
 	 * @return a Render with the image
-	 * */
+	 */
 	private static Render loadBitmap(String filePath) {
 		
 		try {

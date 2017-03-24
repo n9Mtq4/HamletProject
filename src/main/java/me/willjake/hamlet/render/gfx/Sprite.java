@@ -17,8 +17,8 @@ public class Sprite {
 	public int width;
 	public int height;
 	public int[] pixels;
-	private SpriteSheet sheet;
 	public boolean effectedByLight = true;
+	private SpriteSheet sheet;
 	
 	public Sprite(int size, Color color) {
 		this.SIZE = size;

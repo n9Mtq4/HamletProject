@@ -24,12 +24,12 @@ import java.io.IOException;
  */
 public class SpriteSheet {
 	
-	private String path;
 	public int size;
 	public int width;
 	@Deprecated
 	public int height;
 	public int[] pixels;
+	private String path;
 	
 	public SpriteSheet(String path, int width, int height) {
 		this.path = path;

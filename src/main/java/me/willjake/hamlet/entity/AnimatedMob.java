@@ -1,4 +1,3 @@
-
 /*
  * NOTE: This is added by intellij IDE. Disregard this copyright if there is another copyright later in the file.
  * Copyright (C) 2015  Will (n9Mtq4) Bresnahan

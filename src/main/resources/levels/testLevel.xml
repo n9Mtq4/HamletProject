@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<level width="10" height="10">
+<level height="10" width="10">
     <tile_map>
         <tile x="0" y="0">1</tile>
     </tile_map>

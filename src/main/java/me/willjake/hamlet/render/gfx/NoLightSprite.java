@@ -15,7 +15,7 @@
 
 package me.willjake.hamlet.render.gfx;
 
-import java.awt.*;
+import java.awt.Color;
 
 /**
  * Created by will on 8/23/15 at 2:29 AM.

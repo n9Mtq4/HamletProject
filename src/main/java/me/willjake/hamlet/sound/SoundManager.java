@@ -15,7 +15,13 @@
 
 package me.willjake.hamlet.sound;
 
-import javax.sound.sampled.*;
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.DataLine;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -80,7 +86,7 @@ public class SoundManager {
 			Clip clip = (Clip) AudioSystem.getLine((DataLine.Info) infos.elementAt(x));
 			clip.open((AudioFormat) afs.elementAt(x), (byte[]) audios.elementAt(x), 0, ((Integer) sizes.elementAt(x)).intValue());
 			clip.start();
-			return  clip;
+			return clip;
 		}
 		return null;
 	}

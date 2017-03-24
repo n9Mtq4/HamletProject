@@ -50,28 +50,25 @@ import java.util.HashMap;
  */
 public class Display extends Canvas implements Runnable, MouseListener, MouseMotionListener {
 	
+	public static final double GAME_SPEED = 60.0d;
+	public static final boolean DEBUG = true;
 	public static int WIDTH = 360;
 	public static int HEIGHT = (WIDTH / 16) * 9; // 16:9
 	public static int SCALE = 2;
-	public static final double GAME_SPEED = 60.0d;
-	public static final boolean DEBUG = true;
-	
-	private JComponent parent;
-	private Thread thread;
-	private boolean running;
-	private int fps;
-	
-	private Screen screen;
-	private Hud hud;
 	public Level level;
-	private Player player;
-	private KeyBoard keyBoard;
 	public GameState gameState;
 	public SoundManager soundManager;
 	public HashMap<String, Integer> sounds;
 	public Clip music;
 	public boolean musicPlaying = false;
-	
+	private JComponent parent;
+	private Thread thread;
+	private boolean running;
+	private int fps;
+	private Screen screen;
+	private Hud hud;
+	private Player player;
+	private KeyBoard keyBoard;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
@@ -90,7 +87,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		initListeners();
 		
 		hud = new Hud();
-		
+
 //		player = new MonsterPlayer(32, 2, keyBoard, monsterType);
 //		level = new House(levelName);
 //		level.display = this;
@@ -99,6 +96,14 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		requestFocus();
 		
+	}
+	
+	public static int getWindowWidth() {
+		return WIDTH * SCALE;
+	}
+	
+	public static int getWindowHeight() {
+		return HEIGHT * SCALE;
 	}
 	
 	public Clip playSound(String sound) {
@@ -138,7 +143,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	}
 	
 	private void initSound() {
-		
+
 //		addSound("roar");
 		
 	}
@@ -238,7 +243,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	
 	/**
 	 * Game loop
-	 * */
+	 */
 	@Override
 	public void run() {
 		int frames = 0;
@@ -289,14 +294,6 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			frames++;
 			
 		}
-	}
-	
-	public static int getWindowWidth() {
-		return WIDTH * SCALE;
-	}
-	
-	public static int getWindowHeight() {
-		return HEIGHT * SCALE;
 	}
 	
 	@Override

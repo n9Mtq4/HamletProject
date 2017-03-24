@@ -11,7 +11,7 @@ public class Level {
 	
 	private int width, height;
 	private ArrayList<Tile> tileMap = new ArrayList<Tile>();
-
+	
 	public Level(String levelFile) {
 		this.setup(levelFile);
 	}
@@ -26,12 +26,12 @@ public class Level {
 	
 	public Tile getTile(int x, int y) {
 		for (Tile tile : this.tileMap) {
-		    if (tile.contains(x, y)) {
-		        return tile;
-            }
-        }
-
-        return null;
+			if (tile.contains(x, y)) {
+				return tile;
+			}
+		}
+		
+		return null;
 	}
 	
 	public double getLightValue(int x, int y) {
@@ -46,12 +46,12 @@ public class Level {
 	public int getHeight() {
 		return height;
 	}
-
+	
 	private void setup(String levelFile) {
-        LevelParser levelParser = new LevelParser(levelFile);
-
-        this.width = levelParser.getWidth();
-        this.height = levelParser.getHeight();
-        this.tileMap = levelParser.getTiles();
+		LevelParser levelParser = new LevelParser(levelFile);
+		
+		this.width = levelParser.getWidth();
+		this.height = levelParser.getHeight();
+		this.tileMap = levelParser.getTiles();
 	}
 }
