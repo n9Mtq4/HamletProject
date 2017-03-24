@@ -46,7 +46,7 @@ public class Mob extends Entity {
 	public void tick() {
 		
 		time++;
-		level.getTile((x) >> Screen.TILE_SIZE, (y) >> Screen.TILE_SIZE).mobIntersects(this);
+		level.getTileBack((x) >> Screen.TILE_SIZE, (y) >> Screen.TILE_SIZE).mobIn(this);
 		if (isOutSideLevel()) {
 			x = spawnX;
 			y = spawnY;
@@ -83,7 +83,7 @@ public class Mob extends Entity {
 		for (int c = 0; c < 4; c++) {
 			int xt = ((x + xd) + c % 2 * (Screen.TILE_SIZE * 5)) >> Screen.TILE_SIZE;
 			int yt = ((y + yd) + c / 2 * (Screen.TILE_SIZE * 5)) >> Screen.TILE_SIZE;
-			if (level.getTile(xt, yt).isSolid(this)) return true;
+			if (level.getTileBack(xt, yt).isSolid(this)) return true;
 		}
 		
 		return false;

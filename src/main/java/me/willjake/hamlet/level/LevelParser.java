@@ -1,3 +1,4 @@
+/*
 package me.willjake.hamlet.level;
 
 import me.willjake.hamlet.game.Tile;
@@ -10,9 +11,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.ArrayList;
 
+*/
 /**
  * Created by jakekinsella on 3/21/17.
- */
+ *//*
+
 public class LevelParser {
 	
 	private Element levelElement;
@@ -58,3 +61,4 @@ public class LevelParser {
 		}
 	}
 }
+*/

@@ -13,56 +13,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package me.willjake.hamlet.game;
+package me.willjake.hamlet.level;
 
 import me.willjake.hamlet.entity.Entity;
 import me.willjake.hamlet.entity.Mob;
-import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.render.Screen;
 import me.willjake.hamlet.render.gfx.Sprite;
-
-import java.awt.Rectangle;
 
 /**
  * Created by will on 8/21/15 at 9:29 PM.
  */
 public class Tile {
 	
-	private final int TILE_SIDE = 10; //px
+//	public int x;
+//	public int y;
 	
-	private int levelX, levelY, realX, realY;
+	public Sprite sprite;
 	
-	private Rectangle boundingBox;
-	private Sprite sprite;
-	
-	public Tile(int levelX, int levelY, int spritesheetNumber) {
-		this.levelX = levelX;
-		this.levelY = levelY;
-		this.sprite = new Sprite(0, 0, spritesheetNumber); // TODO: we need a singleton containing the spritesheet
-		
-		this.realX = 0;
-		this.realY = 0;
-		this.boundingBox = new Rectangle(this.realX, this.realY, this.TILE_SIDE, this.TILE_SIDE);
-	}
-	
-	public int getLevelX() {
-		return this.levelX;
-	}
-	
-	public int getLevelY() {
-		return this.levelY;
+	public Tile(Sprite sprite) {
+		this.sprite = sprite;
 	}
 	
 	public void render(int x, int y, Screen screen, Level level) {
 		screen.renderTile(x << Screen.TILE_SIZE, y << Screen.TILE_SIZE, x, y, this, level);
 	}
 	
-	public boolean mobIntersects(Mob mob) {
-		return this.boundingBox.contains(mob.getX(), mob.getY());
+	public Entity newSpawn(int x, int y) {
+		return null;
 	}
 	
-	public boolean contains(int x, int y) {
-		return this.boundingBox.contains(x, y);
+	public void mobIn(Mob mob) {
+		
 	}
 	
 	public boolean isSolid(Entity entity) {
@@ -71,10 +52,6 @@ public class Tile {
 	
 	public double getSourceLight() {
 		return 0.0d;
-	}
-	
-	public Sprite getSprite() {
-		return sprite;
 	}
 	
 }

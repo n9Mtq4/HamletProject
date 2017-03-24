@@ -34,6 +34,13 @@ public class AnimatedSprite extends Sprite {
 	}
 	
 	@Override
+	public void flipY() {
+		for (Sprite frame : frames) {
+			frame.flipY();
+		}
+	}
+	
+	@Override
 	public void tick() {
 		if (frameTick - frameRate == 0) {
 			frameTick = 0;
@@ -45,6 +52,14 @@ public class AnimatedSprite extends Sprite {
 	@Override
 	public Sprite getSpriteForRender() {
 		return frames[frame];
+	}
+	
+	public AnimatedSprite clone() {
+		Sprite[] framesClone = new Sprite[frames.length];
+		for (int i = 0; i < frames.length; i++) {
+			framesClone[i] = frames[i].clone();
+		}
+		return new AnimatedSprite(framesClone, width, height, frameRate);
 	}
 	
 }

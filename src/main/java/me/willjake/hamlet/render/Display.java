@@ -15,8 +15,10 @@
 
 package me.willjake.hamlet.render;
 
+import me.willjake.hamlet.entity.GhostPlayer;
 import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
+import me.willjake.hamlet.game.level.DebugLevel;
 import me.willjake.hamlet.hud.Hud;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.level.Level;
@@ -87,7 +89,15 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		initListeners();
 		
 		hud = new Hud();
-
+		
+		keyBoard = new KeyBoard(this);
+		player = new GhostPlayer(16, 2, keyBoard);
+		
+		level = new DebugLevel();
+		level.display = this;
+		level.add(player);
+		level.load();
+		
 //		player = new MonsterPlayer(32, 2, keyBoard, monsterType);
 //		level = new House(levelName);
 //		level.display = this;
@@ -160,7 +170,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		if (thread != null) stop();
 		running = true;
 //		initBuffer();
-		playMusic();
+//		playMusic();
 		thread = new Thread(this, "Game Thread");
 		thread.start();
 		
@@ -198,7 +208,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		screen.clear();
 		int xScroll = player.x - screen.width / 2;
 		int yScroll = player.y - screen.height / 2;
-//		level.render();
+		level.render(xScroll, yScroll, screen);
 		hud.render(screen);
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];

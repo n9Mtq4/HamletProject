@@ -59,6 +59,15 @@ public class Sprite {
 		
 	}
 	
+	public void flipY() {
+		// http://stackoverflow.com/a/36189912/5196460
+		int[] newPixels = new int[pixels.length];
+		for (int i = 0; i < pixels.length; i++) {
+			newPixels[i] = pixels[i - 2 * (i % width) + width - 1];
+		}
+		pixels = newPixels;
+	}
+	
 	private void setColor(int color) {
 		for (int i = 0; i < pixels.length; i++) {
 			pixels[i] = color;
@@ -77,6 +86,10 @@ public class Sprite {
 	
 	public Sprite getSpriteForRender() {
 		return this;
+	}
+	
+	public Sprite clone() {
+		return new Sprite(SIZE, x, y, sheet);
 	}
 	
 }

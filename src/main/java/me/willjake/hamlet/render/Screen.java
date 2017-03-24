@@ -15,8 +15,8 @@
 
 package me.willjake.hamlet.render;
 
-import me.willjake.hamlet.game.Tile;
 import me.willjake.hamlet.level.Level;
+import me.willjake.hamlet.level.Tile;
 import me.willjake.hamlet.render.gfx.Sprite;
 
 /**
@@ -95,7 +95,7 @@ public class Screen {
 	}
 	
 	public void renderTile(int xp, int yp, int x1, int y1, Tile tile, Level level) {
-		Sprite sprite = tile.getSprite().getSpriteForRender();
+		Sprite sprite = tile.sprite.getSpriteForRender();
 		yp -= yOff;
 		xp -= xOff;
 		for (int y = 0; y < sprite.SIZE; y++) {
