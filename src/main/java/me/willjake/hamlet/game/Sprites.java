@@ -33,6 +33,28 @@ public class Sprites {
 	
 	public static final Sprite guard = new Sprite(16, 6, 0, characters);
 	
+	public static final Sprite stoneLight = new Sprite(32, 0, 0, tiles);
+	public static final Sprite stoneDark = new Sprite(32, 1, 0, tiles);
+	public static final Sprite columnTop = new Sprite(32, 2, 0, tiles);
+	public static final Sprite columnMid = new Sprite(32, 2, 1, tiles);
+	public static final Sprite columnBottom = new Sprite(32, 2, 2, tiles);
+	public static final Sprite water = new Sprite(32, 3, 0, tiles);
+	public static final Sprite tree0 = new Sprite(32, 4, 0, tiles);
+	public static final Sprite tree1 = new Sprite(32, 5, 0, tiles);
+	public static final Sprite tree2 = new Sprite(32, 4, 1, tiles);
+	public static final Sprite tree3 = new Sprite(32, 5, 1, tiles);
+	public static final Sprite tree4 = new Sprite(32, 4, 2, tiles);
+	public static final Sprite tree5 = new Sprite(32, 5, 2, tiles);
+	public static final Sprite torch = new Sprite(32, 0, 1, tiles);
+	public static final Sprite chest = new Sprite(32, 1, 1, tiles);
+	public static final Sprite throneTop = new Sprite(32, 3, 1, tiles);
+	public static final Sprite throneBottom = new Sprite(32, 3, 2, tiles);
+	public static final Sprite stoneBrown = new Sprite(32, 1, 2, tiles);
+	public static final Sprite grass = new Sprite(32, 1, 3, tiles);
+	public static final Sprite wood = new Sprite(32, 2, 3, tiles);
+	public static final Sprite emblem = new Sprite(32, 0, 4, tiles);
+	// TODO: still don't have off center emblem, may not need it though
+	
 	/**
 	 * generates an animated sprite
 	 * */
