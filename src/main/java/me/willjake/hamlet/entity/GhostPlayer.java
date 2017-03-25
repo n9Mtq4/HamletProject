@@ -15,8 +15,9 @@ public class GhostPlayer extends Player {
 		this.forward = Sprites.ghostForward;
 		this.backwards = Sprites.ghostBackward;
 		this.left = Sprites.ghostLeft;
-		this.right = Sprites.ghostLeft.clone();
-		this.right.flipY();
+		this.right = Sprites.ghostLeft; // TODO: flip this 
+//		this.right = Sprites.ghostLeft.clone();
+//		this.right.flipY();
 	}
 	
 	@Override

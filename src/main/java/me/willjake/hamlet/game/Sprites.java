@@ -22,7 +22,7 @@ public class Sprites {
 	
 	public static final AnimatedSprite ghostForward = getAnimatedSprite(3, 1, 2, 16, characters, 60);
 	public static final AnimatedSprite ghostBackward = getAnimatedSprite(3, 4, 5, 16, characters, 60);
-	public static final AnimatedSprite ghostLeft = getAnimatedSprite(3, 6, 6, 16, characters, 60);
+	public static final AnimatedSprite ghostLeft = getAnimatedSprite(3, 6, 7, 16, characters, 60);
 	
 	/**
 	 * generates an animated sprite
