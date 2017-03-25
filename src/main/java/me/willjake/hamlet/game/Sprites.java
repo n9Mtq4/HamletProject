@@ -20,9 +20,9 @@ public class Sprites {
 	public static final Sprite voidTile = new Sprite(Screen.ABS_TILE_SIZE, new Color(215, 215, 215));
 	public static final Sprite wallTile = new Sprite(Screen.ABS_TILE_SIZE, new Color(100, 100, 100));
 	
-	public static final AnimatedSprite ghostForward = getAnimatedSprite(3, 1, 2, 16, characters, 60);
-	public static final AnimatedSprite ghostBackward = getAnimatedSprite(3, 4, 5, 16, characters, 60);
-	public static final AnimatedSprite ghostLeft = getAnimatedSprite(3, 6, 7, 16, characters, 60);
+	public static final AnimatedSprite ghostForward = getAnimatedSprite(3, 1, 3, 16, characters, 60);
+	public static final AnimatedSprite ghostBackward = getAnimatedSprite(3, 4, 6, 16, characters, 60);
+	public static final AnimatedSprite ghostLeft = getAnimatedSprite(3, 6, 8, 16, characters, 60);
 	
 	/**
 	 * generates an animated sprite
