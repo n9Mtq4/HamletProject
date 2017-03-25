@@ -89,7 +89,11 @@ public class Sprite {
 	}
 	
 	public Sprite clone() {
-		return new Sprite(SIZE, x, y, sheet);
+		final Sprite sprite = new Sprite(SIZE, SIZE);
+		for (int i = 0; i < pixels.length; i++) {
+			sprite.pixels[i] = pixels[i];
+		}
+		return sprite;
 	}
 	
 }

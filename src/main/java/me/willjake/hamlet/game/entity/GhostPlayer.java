@@ -1,5 +1,6 @@
-package me.willjake.hamlet.entity;
+package me.willjake.hamlet.game.entity;
 
+import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.Sprites;
 import me.willjake.hamlet.input.KeyBoard;
 
@@ -12,12 +13,11 @@ public class GhostPlayer extends Player {
 	
 	public GhostPlayer(int x, int y, KeyBoard keyBoard) {
 		super(x, y, keyBoard);
-		this.forward = Sprites.ghostForward;
-		this.backwards = Sprites.ghostBackward;
+		this.forward = Sprites.ghostBackward;
+		this.backwards = Sprites.ghostForward;
 		this.left = Sprites.ghostLeft;
-		this.right = Sprites.ghostLeft; // TODO: flip this 
-//		this.right = Sprites.ghostLeft.clone();
-//		this.right.flipY();
+		this.right = Sprites.ghostLeft.clone();
+		this.right.flipY();
 	}
 	
 	@Override

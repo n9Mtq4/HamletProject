@@ -15,7 +15,7 @@
 
 package me.willjake.hamlet.render;
 
-import me.willjake.hamlet.entity.GhostPlayer;
+import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.level.DebugLevel;
