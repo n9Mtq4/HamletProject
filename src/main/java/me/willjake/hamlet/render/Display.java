@@ -15,12 +15,11 @@
 
 package me.willjake.hamlet.render;
 
-import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
+import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
 import me.willjake.hamlet.game.level.DebugLevel;
-import me.willjake.hamlet.hud.Hud;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.sound.SoundManager;
@@ -69,7 +68,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	private boolean running;
 	private int fps;
 	private Screen screen;
-	private Hud hud;
+	private HudImplementation hud;
 	private Player player;
 	private KeyBoard keyBoard;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
@@ -217,11 +216,12 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.BLACK);
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+		hud.render(g);
 		if (DEBUG) {
 			g.setColor(new Color(255, 255, 0));
 			g.setFont(new Font("Verdana", Font.BOLD, 24));
 			g.drawString(String.valueOf(fps + " fps"), 0, HEIGHT * SCALE - 18);
-			g.setFont(new Font("Verdana", Font.BOLD, 12));
+//			g.setFont(new Font("Verdana", Font.BOLD, 12));
 		}
 		
 		g.dispose();
@@ -349,6 +349,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			}else {
 				this.playMusic();
 			}
+		}else if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
+			hud.textBox.go("Test text box!", player); // TODO: debug stuff
 		}
 		// TODO: add key events here
 	}
