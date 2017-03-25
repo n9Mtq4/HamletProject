@@ -68,12 +68,10 @@ public class Sprite {
 		pixels = newPixels;
 	}
 	
-	// TODO: add scale as an argument instead
 	/**
 	 * @return this
 	 * */
-	public Sprite upscale() {
-		final int scale = 2;
+	public Sprite upscale(int scale) {
 		pixels = resizePixels(pixels, width, height, width * scale, height * scale);
 		width = width * scale;
 		height = height * scale;
