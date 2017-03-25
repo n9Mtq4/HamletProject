@@ -2,6 +2,7 @@ package me.willjake.hamlet.game;
 
 import me.willjake.hamlet.render.Screen;
 import me.willjake.hamlet.render.gfx.AnimatedSprite;
+import me.willjake.hamlet.render.gfx.NoLightSprite;
 import me.willjake.hamlet.render.gfx.Sprite;
 import me.willjake.hamlet.render.gfx.SpriteSheet;
 
@@ -16,6 +17,7 @@ public class Sprites {
 	
 	public static final SpriteSheet characters = new SpriteSheet("/assets/art/CharacterSheet.png", 512);
 	public static final SpriteSheet tiles = new SpriteSheet("/assets/art/TileSheet.png", 512);
+	public static final SpriteSheet hud = new SpriteSheet("/assets/art/hud.png", 32);
 	
 	public static final Sprite voidTile = new Sprite(Screen.ABS_TILE_SIZE, new Color(215, 215, 215));
 	public static final Sprite wallTile = new Sprite(Screen.ABS_TILE_SIZE, new Color(100, 100, 100));
@@ -54,6 +56,13 @@ public class Sprites {
 	public static final Sprite wood = new Sprite(32, 2, 3, tiles);
 	public static final Sprite emblem = new Sprite(32, 0, 4, tiles);
 	// TODO: still don't have off center emblem, may not need it though
+	
+	public static final Sprite hudbarStartFull = new NoLightSprite(8, 0, 0, hud);
+	public static final Sprite hudbarMidFull = new NoLightSprite(8, 1, 0, hud);
+	public static final Sprite hudbarEndFull = new NoLightSprite(8, 2, 0, hud);
+	public static final Sprite hudbarStartEmpty = new NoLightSprite(8, 0, 1, hud);
+	public static final Sprite hudbarMidEmpty = new NoLightSprite(8, 1, 1, hud);
+	public static final Sprite hudbarEndEmpty = new NoLightSprite(8, 2, 1, hud);
 	
 	/**
 	 * generates an animated sprite

@@ -18,6 +18,7 @@ package me.willjake.hamlet.render;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
+import me.willjake.hamlet.game.hud.HudImplementation;
 import me.willjake.hamlet.game.level.DebugLevel;
 import me.willjake.hamlet.hud.Hud;
 import me.willjake.hamlet.input.KeyBoard;
@@ -88,7 +89,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		initSound();
 		initListeners();
 		
-		hud = new Hud();
+		hud = new HudImplementation();
 		
 		player = new GhostPlayer(16, 2, keyBoard);
 		
