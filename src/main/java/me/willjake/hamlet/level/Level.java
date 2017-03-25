@@ -102,7 +102,7 @@ public class Level {
 		entity.init(this, display);
 	}
 	
-	private Tile tileTranslator(int tile) {
+	public Tile tileTranslator(int tile) {
 		return Tiles.voidTile;
 	}
 	
