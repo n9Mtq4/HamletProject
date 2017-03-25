@@ -24,9 +24,9 @@ public class Sprites {
 	public static final AnimatedSprite kingBackward = getAnimatedSprite(0, 4, 6, 16, characters, 60);
 	
 	// TODO: implement a standing vs walking in the player / animated sprite class
-	public static final Sprite ghostForwardStand = new Sprite(16, 0, 3, characters).upscale();
-	public static final Sprite ghostBackwardStand = new Sprite(16, 3, 3, characters).upscale();
-	public static final Sprite ghostLeftStand = new Sprite(16, 6, 3, characters).upscale(); // TODO: draw a right or fix the damn flipY method
+	public static final Sprite ghostForwardStand = new Sprite(16, 0, 3, characters).upscale(2);
+	public static final Sprite ghostBackwardStand = new Sprite(16, 3, 3, characters).upscale(2);
+	public static final Sprite ghostLeftStand = new Sprite(16, 6, 3, characters).upscale(2);
 	public static final AnimatedSprite ghostForward = getAnimatedSprite(3, 1, 3, 16, characters, 60);
 	public static final AnimatedSprite ghostBackward = getAnimatedSprite(3, 4, 6, 16, characters, 60);
 	public static final AnimatedSprite ghostLeft = getAnimatedSprite(3, 6, 8, 16, characters, 60);
@@ -63,7 +63,7 @@ public class Sprites {
 		Sprite[] frames = new Sprite[Math.abs(x1 - x2)];
 		
 		for (int x = 0; x + x1 < x2; x++) {
-			frames[x] = new Sprite(size, x + x1, y, sheet).upscale();
+			frames[x] = new Sprite(size, x + x1, y, sheet).upscale(2);
 		}
 		
 		return new AnimatedSprite(frames, size, size, framerate);
