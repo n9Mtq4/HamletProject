@@ -41,7 +41,7 @@ public class TextBox {
 		
 		// TODO: this doesn't work. fix it
 		if (lock != null) {
-			graphics.drawPolygon(new int[]{BORDERX, BORDERX + 60, lock.x - xOff}, new int[]{BORDERY + 40, BORDERY + 40, lock.y - yOff}, 3);
+			graphics.fillPolygon(new int[]{BORDERX, BORDERX + 100, lock.x - xOff}, new int[]{BORDERY + 40, BORDERY + 40, lock.y - yOff}, 3);
 		}
 		
 		graphics.setColor(Color.BLACK);
