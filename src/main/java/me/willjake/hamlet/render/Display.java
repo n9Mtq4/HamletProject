@@ -206,8 +206,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			return;
 		}
 		screen.clear();
-		int xScroll = player.x - screen.width / 2;
-		int yScroll = player.y - screen.height / 2;
+		int xScroll = player.x + 16 - screen.width / 2;
+		int yScroll = player.y + 16 - screen.height / 2;
 		level.render(xScroll, yScroll, screen);
 		hud.render(screen);
 		for (int i = 0; i < pixels.length; i++) {
