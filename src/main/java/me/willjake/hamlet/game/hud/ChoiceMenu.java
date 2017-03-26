@@ -21,6 +21,7 @@ public class ChoiceMenu {
 	private ArrayList<ChoiceOption> options;
 	
 	private int selectedOption = 0;
+	private String choicePrompt;
 	
 	public ChoiceMenu(Display display) {
 		this.display = display;
@@ -32,7 +33,10 @@ public class ChoiceMenu {
 	
 	public void go(String choiceName) {
 		ChoiceParser choiceParser = new ChoiceParser(choiceName);
+		this.choicePrompt = choiceParser.getChoicePrompt();
 		this.options = choiceParser.getOptions();
+
+		System.out.println(choicePrompt);
 	}
 	
 	public void tick() {

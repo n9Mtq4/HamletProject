@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <choice>
+    Here is the choice prompt!
     <option cutscene="test_scene1">This is option 1 of a text choice</option>
     <option cutscene="test_scene2">This is option 2 of a text choice</option>
 </choice>
