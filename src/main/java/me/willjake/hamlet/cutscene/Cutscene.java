@@ -25,7 +25,6 @@ public class Cutscene {
 	
 	private void parseScene(String sceneName) {
 		CutsceneParser cutsceneParser = new CutsceneParser(sceneName);
-		
 		this.frames = cutsceneParser.getFrames();
 	}
 }

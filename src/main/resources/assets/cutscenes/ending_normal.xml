@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+    <frame>
+        <level>castle</level>
+    </frame>
+
+    <!-- Move characters into position -->
+    <frame>
+        <move x="0" y="1">hamlet</move>
+        <move x="0" y="2">laertes</move>
+        <move x="0" y="3">claudius</move>
+        <move x="0" y="4">gertrude</move>
+        <move x="0" y="5">guard</move>
+    </frame>
+
+    <!-- Hamlet + Laertes fight -->
+
+    <!-- Queen takes poison -->
+
+    <!-- Laertes dies -->
+
+    <!-- Hamlet kills Claudius -->
+
+    <!-- Hamlet dies -->
+
+    <!-- Fortinbras rules -->
+
+</scene>
