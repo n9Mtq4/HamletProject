@@ -22,6 +22,10 @@ public class ChoiceParser {
         this.setupParser(choiceName);
     }
 
+    public String getChoicePrompt() {
+        return this.element.getTextContent();
+    }
+
     public ArrayList<ChoiceOption> getOptions() {
         NodeList rawOptions = this.element.getElementsByTagName("option");
 
