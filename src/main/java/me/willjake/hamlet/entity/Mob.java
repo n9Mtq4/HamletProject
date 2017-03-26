@@ -97,6 +97,11 @@ public class Mob extends Entity {
 	public void cutsceneMove(int xd, int yd) {
 		// TODO: play animation out
 		
+		if (playX != 0 || playY != 0) System.err.println("Overwriting movement animation! " + this.getClass().getName());
+		
+		playX = xd;
+		playY = yd;
+		
 	}
 	
 	public void move(int xd, int yd) {
