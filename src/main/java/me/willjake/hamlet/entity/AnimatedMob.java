@@ -40,29 +40,34 @@ public class AnimatedMob extends Mob {
 	@Override
 	public void render(Screen screen) {
 		
-		if (!moving) {
-			
-			if (Direction.FORWARD.equals(dir)) {
-				renderSpriteRel(screen, forwardStanding);
-			}else if (Direction.RIGHT.equals(dir)) {
-				renderSpriteRel(screen, rightStanding);
-			}else if (Direction.BACKWARDS.equals(dir)) {
-				renderSpriteRel(screen, backwardStanding);
-			}else if (Direction.LEFT.equals(dir)) {
-				renderSpriteRel(screen, leftStanding);
+		try {
+			if (!moving) {
+				
+				if (Direction.FORWARD.equals(dir)) {
+					renderSpriteRel(screen, forwardStanding);
+				}else if (Direction.RIGHT.equals(dir)) {
+					renderSpriteRel(screen, rightStanding);
+				}else if (Direction.BACKWARDS.equals(dir)) {
+					renderSpriteRel(screen, backwardStanding);
+				}else if (Direction.LEFT.equals(dir)) {
+					renderSpriteRel(screen, leftStanding);
+				}
+				
+			}else {
+				if (Direction.FORWARD.equals(dir)) {
+					renderSpriteRel(screen, forward);
+				}else if (Direction.RIGHT.equals(dir)) {
+					renderSpriteRel(screen, right);
+				}else if (Direction.BACKWARDS.equals(dir)) {
+					renderSpriteRel(screen, backwards);
+				}else if (Direction.LEFT.equals(dir)) {
+					renderSpriteRel(screen, left);
+				}
 			}
-			
-		}else {
-			if (Direction.FORWARD.equals(dir)) {
-				renderSpriteRel(screen, forward);
-			}else if (Direction.RIGHT.equals(dir)) {
-				renderSpriteRel(screen, right);
-			}else if (Direction.BACKWARDS.equals(dir)) {
-				renderSpriteRel(screen, backwards);
-			}else if (Direction.LEFT.equals(dir)) {
-				renderSpriteRel(screen, left);
-			}
+		}catch (NullPointerException e) {
+			e.printStackTrace();
 		}
+		
 	}
 	
 	@Override
@@ -85,6 +90,10 @@ public class AnimatedMob extends Mob {
 		if (left == null && right != null) {
 			left = right.clone();
 			left.flipY();
+		}
+		
+		if (forward == null && backwards != null) {
+			forward = backwards;
 		}
 		
 		if (backwards == null && forward != null) {
