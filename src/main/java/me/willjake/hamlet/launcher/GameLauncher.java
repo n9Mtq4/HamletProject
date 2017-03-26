@@ -1,6 +1,5 @@
 package me.willjake.hamlet.launcher;
 
-import me.willjake.hamlet.cutscene.Cutscene;
 import me.willjake.hamlet.render.Display;
 
 import javax.swing.JFrame;
@@ -19,8 +18,6 @@ public class GameLauncher {
 
 	public static void main(String[] args) {
 		System.out.println("The game has been launched.");
-
-		Cutscene testCutscene = new Cutscene("test_scene");
 
 		new GameLauncher();
 		
