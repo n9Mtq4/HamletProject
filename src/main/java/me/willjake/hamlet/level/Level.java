@@ -120,7 +120,7 @@ public class Level {
 	public Entity getSprite(String name) {
 		
 		for (Entity e : entities) {
-			if(e.getClass().getName().equalsIgnoreCase(name)) return e;
+			if(e.getClass().getSimpleName().equalsIgnoreCase(name)) return e;
 		}
 		System.err.println("No entity with name: " + name);
 		return null;
