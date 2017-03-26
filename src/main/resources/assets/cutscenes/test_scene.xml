@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <frame>
     <move x="10" y="10">1</move>
+    <move x="10" y="10">1</move>
 </frame>

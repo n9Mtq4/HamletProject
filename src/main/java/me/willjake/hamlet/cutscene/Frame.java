@@ -24,6 +24,6 @@ public class Frame {
 
     private void parseFrame(Node rawFrame) {
         FrameParser frameParser = new FrameParser(rawFrame);
-        this.instructions = frameParser.getInscructions();
+        this.instructions = frameParser.getInstructions();
     }
 }

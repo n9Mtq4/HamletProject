@@ -8,13 +8,15 @@ import java.util.ArrayList;
 public class Cutscene {
 
     private ArrayList<Frame> frames = new ArrayList<Frame>();
+    private int onFrame = 0;
 
     public Cutscene(String sceneName) {
         this.parseScene(sceneName);
     }
 
-    public void play() {
-
+    public void playNextFrame() {
+        this.frames.get(this.onFrame).play();
+        this.onFrame++;
     }
 
     public void pause() {
