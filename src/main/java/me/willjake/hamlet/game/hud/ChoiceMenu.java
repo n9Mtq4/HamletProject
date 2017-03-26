@@ -35,10 +35,11 @@ public class ChoiceMenu {
 		this.display = display;
 	}
 	
-	public void debug(String title, String... choices) {
+	public void debug(String choicePrompt, String... choices) {
 		
-		this.choicePrompt = title;
-		this.options.clear();
+		
+		this.options = new ArrayList<ChoiceOption>();
+		this.choicePrompt = choicePrompt;
 		
 		for (String choice : choices) {
 			options.add(new ChoiceOption(choice, "cutscene_" + choice));
