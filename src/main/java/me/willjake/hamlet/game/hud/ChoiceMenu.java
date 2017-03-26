@@ -26,7 +26,6 @@ public class ChoiceMenu {
 	private static final int BORDERX = 10;
 	
 	private Display display;
-	private String title;
 	private ArrayList<ChoiceOption> options;
 	
 	private int selectedOption = 0;
@@ -38,7 +37,7 @@ public class ChoiceMenu {
 	
 	public void debug(String title, String... choices) {
 		
-		this.title = title;
+		this.choicePrompt = title;
 		this.options.clear();
 		
 		for (String choice : choices) {
@@ -53,7 +52,7 @@ public class ChoiceMenu {
 		ChoiceParser choiceParser = new ChoiceParser(choiceName);
 		this.choicePrompt = choiceParser.getChoicePrompt();
 		this.options = choiceParser.getOptions();
-
+		
 		System.out.println(choicePrompt);
 	}
 	
