@@ -25,6 +25,12 @@ public class Sprites {
 	public static final AnimatedSprite kingForward = getAnimatedSprite(0, 1, 3, 16, characters, 60);
 	public static final AnimatedSprite kingBackward = getAnimatedSprite(0, 4, 6, 16, characters, 60);
 	
+	public static final Sprite fortinbrasStand = new Sprite(16, 0, 1, characters).upscale(2);
+	public static final AnimatedSprite fortinbrasForward = getAnimatedSprite(1, 1, 2, 16, characters, 60);
+	
+	public static final Sprite gertudeStand = new Sprite(16, 0, 2, characters).upscale(2);
+	public static final AnimatedSprite gertudeForward = getAnimatedSprite(2, 1, 2, 16, characters, 60);
+	
 	// TODO: implement a standing vs walking in the player / animated sprite class
 	public static final Sprite ghostForwardStand = new Sprite(16, 0, 3, characters).upscale(2);
 	public static final Sprite ghostBackwardStand = new Sprite(16, 3, 3, characters).upscale(2);
@@ -33,7 +39,23 @@ public class Sprites {
 	public static final AnimatedSprite ghostBackward = getAnimatedSprite(3, 4, 6, 16, characters, 60);
 	public static final AnimatedSprite ghostLeft = getAnimatedSprite(3, 6, 8, 16, characters, 60);
 	
-	public static final Sprite guard = new Sprite(16, 6, 0, characters);
+	public static final Sprite hamletForwardStand = new Sprite(16, 0, 4, characters).upscale(2);
+	public static final Sprite hamletBackwardStand = new Sprite(16, 3, 4, characters).upscale(2);
+	public static final Sprite hamletLeftStand = new Sprite(16, 6, 4, characters).upscale(2);
+	public static final AnimatedSprite hamletForward = getAnimatedSprite(4, 1, 3, 16, characters, 60);
+	public static final AnimatedSprite hamletBackward = getAnimatedSprite(4, 4, 6, 16, characters, 60);
+	public static final AnimatedSprite hamletLeft = getAnimatedSprite(4, 6, 8, 16, characters, 60);
+	
+	public static final Sprite laertesStand = new Sprite(16, 0, 5, characters).upscale(2);
+	public static final AnimatedSprite laertesForward = getAnimatedSprite(5, 1, 2, 16, characters, 60);
+	
+	public static final Sprite guard = new Sprite(16, 6, 0, characters).upscale(2);
+	
+	public static final Sprite opheliaStand = new Sprite(16, 0, 7, characters).upscale(2);
+	public static final AnimatedSprite opheliaForward = getAnimatedSprite(7, 1, 2, 16, characters, 60);
+	
+	public static final Sprite poloniusStand = new Sprite(16, 0, 8, characters).upscale(2);
+	public static final AnimatedSprite poloniusWalk = getAnimatedSprite(8, 1, 2, 16, characters, 60);
 	
 	public static final Sprite stoneLight = new Sprite(32, 0, 0, tiles);
 	public static final Sprite stoneDark = new Sprite(32, 1, 0, tiles);
