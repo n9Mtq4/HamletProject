@@ -92,7 +92,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		hud = new HudImplementation(this);
 		
-		player = new GhostPlayer(16, 2, keyBoard);
+		player = new GhostPlayer(4, 4, keyBoard);
 		
 		level = new DebugLevel();
 		level.display = this;

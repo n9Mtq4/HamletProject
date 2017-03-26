@@ -28,6 +28,7 @@ public class Tile {
 //	public int x;
 //	public int y;
 	
+	private boolean solid = false;
 	public Sprite sprite;
 	
 	public Tile(Sprite sprite) {
@@ -47,11 +48,16 @@ public class Tile {
 	}
 	
 	public boolean isSolid(Entity entity) {
-		return false;
+		return solid;
 	}
 	
 	public double getSourceLight() {
 		return 0.0d;
+	}
+	
+	public Tile solid() {
+		solid = true;
+		return this;
 	}
 	
 }

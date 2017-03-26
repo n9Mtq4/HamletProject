@@ -11,30 +11,26 @@ import me.willjake.hamlet.level.Tile;
  */
 public class DebugLevel extends Level {
 	
-	private int test = 0;
-	
 	public DebugLevel() {
-		super("/assets/world/debug.png", "/assets/world/debug.png");
+		super("/assets/world/greathall.png", "/assets/world/greathallfront.png");
 	}
 	
 	@Override
 	public Tile tileTranslator(int tile) {
 		
-		if (true) return Tiles.TILED_FLOOR;
+		if (tile == 0xffff00ff) return null;
 		
-		test++;
-		test %= 10;
+		if (tile == 0xffffffff) return Tiles.TILED_FLOOR;
+		if (tile == 0xffba00ba) return Tiles.THRONE_BOTTOM;
+		if (tile == 0xffba00bb) return Tiles.THRONE_TOP;
+		if (tile == 0xffa0a0a0) return Tiles.STONE_LIGHT;
+		if (tile == 0xff000000) return Tiles.STONE_DARK;
+		if (tile == 0xff0fff02) return Tiles.COLUMN_TOP;
+		if (tile == 0xff0fff01) return Tiles.COLUMN_MID;
+		if (tile == 0xff0fff00) return Tiles.COLUMN_BOTTOM;
 		
-		switch(test) {
-			case 0:
-				return Tiles.STONE_BROWN;
-			case 1:
-				return Tiles.STONE_DARK;
-			case 2:
-				return Tiles.STONE_LIGHT;
-			default:
-				return Tiles.STONE_LIGHT;
-		}
+		System.out.println("Tile: " + tile + " is unknown");
+		return Tiles.voidTile;
 		
 	}
 	

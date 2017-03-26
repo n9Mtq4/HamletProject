@@ -17,7 +17,7 @@ public class StoneLight extends Tile {
 	
 	@Override
 	public boolean isSolid(Entity entity) {
-		return false; // TODO: may change
+		return true; // TODO: may change
 	}
 	
 }
