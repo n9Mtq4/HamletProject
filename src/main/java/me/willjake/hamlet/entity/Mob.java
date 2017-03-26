@@ -62,6 +62,10 @@ public class Mob extends Entity {
 		return (x < 0 || y < 0 || x > (level.getWidth() << Screen.TILE_SIZE) || y > (level.getHeight() << Screen.TILE_SIZE));
 	}
 	
+	public void moveTo(int x, int y) {
+		// TODO: play animation out
+	}
+	
 	public void move(int xd, int yd) {
 		
 		if (xd != 0 && yd != 0) {

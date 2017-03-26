@@ -52,6 +52,8 @@ import java.util.HashMap;
  */
 public class Display extends Canvas implements Runnable, MouseListener, MouseMotionListener {
 	
+	public static Display veryBad; // TODO: this is so very bad
+	
 	public static final double GAME_SPEED = 60.0d;
 	public static final boolean DEBUG = true;
 	public static int WIDTH = 360;
@@ -68,7 +70,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	private boolean running;
 	private int fps;
 	private Screen screen;
-	private HudImplementation hud;
+	public HudImplementation hud;
 	private Player player;
 	private KeyBoard keyBoard;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
@@ -106,6 +108,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		requestFocus();
 		
 		addSound("honorforall");
+		
+		veryBad = this;
 		
 	}
 	
@@ -307,6 +311,10 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			frames++;
 			
 		}
+	}
+	
+	public void loadLevel(String levelName) {
+		// TODO: load level
 	}
 	
 	@Override

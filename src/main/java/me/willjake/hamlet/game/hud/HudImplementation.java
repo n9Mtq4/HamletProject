@@ -15,10 +15,12 @@ public class HudImplementation extends Hud {
 	
 	public HudBar insanityBar = new HudBar();
 	public TextBox textBox = new TextBox();
+	public ChoiceMenu choiceMenu = new ChoiceMenu();
 	
 	@Override
 	public void tick() {
 		textBox.tick();
+		choiceMenu.tick();
 	}
 	
 	@Override
@@ -26,12 +28,14 @@ public class HudImplementation extends Hud {
 		
 		insanityBar.render(screen);
 		textBox.render(screen);
+		choiceMenu.render(screen);
 		
 	}
 	
 	@Override
 	public void render(Graphics graphics) {
 		textBox.render(graphics);
+		choiceMenu.render(graphics);
 	}
 	
 }

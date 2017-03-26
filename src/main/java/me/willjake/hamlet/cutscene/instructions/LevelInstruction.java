@@ -1,5 +1,6 @@
 package me.willjake.hamlet.cutscene.instructions;
 
+import me.willjake.hamlet.render.Display;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -17,6 +18,7 @@ public class LevelInstruction extends Instruction {
 	@Override
 	public void run() {
 		// TODO: Change level
+		Display.veryBad.loadLevel(levelName);
 	}
 	
 	@Override
