@@ -50,7 +50,7 @@ public class Sprites {
 	public static final Sprite laertesStand = new Sprite(16, 0, 5, characters).upscale(2);
 	public static final AnimatedSprite laertesForward = getAnimatedSprite(5, 1, 2, 16, characters, 60);
 	
-	public static final Sprite guard = new Sprite(16, 6, 0, characters).upscale(2);
+	public static final Sprite guard = new Sprite(16, 0, 6, characters).upscale(2);
 	
 	public static final Sprite opheliaStand = new Sprite(16, 0, 7, characters).upscale(2);
 	public static final AnimatedSprite opheliaForward = getAnimatedSprite(7, 1, 2, 16, characters, 60);
