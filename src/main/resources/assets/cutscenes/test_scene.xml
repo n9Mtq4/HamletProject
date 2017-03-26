@@ -7,4 +7,10 @@
         <move x="10" y="10">1</move>
         <move x="10" y="10">1</move>
     </frame>
+    <frame>
+        <text>test_text</text>
+    </frame>
+    <frame>
+        <choice>test_choice</choice>
+    </frame>
 </scene>
