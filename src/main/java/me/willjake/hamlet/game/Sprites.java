@@ -29,8 +29,8 @@ public class Sprites {
 	public static final Sprite fortinbrasStand = new Sprite(16, 0, 1, characters).upscale(2);
 	public static final AnimatedSprite fortinbrasForward = getAnimatedSprite(1, 1, 2, 16, characters, 60);
 	
-	public static final Sprite gertudeStand = new Sprite(16, 0, 2, characters).upscale(2);
-	public static final AnimatedSprite gertudeForward = getAnimatedSprite(2, 1, 2, 16, characters, 60);
+	public static final Sprite gertrudeStand = new Sprite(16, 0, 2, characters).upscale(2);
+	public static final AnimatedSprite gertrudeForward = getAnimatedSprite(2, 1, 2, 16, characters, 60);
 	
 	// TODO: implement a standing vs walking in the player / animated sprite class
 	public static final Sprite ghostForwardStand = new Sprite(16, 0, 3, characters).upscale(2);
