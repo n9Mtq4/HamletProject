@@ -1,6 +1,7 @@
 package me.willjake.hamlet.cutscene;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -15,14 +16,14 @@ public class CutsceneParser {
 
     private static final String XML_FOLDER = "assets/cutscenes";
 
-    private Document document;
+    private Element element;
 
     public CutsceneParser(String sceneName) {
         this.setupParsing(sceneName);
     }
 
     public ArrayList<Frame> getFrames() {
-        NodeList rawFrames = this.document.getElementsByTagName("frame");
+        NodeList rawFrames = this.element.getElementsByTagName("frame");
 
         ArrayList<Frame> frames = new ArrayList<Frame>();
         for (int i = 0; i < rawFrames.getLength(); i++) {
@@ -38,7 +39,8 @@ public class CutsceneParser {
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            this.document = documentBuilder.parse(file);
+            Document document = documentBuilder.parse(file);
+            this.element = (Element) document.getElementsByTagName("scene").item(0);
         } catch (Exception e) {
             e.printStackTrace();
         }

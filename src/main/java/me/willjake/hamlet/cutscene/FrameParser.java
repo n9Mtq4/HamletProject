@@ -1,6 +1,7 @@
 package me.willjake.hamlet.cutscene;
 
 import me.willjake.hamlet.cutscene.instructions.Instruction;
+import me.willjake.hamlet.cutscene.instructions.LevelInstruction;
 import me.willjake.hamlet.cutscene.instructions.MoveInstruction;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -36,7 +37,10 @@ public class FrameParser {
 
         if (instructionName.equals("move")) {
             return new MoveInstruction(rawInstruction);
+        } else if (instructionName.equals("level")) {
+            return new LevelInstruction(rawInstruction);
         } else {
+            System.out.println("Unhandled instruction!");
             return null; // pls no
         }
     }

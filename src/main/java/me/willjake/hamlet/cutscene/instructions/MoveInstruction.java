@@ -4,7 +4,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 /**
- * Created by jakekinsella on 3/25/17.
+ * Move sprite to an x and y value
  */
 public class MoveInstruction extends Instruction {
 
