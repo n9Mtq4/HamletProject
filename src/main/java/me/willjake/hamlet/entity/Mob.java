@@ -24,6 +24,7 @@ public class Mob extends Entity {
 	
 	public Direction dir = Direction.FORWARD;
 	public boolean moving = false;
+	public int movingLife = 0;
 	public int spawnX;
 	public int spawnY;
 	protected int xd;
@@ -52,6 +53,9 @@ public class Mob extends Entity {
 			y = spawnY;
 		}
 		
+		if (movingLife > 0) movingLife--;
+		else moving = false;
+		
 	}
 	
 	protected boolean isOutSideLevel() {
@@ -66,6 +70,8 @@ public class Mob extends Entity {
 			return;
 		}
 		
+		moving = true;
+		movingLife = 20;
 		if (xd > 0) dir = Direction.RIGHT;
 		if (xd < 0) dir = Direction.LEFT;
 		if (yd > 0) dir = Direction.BACKWARDS;

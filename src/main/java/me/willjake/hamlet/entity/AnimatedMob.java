@@ -17,6 +17,7 @@ package me.willjake.hamlet.entity;
 
 import me.willjake.hamlet.render.Screen;
 import me.willjake.hamlet.render.gfx.AnimatedSprite;
+import me.willjake.hamlet.render.gfx.Sprite;
 
 /**
  * Created by will on 8/22/15 at 4:16 PM.
@@ -27,6 +28,10 @@ public class AnimatedMob extends Mob {
 	public AnimatedSprite backwards;
 	public AnimatedSprite left;
 	public AnimatedSprite right;
+	public Sprite forwardStanding;
+	public Sprite backwardStanding;
+	public Sprite leftStanding;
+	public Sprite rightStanding;
 	
 	public AnimatedMob(int x, int y) {
 		super(x, y);
@@ -34,14 +39,29 @@ public class AnimatedMob extends Mob {
 	
 	@Override
 	public void render(Screen screen) {
-		if (Direction.FORWARD.equals(dir)) {
-			renderSpriteRel(screen, forward);
-		}else if (Direction.RIGHT.equals(dir)) {
-			renderSpriteRel(screen, right);
-		}else if (Direction.BACKWARDS.equals(dir)) {
-			renderSpriteRel(screen, backwards);
-		}else if (Direction.LEFT.equals(dir)) {
-			renderSpriteRel(screen, left);
+		
+		if (!moving) {
+			
+			if (Direction.FORWARD.equals(dir)) {
+				renderSpriteRel(screen, forwardStanding);
+			}else if (Direction.RIGHT.equals(dir)) {
+				renderSpriteRel(screen, rightStanding);
+			}else if (Direction.BACKWARDS.equals(dir)) {
+				renderSpriteRel(screen, backwardStanding);
+			}else if (Direction.LEFT.equals(dir)) {
+				renderSpriteRel(screen, leftStanding);
+			}
+			
+		}else {
+			if (Direction.FORWARD.equals(dir)) {
+				renderSpriteRel(screen, forward);
+			}else if (Direction.RIGHT.equals(dir)) {
+				renderSpriteRel(screen, right);
+			}else if (Direction.BACKWARDS.equals(dir)) {
+				renderSpriteRel(screen, backwards);
+			}else if (Direction.LEFT.equals(dir)) {
+				renderSpriteRel(screen, left);
+			}
 		}
 	}
 	

@@ -37,14 +37,14 @@ public class Sprites {
 	public static final Sprite ghostLeftStand = new Sprite(16, 6, 3, characters).upscale(2);
 	public static final AnimatedSprite ghostForward = getAnimatedSprite(3, 1, 3, 16, characters, 60);
 	public static final AnimatedSprite ghostBackward = getAnimatedSprite(3, 4, 6, 16, characters, 60);
-	public static final AnimatedSprite ghostLeft = getAnimatedSprite(3, 6, 8, 16, characters, 60);
+	public static final AnimatedSprite ghostLeft = getAnimatedSprite(3, 7, 9, 16, characters, 60);
 	
 	public static final Sprite hamletForwardStand = new Sprite(16, 0, 4, characters).upscale(2);
 	public static final Sprite hamletBackwardStand = new Sprite(16, 3, 4, characters).upscale(2);
 	public static final Sprite hamletLeftStand = new Sprite(16, 6, 4, characters).upscale(2);
 	public static final AnimatedSprite hamletForward = getAnimatedSprite(4, 1, 3, 16, characters, 60);
 	public static final AnimatedSprite hamletBackward = getAnimatedSprite(4, 4, 6, 16, characters, 60);
-	public static final AnimatedSprite hamletLeft = getAnimatedSprite(4, 6, 8, 16, characters, 60);
+	public static final AnimatedSprite hamletLeft = getAnimatedSprite(4, 7, 9, 16, characters, 60);
 	
 	public static final Sprite laertesStand = new Sprite(16, 0, 5, characters).upscale(2);
 	public static final AnimatedSprite laertesForward = getAnimatedSprite(5, 1, 2, 16, characters, 60);
