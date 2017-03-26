@@ -4,13 +4,15 @@
         <level>castle</level>
     </frame>
 
+    <!-- Claudius and Gertrude should be on their thrones-->
+
     <!-- Move characters into position -->
     <frame>
-        <move x="0" y="1">hamlet</move>
-        <move x="0" y="2">laertes</move>
-        <move x="0" y="3">claudius</move>
-        <move x="0" y="4">gertrude</move>
-        <move x="0" y="5">guard</move>
+        <move x="0" y="-10">hamlet</move>
+        <move x="0" y="-10">laertes</move>
+        <move x="0" y="-10">claudius</move>
+        <move x="0" y="-10">gertrude</move>
+        <move x="0" y="-10">guard</move>
     </frame>
 
     <!-- Hamlet + Laertes fight -->
@@ -18,13 +20,13 @@
 
     <!-- Queen takes poison -->
     <frame>
-        <text>claudius_gertrude_about_to_drink</text>
+        <text>ending_normal/claudius_gertrude_about_to_drink</text>
     </frame>
     <frame>
-        <text>gertude_drinks</text>
+        <text>ending_normal/gertrude_drinks</text>
     </frame>
     <frame>
-        <text>gertude_dies</text>
+        <text>ending_normal/gertrude_dies</text>
     </frame>
 
     <!-- Laertes dies -->

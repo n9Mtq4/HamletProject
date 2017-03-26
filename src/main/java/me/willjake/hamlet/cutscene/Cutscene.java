@@ -15,8 +15,12 @@ public class Cutscene {
 	}
 	
 	public void playNextFrame() {
-		this.frames.get(this.onFrame).play();
-		this.onFrame++;
+		if (this.onFrame < this.frames.size()) {
+            this.frames.get(this.onFrame).play();
+            this.onFrame++;
+        } else {
+		    System.out.println("Cutscene is complete");
+        }
 	}
 	
 	public void pause() {
