@@ -19,7 +19,7 @@ public class TextBox {
 	private static final int BORDERY = 50;
 	private static final int CHARACTERS_PER_LINE = 97;
 	private static final int LINE_PADDING = 3; //px
-	private static final double LIFE_MODIFIER = 0.05; // % of a second for each character
+	private static final double LIFE_MODIFIER = 0.1; // % of a second for each character
 	private static final int FONT_SIZE = 14;
 	private static final String FONT_TYPE = Font.SANS_SERIF;
 	

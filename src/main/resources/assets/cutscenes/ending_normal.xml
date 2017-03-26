@@ -4,19 +4,60 @@
         <level>castle</level>
     </frame>
 
-    <!-- Claudius and Gertrude should be on their thrones-->
-
-    <!-- Move characters into position -->
-    <frame>
-        <move x="0" y="-10">hamlet</move>
-        <move x="0" y="-10">laertes</move>
-        <move x="0" y="-10">claudius</move>
-        <move x="0" y="-10">gertrude</move>
-        <move x="0" y="-10">guard</move>
-    </frame>
-
     <!-- Hamlet + Laertes fight -->
-
+    <frame>
+        <text>ending_normal/hamlet_start_fight</text>
+    </frame>
+    <frame>
+        <text>ending_normal/laertes_start_fight</text>
+    </frame>
+    <frame>
+        <move x="0" y="-20">hamlet</move>
+        <move x="0" y="20">laertes</move>
+    </frame>
+    <frame>
+        <move x="0" y="10">hamlet</move>
+        <move x="0" y="10">laertes</move>
+    </frame>
+    <frame>
+        <move x="0" y="-20">hamlet</move>
+        <move x="0" y="-20">laertes</move>
+        <text>ending_normal/claudius_drops_pearl</text>
+    </frame>
+    <frame>
+        <move x="0" y="10">hamlet</move>
+        <move x="0" y="10">laertes</move>
+        <text>ending_normal/hamlet_injuried</text>
+    </frame>
+    <frame>
+        <move x="0" y="10">hamlet</move>
+        <move x="0" y="10">laertes</move>
+        <text>ending_normal/scuffle</text>
+    </frame>
+    <frame>
+        <move x="0" y="5">hamlet</move>
+        <move x="0" y="5">laertes</move>
+    </frame>
+    <frame>
+        <move x="0" y="-5">hamlet</move>
+        <move x="0" y="-5">laertes</move>
+    </frame>
+    <frame>
+        <move x="0" y="5">hamlet</move>
+        <move x="0" y="5">laertes</move>
+    </frame>
+    <frame>
+        <move x="0" y="-5">hamlet</move>
+        <move x="0" y="-5">laertes</move>
+    </frame>
+    <frame>
+        <move x="0" y="0">hamlet</move>
+        <move x="0" y="-30">laertes</move>
+        <text>ending_normal/hamlet_wounds_laertes</text>
+    </frame>
+    <frame>
+        <text>ending_normal/guard_stops_fight</text>
+    </frame>
 
     <!-- Queen takes poison -->
     <frame>

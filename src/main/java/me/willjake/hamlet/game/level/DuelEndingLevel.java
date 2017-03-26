@@ -20,16 +20,18 @@ public class DuelEndingLevel extends Level {
 	public DuelEndingLevel() {
 		super("/assets/world/greathall.png", "/assets/world/greathallfront.png");
 
-		Laertes laertes = new Laertes(8, 10);
+		Laertes laertes = new Laertes(6, 7);
+		laertes.dir = Direction.BACKWARDS;
 
 		Claudius claudius = new Claudius(5, 6);
 		claudius.dir = Direction.BACKWARDS;
 
 		Gertrude gertrude = new Gertrude(7, 6);
+		gertrude.dir = Direction.BACKWARDS;
 
-		Hamlet hamlet = new Hamlet(11, 10);
+		Hamlet hamlet = new Hamlet(6, 9);
 
-		Guard guard = new Guard(12, 10);
+		Guard guard = new Guard(6, 5);
 
 		add(laertes);
 		add(claudius);
