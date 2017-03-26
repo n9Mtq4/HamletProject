@@ -22,7 +22,7 @@ public class Sprites {
 	public static final Sprite voidTile = new Sprite(Screen.ABS_TILE_SIZE, new Color(215, 215, 215));
 	public static final Sprite wallTile = new Sprite(Screen.ABS_TILE_SIZE, new Color(100, 100, 100));
 	
-	public static final Sprite kingStand = new Sprite(16, 0, 0, characters);
+	public static final Sprite kingStand = new Sprite(16, 0, 0, characters).upscale(2);
 	public static final AnimatedSprite kingForward = getAnimatedSprite(0, 1, 3, 16, characters, 60);
 	public static final AnimatedSprite kingBackward = getAnimatedSprite(0, 4, 6, 16, characters, 60);
 	
