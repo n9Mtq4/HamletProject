@@ -19,7 +19,7 @@ public class MoveInstruction extends Instruction {
     @Override
     public void run() {
         // TODO: Move the sprite around
-	    ((Mob) Display.veryBad.level.getSprite(spriteString)).moveTo(x, y);
+	    ((Mob) Display.veryBad.level.getSprite(spriteString)).cutsceneMove(x, y);
     }
 
     @Override

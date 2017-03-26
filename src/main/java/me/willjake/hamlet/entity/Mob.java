@@ -32,6 +32,10 @@ public class Mob extends Entity {
 	protected int time;
 	private Player player;
 	
+	public int playX;
+	public int playY;
+	private static final int CUTSCENE_SPEED = 1; // TODO: this better only be a 1, delta must be multiple of this, may fix later if issue
+	
 	public Mob(int x, int y) {
 		this.spawnX = x;
 		this.spawnY = y;
@@ -56,14 +60,43 @@ public class Mob extends Entity {
 		if (movingLife > 0) movingLife--;
 		else moving = false;
 		
+		// cut scene playing
+		if (playX != 0) {
+			if (playX > 0) {
+				// positive
+				move(CUTSCENE_SPEED, 0);
+				playX -= CUTSCENE_SPEED;
+			}else {
+				// negative
+				move(-CUTSCENE_SPEED, 0);
+				playX += CUTSCENE_SPEED;
+			}
+		}
+		
+		if (playY != 0) {
+			if (playY > 0) {
+				// positive
+				move(0, CUTSCENE_SPEED);
+				playY -= CUTSCENE_SPEED;
+			}else {
+				// negative
+				move(0, -CUTSCENE_SPEED);
+				playY += CUTSCENE_SPEED;
+			}
+		}
+		
 	}
 	
 	protected boolean isOutSideLevel() {
 		return (x < 0 || y < 0 || x > (level.getWidth() << Screen.TILE_SIZE) || y > (level.getHeight() << Screen.TILE_SIZE));
 	}
 	
-	public void moveTo(int x, int y) {
+	/**
+	 * Sticks the movement on
+	 * */
+	public void cutsceneMove(int xd, int yd) {
 		// TODO: play animation out
+		
 	}
 	
 	public void move(int xd, int yd) {

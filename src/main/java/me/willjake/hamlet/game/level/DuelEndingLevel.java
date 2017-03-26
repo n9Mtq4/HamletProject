@@ -1,6 +1,11 @@
 package me.willjake.hamlet.game.level;
 
 import me.willjake.hamlet.game.Tiles;
+import me.willjake.hamlet.game.entity.Claudius;
+import me.willjake.hamlet.game.entity.Gertrude;
+import me.willjake.hamlet.game.entity.Guard;
+import me.willjake.hamlet.game.entity.Hamlet;
+import me.willjake.hamlet.game.entity.Laertes;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.level.Tile;
 
@@ -13,6 +18,13 @@ public class DuelEndingLevel extends Level {
 	
 	public DuelEndingLevel() {
 		super("/assets/world/greathall.png", "/assets/world/greathallfront.png");
+		
+		add(new Laertes(8, 10));
+		add(new Claudius(9, 10));
+		add(new Gertrude(10, 10));
+		add(new Hamlet(11, 10));
+		add(new Guard(12, 10));
+		
 	}
 	
 	@Override
