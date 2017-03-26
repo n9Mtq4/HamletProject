@@ -54,8 +54,14 @@ public class TextBox {
 			show = false;
 		}
 	}
+
+	public void showText(String textName) {
+	    TextParser textParser = new TextParser(textName);
+
+        this.go(textParser.getText(), textParser.getSpeaker());
+    }
 	
-	public void go(String text, String name) {
+	private void go(String text, String name) {
 		
 		this.text.clear();
 		this.font = new Font(FONT_TYPE, Font.PLAIN, FONT_SIZE);

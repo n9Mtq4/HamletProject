@@ -352,7 +352,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 				this.playMusic();
 			}
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
-			hud.textBox.go("Test text box! Test text box! Test text box! Test text box! Test text box! Test text box! Test text box! Test text box!", "Claudius"); // TODO: debug stuff
+			hud.textBox.showText("test_text"); // TODO: debug stuff
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
 			playSound("honorforall");
 		}
