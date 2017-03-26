@@ -71,10 +71,25 @@
     </frame>
 
     <!-- Laertes dies -->
+    <frame>
+        <text>ending_normal/laertes_dies</text>
+    </frame>
 
     <!-- Hamlet kills Claudius -->
+    <frame>
+        <move x="-30" y="-60">hamlet</move>
+    </frame>
+    <frame>
+        <text>ending_normal/hamlet_kill_claudius</text>
+    </frame>
+    <frame>
+        <text>ending_normal/claudius_dies</text>
+    </frame>
 
     <!-- Hamlet dies -->
+    <frame>
+        <text>ending_normal/hamlet_dies</text>
+    </frame>
 
     <!-- Fortinbras rules -->
 
