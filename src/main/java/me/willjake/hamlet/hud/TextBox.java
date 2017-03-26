@@ -6,6 +6,7 @@ import me.willjake.hamlet.render.Screen;
 import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 /**
  * Created by will on 3/25/17 at 6:50 PM.
@@ -122,12 +123,16 @@ public class TextBox {
 	}
 	
 	private double getTotalTextHeight(FontRenderContext fontRenderContext) {
-		double totalHeight = 0;
-		for (String string : this.text) {
-			totalHeight += this.getTextHeight(string, fontRenderContext);
+		try {
+			double totalHeight = 0;
+			for (String string : this.text) {
+				totalHeight += this.getTextHeight(string, fontRenderContext);
+			}
+			
+			return totalHeight;
+		}catch (ConcurrentModificationException e) {
+			return 60; // TODO: want to fix this rather than doing some crazy work around. This should never happen outside debug testing
 		}
-		
-		return totalHeight;
 	}
 	
 	private double getTextHeight(String text, FontRenderContext fontRenderContext) {

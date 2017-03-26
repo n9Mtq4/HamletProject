@@ -54,9 +54,19 @@ public class Level {
 				getTileBack(x, y).render(x, y, screen, this);
 			}
 		}
+		
+		// TODO: may not need tile front support
+		for (int y = y0; y < y1; y++) {
+			for (int x = x0; x < x1; x++) {
+				final Tile tile = getTileFront(x, y);
+				if (tile != null) tile.render(x, y, screen, this);
+			}
+		}
+		
 		for (int i = 0; i < entities.size(); i++) {
 			entities.get(i).render(screen);
 		}
+		
 	}
 	
 	public boolean tileCollision(double x, double y, double xd, double yd, int sizex, int sizey, int xOff, int yOff, Entity entity) {
@@ -93,6 +103,7 @@ public class Level {
 		
 		if (checkTileBounds(x, y)) return Tiles.voidTile;
 		
+		// TODO: if tile front is not needed, switch to more efficient tileTranslator
 		return tileTranslator(tileMapFront[y * width + x]);
 		
 	}

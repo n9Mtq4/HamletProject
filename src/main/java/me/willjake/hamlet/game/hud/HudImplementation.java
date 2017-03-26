@@ -2,6 +2,7 @@ package me.willjake.hamlet.game.hud;
 
 import me.willjake.hamlet.hud.Hud;
 import me.willjake.hamlet.hud.TextBox;
+import me.willjake.hamlet.render.Display;
 import me.willjake.hamlet.render.Screen;
 
 import java.awt.Graphics;
@@ -15,7 +16,11 @@ public class HudImplementation extends Hud {
 	
 	public HudBar insanityBar = new HudBar();
 	public TextBox textBox = new TextBox();
-	public ChoiceMenu choiceMenu = new ChoiceMenu();
+	public ChoiceMenu choiceMenu = new ChoiceMenu(display);
+	
+	public HudImplementation(Display display) {
+		super(display);
+	}
 	
 	@Override
 	public void tick() {

@@ -15,6 +15,7 @@
 
 package me.willjake.hamlet.hud;
 
+import me.willjake.hamlet.render.Display;
 import me.willjake.hamlet.render.Screen;
 
 import java.awt.Graphics;
@@ -23,6 +24,12 @@ import java.awt.Graphics;
  * Created by will on 8/21/15 at 9:55 PM.
  */
 public class Hud {
+	
+	protected Display display;
+	
+	public Hud(Display display) {
+		this.display = display;
+	}
 	
 	public void tick() {
 	}

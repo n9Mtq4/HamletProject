@@ -7,6 +7,6 @@ package me.willjake.hamlet.game;
  */
 public enum GameState {
 	
-	MENU, IN_GAME;
+	MENU, IN_GAME, CHOICE, END, CREDITS
 	
 }

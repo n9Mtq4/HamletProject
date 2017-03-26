@@ -72,7 +72,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	private Screen screen;
 	public HudImplementation hud;
 	private Player player;
-	private KeyBoard keyBoard;
+	public KeyBoard keyBoard;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
@@ -90,7 +90,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		initSound();
 		initListeners();
 		
-		hud = new HudImplementation();
+		hud = new HudImplementation(this);
 		
 		player = new GhostPlayer(16, 2, keyBoard);
 		
@@ -236,13 +236,21 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	
 	public void render() {
 		
-		renderGame();
+		if (GameState.IN_GAME == gameState || GameState.CHOICE == gameState) {
+			renderGame();
+		}else if (GameState.MENU == gameState) {
+			// TODO: render main menu
+		}else if (GameState.END == gameState) {
+			// TODO: render the end
+		}else if (GameState.CREDITS == gameState) {
+			// TODO: render the credits
+		}
 		
 	}
 	
 	public void tick() {
 		
-		if (gameState == GameState.IN_GAME) {
+		if (gameState == GameState.IN_GAME || gameState == GameState.CHOICE) {
 			keyBoard.update();
 			level.tick();
 			hud.tick();
@@ -361,6 +369,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			}
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
 			hud.textBox.showText("test_text"); // TODO: debug stuff
+		}else if (keyEvent.getKeyCode() == KeyEvent.VK_R) {
+			hud.choiceMenu.debug("Choice Debug", "Option 1", "Option 2", "Option 3");
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
 			playSound("honorforall");
 		}

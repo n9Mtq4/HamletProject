@@ -15,6 +15,7 @@
 
 package me.willjake.hamlet.entity;
 
+import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.input.KeyBoard;
 
 /**
@@ -34,10 +35,12 @@ public class Player extends AnimatedMob {
 	@Override
 	public void tick() {
 		super.tick();
-		if (keyBoard.up) move(0, -speed);
-		if (keyBoard.down) move(0, speed);
-		if (keyBoard.left) move(-speed, 0);
-		if (keyBoard.right) move(speed, 0);
+		if (display.gameState == GameState.IN_GAME) {
+			if (keyBoard.up) move(0, -speed);
+			if (keyBoard.down) move(0, speed);
+			if (keyBoard.left) move(-speed, 0);
+			if (keyBoard.right) move(speed, 0);
+		}
 	}
 	
 	public void setSpawn(int x, int y) {
