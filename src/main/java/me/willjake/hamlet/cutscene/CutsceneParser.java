@@ -24,13 +24,13 @@ public class CutsceneParser {
 	
 	public ArrayList<Frame> getFrames() {
 		NodeList rawFrames = this.element.getElementsByTagName("frame");
-		
+
 		ArrayList<Frame> frames = new ArrayList<Frame>();
 		for (int i = 0; i < rawFrames.getLength(); i++) {
 			frames.add(new Frame(rawFrames.item(i)));
 		}
 		
-		return new ArrayList<Frame>();
+		return frames;
 	}
 	
 	private void setupParsing(String sceneName) {

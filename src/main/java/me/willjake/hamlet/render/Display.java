@@ -76,6 +76,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	public KeyBoard keyBoard;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+
+	Cutscene cutscene = new Cutscene("ending_normal");
 	
 	public Display(JComponent parent) {
 		//noinspection ConstantConditions
@@ -376,8 +378,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			playSound("honorforall");
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
 			// TODO: add cut scene starting stuff here
-			final Cutscene cutscene = new Cutscene("test_scene");
-			cutscene.playNextFrame();
+			this.cutscene.playNextFrame();
 		}
 		// TODO: add key events here
 	}
