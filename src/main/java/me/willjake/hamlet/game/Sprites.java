@@ -77,6 +77,7 @@ public class Sprites {
 	public static final Sprite stoneBrown = new Sprite(32, 1, 2, tiles);
 	public static final Sprite grass = new Sprite(32, 1, 3, tiles);
 	public static final Sprite wood = new Sprite(32, 2, 3, tiles);
+	public static final Sprite tiledFloor = new Sprite(32, 3, 3, tiles);
 	public static final Sprite emblem = new Sprite(32, 0, 4, tiles);
 	// TODO: still don't have off center emblem, may not need it though
 	

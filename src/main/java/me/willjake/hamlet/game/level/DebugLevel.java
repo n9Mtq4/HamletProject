@@ -20,7 +20,7 @@ public class DebugLevel extends Level {
 	@Override
 	public Tile tileTranslator(int tile) {
 		
-		if (true) return Tiles.STONE_LIGHT;
+		if (true) return Tiles.TILED_FLOOR;
 		
 		test++;
 		test %= 10;

@@ -23,5 +23,6 @@ public class Tiles {
 	public static final ThroneTop THRONE_TOP = new ThroneTop();
 	public static final Water WATER = new Water();
 	public static final Wood WOOD = new Wood();
+	public static final TiledFloor TILED_FLOOR = new TiledFloor();
 	
 }
