@@ -1,5 +1,6 @@
 package me.willjake.hamlet.launcher;
 
+import me.willjake.hamlet.cutscene.Cutscene;
 import me.willjake.hamlet.render.Display;
 
 import javax.swing.JFrame;
@@ -12,19 +13,20 @@ import java.awt.event.WindowListener;
  * @author Will "n9Mtq4" Bresnahan
  */
 public class GameLauncher {
-	
+
+	private JFrame frame;
+	private Display game;
+
 	public static void main(String[] args) {
-		
 		System.out.println("The game has been launched.");
+
+		Cutscene testCutscene = new Cutscene("test_scene");
+
 		new GameLauncher();
 		
 	}
 	
-	private JFrame frame;
-	private Display game;
-	
 	public GameLauncher() {
-		
 		frame = new JFrame("Will and Jake Hamlet");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
@@ -82,7 +84,6 @@ public class GameLauncher {
 		public void windowDeactivated(WindowEvent e) {
 			
 		}
-		
 	}
 	
 }
