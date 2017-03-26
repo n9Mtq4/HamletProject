@@ -14,10 +14,10 @@ public class Claudius extends AnimatedMob {
 		
 		super(x, y);
 		
-		this.forward = Sprites.kingForward;
-		this.backwards = Sprites.kingBackward;
-		this.left = Sprites.kingForward;
-		this.right = Sprites.kingForward;
+		this.forward = Sprites.kingBackward;
+		this.backwards = Sprites.kingForward;
+		
+		doYourBestOnTheRest();
 		
 	}
 	

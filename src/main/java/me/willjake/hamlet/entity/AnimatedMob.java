@@ -68,6 +68,7 @@ public class AnimatedMob extends Mob {
 	@Override
 	public void tick() {
 		super.tick();
+		if (!moving) return;
 		forward.tick();
 		backwards.tick();
 		left.tick();
@@ -90,9 +91,9 @@ public class AnimatedMob extends Mob {
 			backwards = forward;
 		}
 		
-		if (left == null && right == null && forward != null) {
-			left = forward;
-			right = forward;
+		if (left == null && right == null && backwards != null) {
+			left = backwards;
+			right = backwards;
 		}
 		
 		if (forwardStanding == null) {
@@ -100,11 +101,11 @@ public class AnimatedMob extends Mob {
 		}
 		
 		if (backwardStanding == null) {
-			backwardStanding = forwardStanding;
+			backwardStanding = backwards;
 		}
 		
 		if (leftStanding == null && rightStanding == null) {
-			leftStanding = forwardStanding;
+			leftStanding = backwardStanding;
 		}
 		
 		if (rightStanding == null && leftStanding != null) {
