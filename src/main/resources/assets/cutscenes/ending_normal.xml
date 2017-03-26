@@ -15,7 +15,17 @@
 
     <!-- Hamlet + Laertes fight -->
 
+
     <!-- Queen takes poison -->
+    <frame>
+        <text>claudius_gertrude_about_to_drink</text>
+    </frame>
+    <frame>
+        <text>gertude_drinks</text>
+    </frame>
+    <frame>
+        <text>gertude_dies</text>
+    </frame>
 
     <!-- Laertes dies -->
 
