@@ -370,7 +370,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
 			hud.textBox.showText("test_text"); // TODO: debug stuff
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_R) {
-			hud.choiceMenu.debug("Choice Debug", "Option 1", "Option 2", "Option 3");
+			hud.choiceMenu.go("test_choice");
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
 			playSound("honorforall");
 		}

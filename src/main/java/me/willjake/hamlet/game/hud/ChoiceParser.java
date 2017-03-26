@@ -23,7 +23,7 @@ public class ChoiceParser {
     }
 
     public String getChoicePrompt() {
-        return this.element.getTextContent();
+        return this.element.getFirstChild().getTextContent();
     }
 
     public ArrayList<ChoiceOption> getOptions() {

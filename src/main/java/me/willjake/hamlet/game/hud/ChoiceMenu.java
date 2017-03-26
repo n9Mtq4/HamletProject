@@ -4,9 +4,8 @@ import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.render.Display;
 import me.willjake.hamlet.render.Screen;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
+import java.awt.*;
+import java.awt.font.FontRenderContext;
 import java.util.ArrayList;
 
 /**
@@ -18,43 +17,33 @@ import java.util.ArrayList;
  * @author Will "n9Mtq4" Bresnahan
  */
 public class ChoiceMenu {
-	
+
 	private static final Font TITLE_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
 	private static final Font NORMAL = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
 	private static final Font SELECTED = new Font(Font.SANS_SERIF, Font.BOLD, 14);
 	
 	private static final int BORDERX = 10;
+	private static final int LINE_PADDING = 10; //px
 	
 	private Display display;
 	private ArrayList<ChoiceOption> options;
 	
 	private int selectedOption = 0;
 	private String choicePrompt;
+    private boolean show = false;
 	
 	public ChoiceMenu(Display display) {
-		this.display = display;
-	}
-	
-	public void debug(String choicePrompt, String... choices) {
-		
-		
-		this.options = new ArrayList<ChoiceOption>();
-		this.choicePrompt = choicePrompt;
-		
-		for (String choice : choices) {
-			options.add(new ChoiceOption(choice, "cutscene_" + choice));
-		}
-		
-		display.gameState = GameState.CHOICE;
-		
-	}
+        this.display = display;
+    }
 	
 	public void go(String choiceName) {
 		ChoiceParser choiceParser = new ChoiceParser(choiceName);
 		this.choicePrompt = choiceParser.getChoicePrompt();
 		this.options = choiceParser.getOptions();
-		
-		System.out.println(choicePrompt);
+
+        display.gameState = GameState.CHOICE;
+
+        this.show = true;
 	}
 	
 	public void fireSelect() {
@@ -63,7 +52,6 @@ public class ChoiceMenu {
 	}
 	
 	public void tick() {
-		
 		// handles the keyboard inputs for selecting an option
 		if (display.gameState == GameState.CHOICE) {
 			if (display.keyBoard.select) {
@@ -73,17 +61,51 @@ public class ChoiceMenu {
 			else if (display.keyBoard.down) selectedOption++;
 			selectedOption %= options.size();
 		}
-		
 	}
 	
 	public void render(Graphics g) {
-		
-		g.setColor(Color.WHITE);
-		
+	    if (!this.show) {
+	        return;
+        }
+
+        this.renderBox(g);
+	    this.renderText(g);
 	}
 	
-	public void render(Screen screen) {
-		
-	}
-	
+	public void render(Screen screen) {}
+
+	private void renderBox(Graphics g) {
+        g.setColor(Color.WHITE);
+        int height = this.getHeight(((Graphics2D) g).getFontRenderContext());
+        g.fillRoundRect(BORDERX, Display.getWindowHeight() - height - LINE_PADDING, Display.getWindowWidth() - 2 * BORDERX, height, BORDERX * 2, BORDERX * 2);
+    }
+
+    private void renderText(Graphics g) {
+	    FontRenderContext fontRenderContext = ((Graphics2D) g).getFontRenderContext();
+        int height = this.getHeight(fontRenderContext);
+
+        int firstLineY = (int) (Display.getWindowHeight() - height + getTextHeight(TITLE_FONT, fontRenderContext));
+
+        g.setColor(Color.BLACK);
+
+        g.setFont(TITLE_FONT);
+        g.drawString(this.choicePrompt, BORDERX + LINE_PADDING, firstLineY);
+
+        for (int i = 0; i < this.options.size(); i++) {
+            g.setFont(NORMAL);
+            if (i == this.selectedOption) {
+                g.setFont(SELECTED);
+            }
+
+            g.drawString(this.choicePrompt, BORDERX + LINE_PADDING * 3, (int) (firstLineY + ((i + 1) * getTextHeight(g.getFont(), fontRenderContext))));
+        }
+    }
+
+	private int getHeight(FontRenderContext fontRenderContext) {
+	    return (int) (this.getTextHeight(TITLE_FONT, fontRenderContext) + (this.getTextHeight(NORMAL, fontRenderContext)) * this.options.size() + LINE_PADDING * 2);
+    }
+
+    private double getTextHeight(Font font, FontRenderContext fontRenderContext) {
+        return font.createGlyphVector(fontRenderContext, "Random irrelevant text").getVisualBounds().getHeight() + LINE_PADDING;
+    }
 }
