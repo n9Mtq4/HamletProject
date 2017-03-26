@@ -28,6 +28,8 @@ public class DebugLevel extends Level {
 		if (tile == 0xff0fff02) return Tiles.COLUMN_TOP;
 		if (tile == 0xff0fff01) return Tiles.COLUMN_MID;
 		if (tile == 0xff0fff00) return Tiles.COLUMN_BOTTOM;
+		if (tile == 0xff00ff00) return Tiles.GRASS;
+		if (tile == 0xffff0000) return Tiles.SOLID_TILE;
 		
 		System.out.println("Tile: " + tile + " is unknown");
 		return Tiles.voidTile;

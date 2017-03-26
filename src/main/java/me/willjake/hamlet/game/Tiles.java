@@ -1,6 +1,23 @@
 package me.willjake.hamlet.game;
 
-import me.willjake.hamlet.game.tiles.*;
+import me.willjake.hamlet.game.tiles.Chest;
+import me.willjake.hamlet.game.tiles.ColumnBottom;
+import me.willjake.hamlet.game.tiles.ColumnMid;
+import me.willjake.hamlet.game.tiles.ColumnTop;
+import me.willjake.hamlet.game.tiles.Grass;
+import me.willjake.hamlet.game.tiles.SolidTile;
+import me.willjake.hamlet.game.tiles.StoneBrown;
+import me.willjake.hamlet.game.tiles.StoneDark;
+import me.willjake.hamlet.game.tiles.StoneLight;
+import me.willjake.hamlet.game.tiles.ThroneBottom;
+import me.willjake.hamlet.game.tiles.ThroneTop;
+import me.willjake.hamlet.game.tiles.TiledFloor;
+import me.willjake.hamlet.game.tiles.VoidTile;
+import me.willjake.hamlet.game.tiles.Water;
+import me.willjake.hamlet.game.tiles.Wood;
+import me.willjake.hamlet.render.gfx.Sprite;
+
+import java.awt.Color;
 
 /**
  * Created by will on 3/24/17 at 3:01 PM.
@@ -10,6 +27,7 @@ import me.willjake.hamlet.game.tiles.*;
 public class Tiles {
 	
 	public static final VoidTile voidTile = new VoidTile();
+	public static final SolidTile SOLID_TILE = new SolidTile(new Sprite(32, Color.BLACK));
 	
 	public static final Chest CHEST_TILE = new Chest();
 	public static final ColumnBottom COLUMN_BOTTOM = new ColumnBottom();
