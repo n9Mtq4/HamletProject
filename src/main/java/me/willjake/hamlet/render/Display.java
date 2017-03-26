@@ -15,11 +15,12 @@
 
 package me.willjake.hamlet.render;
 
+import me.willjake.hamlet.cutscene.Cutscene;
 import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
-import me.willjake.hamlet.game.level.DebugLevel;
+import me.willjake.hamlet.game.level.DuelEndingLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.sound.SoundManager;
@@ -94,7 +95,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		player = new GhostPlayer(4, 4, keyBoard);
 		
-		level = new DebugLevel();
+		level = new DuelEndingLevel();
 		level.display = this;
 		level.add(player);
 		level.load();
@@ -158,7 +159,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	}
 	
 	private void initSound() {
-
+		
 //		addSound("roar");
 		
 	}
@@ -373,6 +374,10 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			hud.choiceMenu.go("test_choice");
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
 			playSound("honorforall");
+		}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
+			// TODO: add cut scene starting stuff here
+			final Cutscene cutscene = new Cutscene("test_scene");
+			cutscene.playNextFrame();
 		}
 		// TODO: add key events here
 	}
