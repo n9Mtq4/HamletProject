@@ -73,4 +73,50 @@ public class AnimatedMob extends Mob {
 		left.tick();
 		right.tick();
 	}
+	
+	public void doYourBestOnTheRest() {
+		
+		if (right == null && left != null) {
+			right = left.clone();
+			right.flipY();
+		}
+		
+		if (left == null && right != null) {
+			left = right.clone();
+			left.flipY();
+		}
+		
+		if (backwards == null && forward != null) {
+			backwards = forward;
+		}
+		
+		if (left == null && right == null && forward != null) {
+			left = forward;
+			right = forward;
+		}
+		
+		if (forwardStanding == null) {
+			forwardStanding = forward;
+		}
+		
+		if (backwardStanding == null) {
+			backwardStanding = forwardStanding;
+		}
+		
+		if (leftStanding == null && rightStanding == null) {
+			leftStanding = forwardStanding;
+		}
+		
+		if (rightStanding == null && leftStanding != null) {
+			rightStanding = leftStanding.clone();
+			rightStanding.flipY();
+		}
+		
+		if (leftStanding == null && rightStanding != null) {
+			leftStanding = rightStanding.clone();
+			leftStanding.flipY();
+		}
+		
+	}
+	
 }
