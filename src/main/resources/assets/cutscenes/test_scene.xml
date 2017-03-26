@@ -4,8 +4,8 @@
         <level>level1</level>
     </frame>
     <frame>
-        <move x="10" y="10">1</move>
-        <move x="10" y="10">1</move>
+        <move x="10" y="10">hamlet</move>
+        <move x="10" y="10">claudius</move>
     </frame>
     <frame>
         <text>test_text</text>
