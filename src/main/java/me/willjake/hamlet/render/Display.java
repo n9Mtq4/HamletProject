@@ -105,6 +105,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		requestFocus();
 		
+		addSound("honorforall");
+		
 	}
 	
 	public static int getWindowWidth() {
@@ -141,7 +143,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	
 	private void addSound(String name) {
 		try {
-			sounds.put(name, soundManager.addClip("/sound/" + name + ".wav"));
+			sounds.put(name, soundManager.addClip("/assets/audio/" + name + ".wav"));
 		}catch (IOException e) {
 			e.printStackTrace();
 		}catch (UnsupportedAudioFileException e) {
@@ -268,7 +270,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		requestFocusInWindow();
 		tick();
 		while (running) {
-
+			
 //			game loop
 			long currentTime = System.nanoTime();
 			long passedTime = currentTime - previousTime;
@@ -351,6 +353,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			}
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
 			hud.textBox.go("Test text box! Test text box! Test text box! Test text box! Test text box! Test text box! Test text box! Test text box!", "Claudius"); // TODO: debug stuff
+		}else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
+			playSound("honorforall");
 		}
 		// TODO: add key events here
 	}
