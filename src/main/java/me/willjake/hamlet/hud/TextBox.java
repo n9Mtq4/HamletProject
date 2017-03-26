@@ -37,8 +37,8 @@ public class TextBox {
 	}
 	
 	public void render(Screen screen) {
-		xOff = screen.xOff; // TODO: very bad
-		yOff = screen.yOff;
+//		xOff = screen.xOff; // TODO: very bad
+//		yOff = screen.yOff;
 	}
 	
 	public void render(Graphics graphics) {

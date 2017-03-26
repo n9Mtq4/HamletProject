@@ -25,7 +25,7 @@ import java.awt.event.KeyListener;
  */
 public class KeyBoard implements KeyListener {
 	
-	public boolean up, down, left, right, ability, change;
+	public boolean up, down, left, right, ability, change, select;
 	private boolean[] keys = new boolean[180]; // 128 keys
 	private Display display;
 	
@@ -43,6 +43,7 @@ public class KeyBoard implements KeyListener {
 		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
 		left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
 		right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
+		select = keys[KeyEvent.VK_ENTER];
 		
 //		TODO: add keys in here
 		

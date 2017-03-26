@@ -4,6 +4,8 @@ import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.render.Display;
 import me.willjake.hamlet.render.Screen;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -17,7 +19,14 @@ import java.util.ArrayList;
  */
 public class ChoiceMenu {
 	
+	private static final Font TITLE_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
+	private static final Font NORMAL = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
+	private static final Font SELECTED = new Font(Font.SANS_SERIF, Font.BOLD, 14);
+	
+	private static final int BORDERX = 10;
+	
 	private Display display;
+	private String title;
 	private ArrayList<ChoiceOption> options;
 	
 	private int selectedOption = 0;
@@ -28,6 +37,15 @@ public class ChoiceMenu {
 	
 	public void debug(String title, String... choices) {
 		
+		this.title = title;
+		this.options.clear();
+		
+		for (String choice : choices) {
+			options.add(new ChoiceOption(choice, "cutscene_" + choice));
+		}
+		
+		display.gameState = GameState.CHOICE;
+		
 	}
 	
 	public void go(String choiceName) {
@@ -35,20 +53,28 @@ public class ChoiceMenu {
 		this.options = choiceParser.getOptions();
 	}
 	
+	public void fireSelect() {
+		// TODO: trigger the next cutscene???
+		final ChoiceOption selected = options.get(selectedOption);
+	}
+	
 	public void tick() {
 		
 		// handles the keyboard inputs for selecting an option
 		if (display.gameState == GameState.CHOICE) {
-			if (display.keyBoard.up) selectedOption--;
+			if (display.keyBoard.select) {
+				fireSelect();
+			}
+			else if (display.keyBoard.up) selectedOption--;
 			else if (display.keyBoard.down) selectedOption++;
 			selectedOption %= options.size();
 		}
 		
 	}
 	
-	public void render(Graphics graphics) {
+	public void render(Graphics g) {
 		
-		
+		g.setColor(Color.WHITE);
 		
 	}
 	

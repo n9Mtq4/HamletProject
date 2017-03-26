@@ -13,8 +13,13 @@ public class ChoiceOption {
     public ChoiceOption(Element rawOption) {
         this.setup(rawOption);
     }
+    
+    public ChoiceOption(String text, String cutsceneName) {
+        this.text = text;
+        this.cutsceneName = cutsceneName;
+    }
 
-/*
+    /*
     public void choose() {
         // TODO: Switch to different cutscene
     }
@@ -28,4 +33,13 @@ public class ChoiceOption {
         this.text = rawOption.getTextContent();
         this.cutsceneName = rawOption.getAttribute("cutscene");
     }
+    
+    public String getText() {
+        return text;
+    }
+    
+    public String getCutsceneName() {
+        return cutsceneName;
+    }
+    
 }
