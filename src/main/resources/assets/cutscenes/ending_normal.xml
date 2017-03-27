@@ -92,5 +92,7 @@
     </frame>
 
     <!-- Fortinbras rules -->
-
+    <frame>
+        <move x="0" y="-80">fortinbras</move>
+    </frame>
 </scene>
