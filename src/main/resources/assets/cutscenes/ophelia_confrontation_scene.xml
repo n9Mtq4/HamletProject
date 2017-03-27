@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+    <frame>
+        <level>level1</level>
+    </frame>
+
+    <frame>
+        <text>ophelia_confrontation/ophelia_greeting</text>
+    </frame>
+    <frame>
+        <text>ophelia_confrontation/hamlet_greeting</text>
+    </frame>
+    <frame>
+        <text>ophelia_confrontation/ophelia_giving_hamlet</text>
+    </frame>
+    <frame>
+        <choice>tone_to_ophelia_choice</choice>
+    </frame>
+</scene>

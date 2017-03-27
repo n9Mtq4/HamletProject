@@ -21,6 +21,7 @@ import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
 import me.willjake.hamlet.game.level.DuelEndingLevel;
+import me.willjake.hamlet.game.level.OpheliaConfrontationLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.sound.SoundManager;
@@ -77,7 +78,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
-	Cutscene cutscene = new Cutscene("ending_normal");
+	Cutscene cutscene = new Cutscene("ophelia_confrontation_scene");
 	
 	public Display(JComponent parent) {
 		//noinspection ConstantConditions
@@ -97,7 +98,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		player = new GhostPlayer(4, 4, keyBoard);
 		
-		level = new DuelEndingLevel();
+		level = new OpheliaConfrontationLevel();
 		level.display = this;
 		level.add(player);
 		level.load();

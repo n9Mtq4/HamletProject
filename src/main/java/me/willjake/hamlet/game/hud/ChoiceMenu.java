@@ -97,7 +97,7 @@ public class ChoiceMenu {
                 g.setFont(SELECTED);
             }
 
-            g.drawString(this.choicePrompt, BORDERX + LINE_PADDING * 3, (int) (firstLineY + ((i + 1) * getTextHeight(g.getFont(), fontRenderContext))));
+            g.drawString(this.options.get(i).getText(), BORDERX + LINE_PADDING * 3, (int) (firstLineY + ((i + 1) * getTextHeight(g.getFont(), fontRenderContext))));
         }
     }
 
