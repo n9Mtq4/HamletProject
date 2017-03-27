@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+    <frame>
+        <level>level1</level>
+    </frame>
+
+    <!-- Hamlet goes off on Ophelia -->
+
+    <frame>
+        <text>ophelia_confrontation/normal/hamlet_denial</text>
+    </frame>
+    <frame>
+        <text>ophelia_confrontation/normal/ophelia_yes_you_did</text>
+    </frame>
+    <frame>
+        <text>ophelia_confrontation/normal/hamlet_insult</text>
+    </frame>
+    <frame>
+        <text>ophelia_confrontation/normal/ophelia_oh_no</text>
+    </frame>
+    <frame>
+        <text>ophelia_confrontation/normal/hamlet_final</text>
+    </frame>
+</scene>
