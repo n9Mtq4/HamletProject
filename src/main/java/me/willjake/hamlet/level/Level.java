@@ -27,8 +27,6 @@ public class Level {
 	
 	private ArrayList<Entity> entities = new ArrayList<Entity>();
 	
-	private boolean initPlayer = false;
-	
 	public Level(String tileMapBack, String tileMapFront) {
 		this.tileMapBackFile = tileMapBack;
 		this.tileMapFrontFile = tileMapFront;
@@ -38,14 +36,6 @@ public class Level {
 	public void tick() {
 		for (int i = 0; i < entities.size(); i++) {
 			entities.get(i).tick();
-		}
-		
-		if (!initPlayer) {
-			final Player player = getPlayer();
-			if (player != null) {
-				playerInit(player);
-				initPlayer = true;
-			}
 		}
 		
 	}
@@ -80,7 +70,7 @@ public class Level {
 		
 	}
 	
-	protected void playerInit(Player player) {
+	public void playerInit(Player player) {
 		
 	}
 	
