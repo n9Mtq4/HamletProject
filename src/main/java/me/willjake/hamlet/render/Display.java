@@ -297,7 +297,6 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		}else if (GameState.LEVEL_CHANGING == gameState) {
 			// TODO: maybe a loading screen?
 		}else if (GameState.MENU == gameState) {
-			// TODO: render main menu
 			renderMenu();
 		}else if (GameState.END == gameState) {
 			// TODO: render the end
@@ -438,6 +437,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	}
 	
 	public void keyPress(KeyEvent keyEvent) {
+		
+		// game buttons
 		if (keyEvent.getKeyCode() == KeyEvent.VK_M) {
 			if (this.musicPlaying) {
 				this.stopMusic();
@@ -465,17 +466,23 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			if (gameState == GameState.MENU) {
 				menu.select();
 			}
-		}else if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
-			hud.textBox.showText("test_text"); // TODO: debug stuff
-		}else if (keyEvent.getKeyCode() == KeyEvent.VK_R) {
-			hud.choiceMenu.go("test_choice");
-		}else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
-			playSound("honorforall");
-		}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
-			// TODO: add cut scene starting stuff here
-//			loadLevel("OpheliaConfrontationLevel");
-			this.cutscene.playNextFrame();
 		}
+		
+		// debug buttons
+		if (DEBUG) {
+			if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
+				hud.textBox.showText("test_text"); // TODO: debug stuff
+			}else if (keyEvent.getKeyCode() == KeyEvent.VK_R) {
+				hud.choiceMenu.go("test_choice");
+			}else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
+				playSound("honorforall");
+			}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
+				// TODO: add cut scene starting stuff here
+//			loadLevel("OpheliaConfrontationLevel");
+				this.cutscene.playNextFrame();
+			}
+		}
+		
 		// TODO: add key events here
 	}
 }
