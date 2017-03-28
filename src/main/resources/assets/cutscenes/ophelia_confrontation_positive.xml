@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+    <frame>
+        <level>OpheliaConfrontationLevel</level>
+    </frame>
+
+    <!-- Hamlet is nice to Ophelia and stops the conversation early-->
+
+    <frame>
+        <text>ophelia_confrontation/positive/hamlet_back_off</text>
+    </frame>
+    <frame>
+        <text>ophelia_confrontation/positive/ophelia_insistent</text>
+    </frame>
+    <frame>
+        <text>ophelia_confrontation/positive/hamlet_see_you</text>
+    </frame>
+
+    <!-- Pan to Claudius and Polonius reaction -->
+</scene>
