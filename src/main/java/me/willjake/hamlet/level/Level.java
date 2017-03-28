@@ -103,7 +103,6 @@ public class Level {
 		
 		if (checkTileBounds(x, y)) return Tiles.voidTile;
 		
-		// TODO: if tile front is not needed, switch to more efficient tileTranslator
 		return tileTranslator(tileMapFront[y * width + x]);
 		
 	}

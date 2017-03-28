@@ -47,20 +47,38 @@ public class ChoiceMenu {
 	}
 	
 	public void fireSelect() {
-		// TODO: trigger the next cutscene???
+		
 		final ChoiceOption selected = options.get(selectedOption);
+		
+		// TODO: trigger the next cut scene with selected.
+		
+		// clean up after ourselves.
+		display.gameState = GameState.IN_GAME;
+		this.show = false;
+		this.options.clear();
+		this.selectedOption = 0;
+		
 	}
 	
 	public void tick() {
-		// handles the keyboard inputs for selecting an option
-		if (display.gameState == GameState.CHOICE) {
-			if (display.keyBoard.select) {
-				fireSelect();
-			}
-			else if (display.keyBoard.up) selectedOption--;
-			else if (display.keyBoard.down) selectedOption++;
-			selectedOption %= options.size();
-		}
+		
+		// does nothing right now
+		// key events are handled in the display class
+		
+	}
+	
+	public void upPressed() {
+		selectedOption--;
+		selectedOption %= options.size();
+	}
+	
+	public void downPressed() {
+		selectedOption++;
+		selectedOption %= options.size();
+	}
+	
+	public void selectPressed() {
+		fireSelect();
 	}
 	
 	public void render(Graphics g) {

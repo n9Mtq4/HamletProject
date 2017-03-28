@@ -9,8 +9,17 @@ mainClassName = 'me.willjake.hamlet.launcher.GameLauncher'
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'com.github.n9Mtq4:ReflectionHelper:master-SNAPSHOT'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
 }

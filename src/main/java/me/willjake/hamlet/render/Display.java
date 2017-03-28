@@ -15,12 +15,12 @@
 
 package me.willjake.hamlet.render;
 
+import com.n9mtq4.reflection.ReflectionHelper;
 import me.willjake.hamlet.cutscene.Cutscene;
 import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
-import me.willjake.hamlet.game.level.DuelEndingLevel;
 import me.willjake.hamlet.game.level.OpheliaConfrontationLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.level.Level;
@@ -325,8 +325,21 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		}
 	}
 	
+	/**
+	 * Loads the level with the levelName into the game engine.
+	 * The level name is case sensitive and must match
+	 * the class in the me.willjake.hamlet.game.level package.
+	 * 
+	 * It uses reflection god damn it!
+	 * */
 	public void loadLevel(String levelName) {
-		// TODO: load level
+		final Level loaded = ReflectionHelper.callConstructor(ReflectionHelper.getClassByFullName("me.willjake.hamlet.game.level" + levelName));
+		level = loaded;
+		level.display = this;
+		player.x = 0; // TODO: this may need to change. maybe set player pos inside level?
+		player.y = 0;
+		level.add(player);
+		level.load();
 	}
 	
 	@Override
@@ -370,6 +383,18 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 				this.stopMusic();
 			}else {
 				this.playMusic();
+			}
+		}else if (keyEvent.getKeyCode() == KeyEvent.VK_DOWN) {
+			if (gameState == GameState.CHOICE) {
+				hud.choiceMenu.downPressed();
+			}
+		}else if (keyEvent.getKeyCode() == KeyEvent.VK_UP) {
+			if (gameState == GameState.CHOICE) {
+				hud.choiceMenu.upPressed();
+			}
+		}else if (keyEvent.getKeyCode() == KeyEvent.VK_ENTER) {
+			if (gameState == GameState.CHOICE) {
+				hud.choiceMenu.selectPressed();
 			}
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
 			hud.textBox.showText("test_text"); // TODO: debug stuff
