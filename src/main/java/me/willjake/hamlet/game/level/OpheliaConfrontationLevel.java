@@ -41,7 +41,9 @@ public class OpheliaConfrontationLevel extends Level {
 	@Override
     public Player playerInit(Player player) {
         player.x = 6 * Screen.ABS_TILE_SIZE;
-        player.y = 6 * Screen.ABS_TILE_SIZE;
+        player.y = 8 * Screen.ABS_TILE_SIZE;
+        player.dir = Direction.RIGHT;
+
         return player;
     }
 	
