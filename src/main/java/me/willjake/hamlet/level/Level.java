@@ -70,8 +70,8 @@ public class Level {
 		
 	}
 	
-	public void playerInit(Player player) {
-		
+	public Player playerInit(Player player) {
+        return player;
 	}
 	
 	public boolean tileCollision(double x, double y, double xd, double yd, int sizex, int sizey, int xOff, int yOff, Entity entity) {

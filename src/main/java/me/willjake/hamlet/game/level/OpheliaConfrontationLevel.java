@@ -39,9 +39,10 @@ public class OpheliaConfrontationLevel extends Level {
 	}
 
 	@Override
-    public void playerInit(Player player) {
+    public Player playerInit(Player player) {
         player.x = 6 * Screen.ABS_TILE_SIZE;
         player.y = 6 * Screen.ABS_TILE_SIZE;
+        return player;
     }
 	
 	@Override
