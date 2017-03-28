@@ -1,5 +1,8 @@
 package me.willjake.hamlet.mainmenu;
 
+import me.willjake.hamlet.mainmenu.options.ChangeScaleOption;
+import me.willjake.hamlet.mainmenu.options.DebugOption;
+import me.willjake.hamlet.mainmenu.options.PlayOption;
 import me.willjake.hamlet.render.Display;
 
 import java.awt.Color;

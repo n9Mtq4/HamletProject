@@ -1,5 +1,6 @@
-package me.willjake.hamlet.mainmenu;
+package me.willjake.hamlet.mainmenu.options;
 
+import me.willjake.hamlet.mainmenu.MenuOption;
 import me.willjake.hamlet.render.Display;
 
 /**
