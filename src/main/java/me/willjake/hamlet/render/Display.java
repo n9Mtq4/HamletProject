@@ -333,7 +333,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	 * It uses reflection god damn it!
 	 * */
 	public void loadLevel(String levelName) {
-		final Level loaded = ReflectionHelper.callConstructor(ReflectionHelper.getClassByFullName("me.willjake.hamlet.game.level" + levelName));
+		final Level loaded = ReflectionHelper.callConstructor(ReflectionHelper.getClassByFullName("me.willjake.hamlet.game.level." + levelName));
 		level = loaded;
 		level.display = this;
 		player.x = 0; // TODO: this may need to change. maybe set player pos inside level?
