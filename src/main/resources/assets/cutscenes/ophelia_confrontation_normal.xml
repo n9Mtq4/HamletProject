@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scene>
     <frame>
-        <level>level1</level>
+        <level>OpheliaConfrontationLevel</level>
     </frame>
 
     <!-- Hamlet goes off on Ophelia -->
