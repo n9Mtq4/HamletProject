@@ -27,7 +27,7 @@ public class ChangeScaleOption extends MenuOption {
 			case 3:
 				return 4;
 			case 4:
-				return 1;
+				return 2;
 			default:
 				return 2; // should never happen
 		}
