@@ -68,10 +68,12 @@ public class ChoiceMenu {
 	public void upPressed() {
 		selectedOption--;
 		selectedOption %= options.size();
+		selectedOption = Math.abs(selectedOption);
 	}
 	
 	public void downPressed() {
 		selectedOption++;
+		selectedOption = Math.abs(selectedOption);
 		selectedOption %= options.size();
 	}
 	
