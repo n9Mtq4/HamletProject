@@ -1,6 +1,7 @@
 package me.willjake.hamlet.game.level;
 
 import me.willjake.hamlet.entity.Direction;
+import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.Tiles;
 import me.willjake.hamlet.game.entity.*;
 import me.willjake.hamlet.level.Level;
@@ -32,6 +33,12 @@ public class OpheliaConfrontationLevel extends Level {
 		add(hamlet);
 		add(polonius);
 	}
+
+	@Override
+    public void playerInit(Player player) {
+        player.x = 6;
+        player.y = 6;
+    }
 	
 	@Override
 	public Tile tileTranslator(int tile) {
