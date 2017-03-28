@@ -242,6 +242,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		if (GameState.IN_GAME == gameState || GameState.CHOICE == gameState) {
 			renderGame();
+		}else if (GameState.LEVEL_CHANGING == gameState) {
+			// TODO: maybe a loading screen?
 		}else if (GameState.MENU == gameState) {
 			// TODO: render main menu
 		}else if (GameState.END == gameState) {
@@ -333,12 +335,14 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	 * It uses reflection god damn it!
 	 * */
 	public void loadLevel(String levelName) {
+		gameState = GameState.LEVEL_CHANGING;
 		final Level loaded = ReflectionHelper.callConstructor(ReflectionHelper.getClassByFullName("me.willjake.hamlet.game.level." + levelName));
 		level = loaded;
 		level.display = this;
 		level.add(player);
 		level.load();
 		this.player = level.playerInit(player);
+		gameState = GameState.IN_GAME;
 	}
 	
 	@Override
@@ -403,6 +407,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			playSound("honorforall");
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
 			// TODO: add cut scene starting stuff here
+//			loadLevel("OpheliaConfrontationLevel");
 			this.cutscene.playNextFrame();
 		}
 		// TODO: add key events here
