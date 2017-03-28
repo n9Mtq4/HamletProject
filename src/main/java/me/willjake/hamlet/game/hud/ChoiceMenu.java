@@ -57,7 +57,7 @@ public class ChoiceMenu {
 		this.options.clear();
 		this.selectedOption = 0;
 
-		Display.veryBad.switchCutscene(selected.getCutsceneName());
+		display.switchCutscene(selected.getCutsceneName());
 	}
 	
 	public void tick() {
@@ -68,10 +68,12 @@ public class ChoiceMenu {
 	public void upPressed() {
 		selectedOption--;
 		selectedOption %= options.size();
+		selectedOption = Math.abs(selectedOption);
 	}
 	
 	public void downPressed() {
 		selectedOption++;
+		selectedOption = Math.abs(selectedOption);
 		selectedOption %= options.size();
 	}
 	
