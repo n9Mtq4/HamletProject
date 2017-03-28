@@ -57,7 +57,7 @@ public class ChoiceMenu {
 		this.options.clear();
 		this.selectedOption = 0;
 
-		Display.veryBad.switchCutscene(selected.getCutsceneName());
+		display.switchCutscene(selected.getCutsceneName());
 	}
 	
 	public void tick() {
