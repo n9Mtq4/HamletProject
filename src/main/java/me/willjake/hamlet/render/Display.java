@@ -338,7 +338,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		level.display = this;
 		level.add(player);
 		level.load();
-		level.playerInit(player);
+		this.player = level.playerInit(player);
 	}
 	
 	@Override
