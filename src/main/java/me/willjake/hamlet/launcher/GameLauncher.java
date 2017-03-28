@@ -1,7 +1,5 @@
 package me.willjake.hamlet.launcher;
 
-import me.willjake.hamlet.cutscene.Cutscene;
-import me.willjake.hamlet.game.hud.ChoiceMenu;
 import me.willjake.hamlet.render.Display;
 
 import javax.swing.JFrame;
@@ -26,10 +24,11 @@ public class GameLauncher {
 	}
 	
 	public GameLauncher() {
+		
 		frame = new JFrame("Will and Jake Hamlet");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		game = new Display(frame.getRootPane());
+		game = new Display(frame.getRootPane(), frame);
 		
 		frame.add(game);
 		

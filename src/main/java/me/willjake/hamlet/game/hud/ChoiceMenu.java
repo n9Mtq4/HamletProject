@@ -106,6 +106,7 @@ public class ChoiceMenu {
 
         g.setColor(Color.BLACK);
 
+        // TODO: make font scale with Display.SCALE currently set for Scale = 2
         g.setFont(TITLE_FONT);
         g.drawString(this.choicePrompt, BORDERX + LINE_PADDING, firstLineY);
 

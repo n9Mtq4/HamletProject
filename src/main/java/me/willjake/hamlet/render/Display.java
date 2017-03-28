@@ -24,6 +24,7 @@ import me.willjake.hamlet.game.hud.HudImplementation;
 import me.willjake.hamlet.game.level.OpheliaConfrontationLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.level.Level;
+import me.willjake.hamlet.mainmenu.MainMenu;
 import me.willjake.hamlet.sound.SoundManager;
 
 import javax.imageio.ImageIO;
@@ -31,6 +32,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -68,6 +70,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	public Clip music;
 	public boolean musicPlaying = false;
 	private JComponent parent;
+	private JFrame frame;
 	private Thread thread;
 	private boolean running;
 	private int fps;
@@ -77,12 +80,15 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	public KeyBoard keyBoard;
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
-
-	Cutscene cutscene = new Cutscene("ophelia_confrontation_scene");
 	
-	public Display(JComponent parent) {
+	public Cutscene cutscene = new Cutscene("ophelia_confrontation_scene");
+	
+	public MainMenu menu = new MainMenu(this);
+	
+	public Display(JComponent parent, JFrame frame) {
 		//noinspection ConstantConditions
 		this.parent = parent;
+		this.frame = frame;
 //		this.progress = DEBUG ? Progress.IN_GAME : Progress.MAIN_MENU;
 //		this.progress = Progress.IN_GAME;
 		Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
@@ -94,14 +100,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		initSound();
 		initListeners();
 		
-		hud = new HudImplementation(this);
-		
-		player = new GhostPlayer(4, 4, keyBoard);
-		
-		level = new OpheliaConfrontationLevel();
-		level.display = this;
-		level.add(player);
-		level.load();
+		gameState = GameState.MENU;
 		
 //		player = new MonsterPlayer(32, 2, keyBoard, monsterType);
 //		level = new House(levelName);
@@ -115,6 +114,17 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		veryBad = this;
 		
+	}
+	
+	public void loadGameOrSomething() {
+		hud = new HudImplementation(this);
+		
+		player = new GhostPlayer(4, 4, keyBoard);
+		
+		level = new OpheliaConfrontationLevel();
+		level.display = this;
+		level.add(player);
+		level.load();
 	}
 	
 	public static int getWindowWidth() {
@@ -182,7 +192,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 //		playMusic();
 		thread = new Thread(this, "Game Thread");
 		thread.start();
-		gameState = GameState.IN_GAME;
+		gameState = GameState.MENU;
 		
 	}
 	
@@ -207,6 +217,18 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void scaleChange() {
+		Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
+		setPreferredSize(size);
+		frame.pack();
+	}
+	
+	public void startTheGame() {
+		// TODO: this is called when the play button is pushed
+		loadGameOrSomething();
+		gameState = GameState.IN_GAME;
 	}
 	
 	public void renderGame() {
@@ -238,6 +260,36 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		bs.show();
 	}
 	
+	public void renderMenu() {
+		
+		BufferStrategy bs = this.getBufferStrategy();
+		if (bs == null) {
+			createBufferStrategy(3);
+			return;
+		}
+		
+		Graphics g = bs.getDrawGraphics();
+		
+		for (int i = 0; i < pixels.length; i++) {
+			pixels[i] = 0xffffff;
+		}
+		
+		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+		
+		menu.render(g);
+		
+		if (DEBUG) {
+			g.setColor(new Color(255, 255, 0));
+			g.setFont(new Font("Verdana", Font.BOLD, 24));
+			g.drawString(String.valueOf(fps + " fps"), 0, HEIGHT * SCALE - 18);
+//			g.setFont(new Font("Verdana", Font.BOLD, 12));
+		}
+		
+		g.dispose();
+		bs.show();
+		
+	}
+	
 	public void render() {
 		
 		if (GameState.IN_GAME == gameState || GameState.CHOICE == gameState) {
@@ -246,6 +298,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			// TODO: maybe a loading screen?
 		}else if (GameState.MENU == gameState) {
 			// TODO: render main menu
+			renderMenu();
 		}else if (GameState.END == gameState) {
 			// TODO: render the end
 		}else if (GameState.CREDITS == gameState) {
@@ -395,13 +448,22 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			if (gameState == GameState.CHOICE) {
 				hud.choiceMenu.downPressed();
 			}
+			if (gameState == GameState.MENU) {
+				menu.downArrow();
+			}
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_UP) {
 			if (gameState == GameState.CHOICE) {
 				hud.choiceMenu.upPressed();
 			}
+			if (gameState == GameState.MENU) {
+				menu.upArrow();
+			}
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (gameState == GameState.CHOICE) {
 				hud.choiceMenu.selectPressed();
+			}
+			if (gameState == GameState.MENU) {
+				menu.select();
 			}
 		}else if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
 			hud.textBox.showText("test_text"); // TODO: debug stuff
