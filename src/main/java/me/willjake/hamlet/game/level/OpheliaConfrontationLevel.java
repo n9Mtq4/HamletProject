@@ -3,9 +3,13 @@ package me.willjake.hamlet.game.level;
 import me.willjake.hamlet.entity.Direction;
 import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.Tiles;
-import me.willjake.hamlet.game.entity.*;
+import me.willjake.hamlet.game.entity.Claudius;
+import me.willjake.hamlet.game.entity.Hamlet;
+import me.willjake.hamlet.game.entity.Ophelia;
+import me.willjake.hamlet.game.entity.Polonius;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.level.Tile;
+import me.willjake.hamlet.render.Screen;
 
 /**
  * Created by will on 3/26/17 at 6:35 PM.
@@ -36,8 +40,8 @@ public class OpheliaConfrontationLevel extends Level {
 
 	@Override
     public void playerInit(Player player) {
-        player.x = 6;
-        player.y = 6;
+        player.x = 6 * Screen.ABS_TILE_SIZE;
+        player.y = 6 * Screen.ABS_TILE_SIZE;
     }
 	
 	@Override
