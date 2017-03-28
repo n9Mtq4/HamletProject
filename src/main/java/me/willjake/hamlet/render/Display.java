@@ -59,7 +59,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	public static Display veryBad; // TODO: this is so very bad
 	
 	public static final double GAME_SPEED = 60.0d;
-	public static final boolean DEBUG = true;
+	public static boolean DEBUG = true;
 	public static int WIDTH = 360;
 	public static int HEIGHT = (WIDTH / 16) * 9; // 16:9
 	public static int SCALE = 2;

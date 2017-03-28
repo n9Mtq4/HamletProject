@@ -37,6 +37,7 @@ public class MainMenu {
 		
 		menuOptions.add(new PlayOption(display));
 		menuOptions.add(new ChangeScaleOption(display));
+		menuOptions.add(new DebugOption());
 		
 	}
 	
