@@ -47,7 +47,6 @@ public class ChoiceMenu {
 	}
 	
 	public void fireSelect() {
-		
 		final ChoiceOption selected = options.get(selectedOption);
 		
 		// TODO: trigger the next cut scene with selected.
@@ -57,14 +56,13 @@ public class ChoiceMenu {
 		this.show = false;
 		this.options.clear();
 		this.selectedOption = 0;
-		
+
+		Display.veryBad.switchCutscene(selected.getCutsceneName());
 	}
 	
 	public void tick() {
-		
 		// does nothing right now
 		// key events are handled in the display class
-		
 	}
 	
 	public void upPressed() {

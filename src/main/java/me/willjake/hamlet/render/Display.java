@@ -340,7 +340,11 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		level.load();
 		this.player = level.playerInit(player);
 	}
-	
+
+	public void switchCutscene(String cutsceneName) {
+	    this.cutscene = new Cutscene(cutsceneName);
+    }
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
