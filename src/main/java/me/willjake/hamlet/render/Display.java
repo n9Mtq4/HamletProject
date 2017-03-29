@@ -63,6 +63,9 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	public static int WIDTH = 360;
 	public static int HEIGHT = (WIDTH / 16) * 9; // 16:9
 	public static int SCALE = 2;
+	
+	public static boolean playSound = true;
+	
 	public Level level;
 	public GameState gameState;
 	public SoundManager soundManager;

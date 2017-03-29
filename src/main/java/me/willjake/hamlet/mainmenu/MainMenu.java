@@ -2,6 +2,7 @@ package me.willjake.hamlet.mainmenu;
 
 import me.willjake.hamlet.mainmenu.options.ChangeScaleOption;
 import me.willjake.hamlet.mainmenu.options.DebugOption;
+import me.willjake.hamlet.mainmenu.options.NoSoundOption;
 import me.willjake.hamlet.mainmenu.options.PlayOption;
 import me.willjake.hamlet.render.Display;
 
@@ -24,7 +25,7 @@ public class MainMenu {
 	
 	public static final int TITLE_Y = 50;
 	
-	public static final int CHOICE_YOFFSET = 80;
+	public static final int CHOICE_YOFFSET = 120;
 	public static final int FONT_SPACING = 30;
 	
 	public static final Font TITLE_FONT = new Font(Font.SANS_SERIF, Font.BOLD, 50);
@@ -44,6 +45,7 @@ public class MainMenu {
 		
 		menuOptions.add(new PlayOption(display));
 		menuOptions.add(new ChangeScaleOption(display));
+		menuOptions.add(new NoSoundOption(display));
 		menuOptions.add(new DebugOption());
 		
 		display.addSound("mainmenu");
@@ -66,14 +68,14 @@ public class MainMenu {
 	
 	public void upArrow() {
 		selectedOption--;
+		if (selectedOption <= -1) selectedOption = menuOptions.size() - 1;
 		selectedOption %= menuOptions.size();
-		selectedOption = Math.abs(selectedOption);
 	}
 	
 	public void downArrow() {
 		selectedOption++;
+		if (selectedOption <= -1) selectedOption = menuOptions.size() - 1;
 		selectedOption %= menuOptions.size();
-		selectedOption = Math.abs(selectedOption);
 	}
 	
 	public void select() {
