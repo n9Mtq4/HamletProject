@@ -141,6 +141,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	}
 	
 	public Clip playSound(String sound) {
+		// TODO: some check to make sure playSound is true
 		try {
 			return soundManager.playSound(sounds.get(sound));
 		}catch (UnsupportedAudioFileException e) {
@@ -152,14 +153,14 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	}
 	
 	public void playMusic() {
-		if (musicPlaying) return; 
+		if (musicPlaying || !playSound) return; 
 		music = playSound("music");
 		music.loop(Clip.LOOP_CONTINUOUSLY);
 		musicPlaying = true;
 	}
 	
 	public void stopMusic() {
-		if (!musicPlaying) return;
+		if (!musicPlaying || !playSound) return;
 		musicPlaying = false;
 		music.stop();
 	}
