@@ -5,6 +5,7 @@ import me.willjake.hamlet.mainmenu.options.DebugOption;
 import me.willjake.hamlet.mainmenu.options.PlayOption;
 import me.willjake.hamlet.render.Display;
 
+import javax.sound.sampled.Clip;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -35,6 +36,9 @@ public class MainMenu {
 	
 	private Display display;
 	
+	private Clip music;
+	private boolean musicPlaying = false;
+	
 	public MainMenu(Display display) {
 		this.display = display;
 		
@@ -42,6 +46,22 @@ public class MainMenu {
 		menuOptions.add(new ChangeScaleOption(display));
 		menuOptions.add(new DebugOption());
 		
+		display.addSound("mainmenu");
+		startMusic();
+		
+	}
+	
+	public void startMusic() {
+		if (musicPlaying) return;
+		musicPlaying = true;
+		music = display.playSound("mainmenu");
+		music.loop(Clip.LOOP_CONTINUOUSLY);
+	}
+	
+	public void stopMusic() {
+		if (!musicPlaying) return;
+		musicPlaying = false;
+		music.stop();
 	}
 	
 	public void upArrow() {

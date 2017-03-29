@@ -20,6 +20,7 @@ public class PlayOption extends MenuOption {
 	@Override
 	public void callback() {
 		
+		display.menu.stopMusic();
 		display.startTheGame();
 		
 	}

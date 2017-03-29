@@ -83,7 +83,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	
 	public Cutscene cutscene = new Cutscene("ophelia_confrontation_scene");
 	
-	public MainMenu menu = new MainMenu(this);
+	public MainMenu menu;
 	
 	public Display(JComponent parent, JFrame frame) {
 		//noinspection ConstantConditions
@@ -111,6 +111,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		requestFocus();
 		
 		addSound("honorforall");
+		
+		this.menu = new MainMenu(this);
 		
 		veryBad = this;
 		
@@ -147,7 +149,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	}
 	
 	public void playMusic() {
-		if (musicPlaying) return;
+		if (musicPlaying) return; 
 		music = playSound("music");
 		music.loop(Clip.LOOP_CONTINUOUSLY);
 		musicPlaying = true;
@@ -159,7 +161,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		music.stop();
 	}
 	
-	private void addSound(String name) {
+	public void addSound(String name) {
 		try {
 			sounds.put(name, soundManager.addClip("/assets/audio/" + name + ".wav"));
 		}catch (IOException e) {
