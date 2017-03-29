@@ -67,14 +67,14 @@ public class ChoiceMenu {
 	
 	public void upPressed() {
 		selectedOption--;
+		if (selectedOption <= -1) selectedOption = options.size() - 1;
 		selectedOption %= options.size();
-		selectedOption = Math.abs(selectedOption);
 	}
 	
 	public void downPressed() {
 		selectedOption++;
+		if (selectedOption <= -1) selectedOption = options.size() - 1;
 		selectedOption = Math.abs(selectedOption);
-		selectedOption %= options.size();
 	}
 	
 	public void selectPressed() {
