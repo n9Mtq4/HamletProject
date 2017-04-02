@@ -10,6 +10,7 @@ import org.w3c.dom.Node;
 public class ChoiceInstruction extends Instruction {
 	
 	private String choiceName;
+	private String deathName;
 	
 	public ChoiceInstruction(Node rawInstruction) {
 		super(rawInstruction);
@@ -17,7 +18,9 @@ public class ChoiceInstruction extends Instruction {
 	
 	@Override
 	public void run() {
-		// TODO: Display choice
+        if (this.deathName != null && this.deathName != "") {
+            // TODO: Kill them
+        }
 		Display.veryBad.hud.choiceMenu.go(choiceName);
 	}
 	
@@ -25,5 +28,6 @@ public class ChoiceInstruction extends Instruction {
 	public void parseInstruction(Node rawInstruction) {
 		Element element = (Element) rawInstruction;
 		this.choiceName = element.getTextContent();
+		this.deathName = element.getAttribute("death");
 	}
 }
