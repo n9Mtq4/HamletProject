@@ -14,7 +14,7 @@ import java.awt.Graphics;
  */
 public class HudImplementation extends Hud {
 	
-	public HudBar insanityBar = new HudBar();
+	public HudBar insanityBar = new HudBar(display);
 	public TextBox textBox = new TextBox();
 	public ChoiceMenu choiceMenu = new ChoiceMenu(display);
 	

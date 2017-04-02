@@ -8,5 +8,6 @@ package me.willjake.hamlet.game;
 public class GConstants {
 	
 	public static final int SANITY_COEF = 1;
+	public static final int MAX_SANITY = 8;
 	
 }

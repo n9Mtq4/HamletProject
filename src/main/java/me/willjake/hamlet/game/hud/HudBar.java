@@ -15,7 +15,9 @@
 
 package me.willjake.hamlet.game.hud;
 
+import me.willjake.hamlet.game.GConstants;
 import me.willjake.hamlet.game.Sprites;
+import me.willjake.hamlet.render.Display;
 import me.willjake.hamlet.render.Screen;
 
 /**
@@ -27,7 +29,16 @@ public class HudBar {
 	public int maxValue = 1;
 	public int y = 8;
 	
+	private Display display;
+	
+	public HudBar(Display display) {
+		this.display = display;
+		maxValue = GConstants.MAX_SANITY;
+	}
+	
 	public void render(Screen screen) {
+		
+		value = display.sanity;
 		
 //		math
 		int maxBars = (screen.width - (16 * 2)) / 8;
