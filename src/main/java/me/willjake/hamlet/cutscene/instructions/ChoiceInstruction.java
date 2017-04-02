@@ -1,5 +1,6 @@
 package me.willjake.hamlet.cutscene.instructions;
 
+import me.willjake.hamlet.game.GConstants;
 import me.willjake.hamlet.render.Display;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -20,11 +21,11 @@ public class ChoiceInstruction extends Instruction {
 	@Override
 	public void run() {
         if (this.deathName != null && this.deathName != "") {
-            // TODO: Kill them
+	        Display.veryBad.setDead(deathName, true);
         }
-
-        // TODO: Subtract sanity
-
+		
+        Display.veryBad.sanity -= (sanityChange * GConstants.SANITY_COEF);
+        
 		Display.veryBad.hud.choiceMenu.go(choiceName);
 	}
 	

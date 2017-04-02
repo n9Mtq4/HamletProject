@@ -15,6 +15,7 @@ import me.willjake.hamlet.game.tiles.TiledFloor;
 import me.willjake.hamlet.game.tiles.VoidTile;
 import me.willjake.hamlet.game.tiles.Water;
 import me.willjake.hamlet.game.tiles.Wood;
+import me.willjake.hamlet.level.Tile;
 import me.willjake.hamlet.render.gfx.Sprite;
 
 import java.awt.Color;
@@ -42,5 +43,8 @@ public class Tiles {
 	public static final Water WATER = new Water();
 	public static final Wood WOOD = new Wood();
 	public static final TiledFloor TILED_FLOOR = new TiledFloor();
+	
+	public static final Tile PILLOW_TILE = new Tile(Sprites.PILLOW);
+	public static final Tile BED_TILE = new Tile(Sprites.BED);
 	
 }

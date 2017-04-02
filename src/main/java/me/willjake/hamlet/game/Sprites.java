@@ -82,6 +82,8 @@ public class Sprites {
 	public static final Sprite tiledFloor = new Sprite(32, 3, 3, tiles);
 	public static final Sprite emblem = new Sprite(32, 0, 4, tiles);
 	// TODO: still don't have off center emblem, may not need it though
+	public static final Sprite PILLOW = new Sprite(32, Color.LIGHT_GRAY);
+	public static final Sprite BED = new Sprite(32, Color.RED);
 	
 	public static final Sprite hudbarStartFull = new NoLightSprite(8, 0, 0, hud);
 	public static final Sprite hudbarMidFull = new NoLightSprite(8, 1, 0, hud);

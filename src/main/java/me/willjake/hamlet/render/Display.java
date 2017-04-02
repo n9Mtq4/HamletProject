@@ -88,6 +88,9 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	
 	public MainMenu menu;
 	
+	public HashMap<String, Boolean> deadPeople = new HashMap<String, Boolean>();
+	public int sanity = 0;
+	
 	public Display(JComponent parent, JFrame frame) {
 		//noinspection ConstantConditions
 		this.parent = parent;
@@ -402,7 +405,16 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		this.player = level.playerInit(player);
 		gameState = GameState.IN_GAME;
 	}
-
+	
+	public boolean isDead(String name) {
+		if (!deadPeople.containsKey(name)) return false;
+		else return deadPeople.get(name);
+	}
+	
+	public void setDead(String name, boolean value) {
+		deadPeople.put(name, value);
+	}
+	
 	public void switchCutscene(String cutsceneName) {
 	    this.cutscene = new Cutscene(cutsceneName);
     }
