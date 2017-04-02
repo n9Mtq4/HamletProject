@@ -11,6 +11,7 @@ public class ChoiceInstruction extends Instruction {
 	
 	private String choiceName;
 	private String deathName;
+	private int sanityChange;
 	
 	public ChoiceInstruction(Node rawInstruction) {
 		super(rawInstruction);
@@ -21,6 +22,9 @@ public class ChoiceInstruction extends Instruction {
         if (this.deathName != null && this.deathName != "") {
             // TODO: Kill them
         }
+
+        // TODO: Subtract sanity
+
 		Display.veryBad.hud.choiceMenu.go(choiceName);
 	}
 	
@@ -29,5 +33,13 @@ public class ChoiceInstruction extends Instruction {
 		Element element = (Element) rawInstruction;
 		this.choiceName = element.getTextContent();
 		this.deathName = element.getAttribute("death");
+
+		String rawSanityChange = element.getAttribute("sanity");
+
+		if (rawSanityChange == "") {
+		    this.sanityChange = 0;
+        } else {
+            this.sanityChange = Integer.parseInt(rawSanityChange);
+        }
 	}
 }
