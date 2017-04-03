@@ -20,7 +20,7 @@ public class ChoiceInstruction extends Instruction {
 	
 	@Override
 	public void run() {
-        if (this.deathName != null && this.deathName != "") {
+        if (this.deathName != null && !this.deathName.equals("")) {
 	        Display.veryBad.setDead(deathName, true);
         }
 		
