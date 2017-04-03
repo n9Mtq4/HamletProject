@@ -81,6 +81,7 @@ public class Sprites {
 	public static final Sprite wood = new Sprite(32, 2, 3, tiles);
 	public static final Sprite tiledFloor = new Sprite(32, 3, 3, tiles);
 	public static final Sprite emblem = new Sprite(32, 0, 4, tiles);
+	public static final Sprite curtain = new Sprite(32, 1, 4, tiles);
 	// TODO: still don't have off center emblem, may not need it though
 	public static final Sprite PILLOW = new Sprite(32, Color.LIGHT_GRAY);
 	public static final Sprite BED = new Sprite(32, Color.RED);

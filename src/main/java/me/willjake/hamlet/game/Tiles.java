@@ -4,6 +4,7 @@ import me.willjake.hamlet.game.tiles.Chest;
 import me.willjake.hamlet.game.tiles.ColumnBottom;
 import me.willjake.hamlet.game.tiles.ColumnMid;
 import me.willjake.hamlet.game.tiles.ColumnTop;
+import me.willjake.hamlet.game.tiles.Curtain;
 import me.willjake.hamlet.game.tiles.Grass;
 import me.willjake.hamlet.game.tiles.SolidTile;
 import me.willjake.hamlet.game.tiles.StoneBrown;
@@ -43,6 +44,7 @@ public class Tiles {
 	public static final Water WATER = new Water();
 	public static final Wood WOOD = new Wood();
 	public static final TiledFloor TILED_FLOOR = new TiledFloor();
+	public static final Curtain CURTAIN = new Curtain();
 	
 	public static final Tile PILLOW_TILE = new Tile(Sprites.PILLOW);
 	public static final Tile BED_TILE = new Tile(Sprites.BED);

@@ -25,6 +25,7 @@ public class TileTranslator {
 		if (tile == 0xffff0000) return Tiles.SOLID_TILE;
 		if (tile == 0xffff0001) return Tiles.BED_TILE;
 		if (tile == 0xfffff0f0) return Tiles.PILLOW_TILE;
+		if (tile == 0xff981752) return Tiles.CURTAIN;
 		
 		System.out.println("Tile: " + tile + " is unknown");
 		return Tiles.voidTile;
