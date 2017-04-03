@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice>
+    Show yourself to:
+    <option cutscene="queen_show_hamlet">Hamlet</option>
+    <option cutscene="queen_show_queen">Queen</option>
+    <option cutscene="queen_show_both">Both</option>
+</choice>
