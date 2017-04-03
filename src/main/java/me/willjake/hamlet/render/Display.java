@@ -16,13 +16,16 @@
 package me.willjake.hamlet.render;
 
 import com.n9mtq4.reflection.ReflectionHelper;
+import me.willjake.hamlet.credits.Credits;
 import me.willjake.hamlet.cutscene.Cutscene;
+import me.willjake.hamlet.ending.EndCutscene;
 import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
 import me.willjake.hamlet.game.level.OpheliaConfrontationLevel;
 import me.willjake.hamlet.input.KeyBoard;
+import me.willjake.hamlet.launcher.GameLauncher;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.mainmenu.MainMenu;
 import me.willjake.hamlet.sound.SoundManager;
@@ -65,7 +68,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	public static int SCALE = 2;
 	
 	public static boolean playSound = true;
-
+	
 	private boolean cutsceneRunning = false;
 	
 	public Level level;
@@ -76,6 +79,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	public boolean musicPlaying = false;
 	private JComponent parent;
 	private JFrame frame;
+	public GameLauncher launcher;
 	private Thread thread;
 	private boolean running;
 	private int fps;
@@ -87,16 +91,19 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
 	public Cutscene cutscene = new Cutscene("ophelia_confrontation_scene");
+	public EndCutscene endCutscene;
+	public Credits credits;
 	
 	public MainMenu menu;
 	
 	public HashMap<String, Boolean> deadPeople = new HashMap<String, Boolean>();
 	public int sanity = 0;
 	
-	public Display(JComponent parent, JFrame frame) {
+	public Display(JComponent parent, JFrame frame, GameLauncher launcher) {
 		//noinspection ConstantConditions
 		this.parent = parent;
 		this.frame = frame;
+		this.launcher = launcher;
 //		this.progress = DEBUG ? Progress.IN_GAME : Progress.MAIN_MENU;
 //		this.progress = Progress.IN_GAME;
 		Dimension size = new Dimension(WIDTH * SCALE, HEIGHT * SCALE);
@@ -271,6 +278,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		bs.show();
 	}
 	
+	@SuppressWarnings("Duplicates")
 	public void renderMenu() {
 		
 		BufferStrategy bs = this.getBufferStrategy();
@@ -301,6 +309,68 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 	}
 	
+	@SuppressWarnings("Duplicates")
+	public void renderEnd() {
+		
+		BufferStrategy bs = this.getBufferStrategy();
+		if (bs == null) {
+			createBufferStrategy(3);
+			return;
+		}
+		
+		Graphics g = bs.getDrawGraphics();
+		
+		for (int i = 0; i < pixels.length; i++) {
+			pixels[i] = 0xffffff;
+		}
+		
+		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+		
+		endCutscene.render(g);
+		
+		if (DEBUG) {
+			g.setColor(new Color(255, 255, 0));
+			g.setFont(new Font("Verdana", Font.BOLD, 24));
+			g.drawString(String.valueOf(fps + " fps"), 0, HEIGHT * SCALE - 18);
+//			g.setFont(new Font("Verdana", Font.BOLD, 12));
+		}
+		
+		g.dispose();
+		bs.show();
+		
+	}
+	
+	@SuppressWarnings("Duplicates")
+	public void renderCredits() {
+		
+		BufferStrategy bs = this.getBufferStrategy();
+		if (bs == null) {
+			createBufferStrategy(3);
+			return;
+		}
+		
+		Graphics g = bs.getDrawGraphics();
+		
+		for (int i = 0; i < pixels.length; i++) {
+			pixels[i] = 0xffffff;
+		}
+		
+		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+		
+		credits.render(g);
+		
+		if (DEBUG) {
+			g.setColor(new Color(255, 255, 0));
+			g.setFont(new Font("Verdana", Font.BOLD, 24));
+			g.drawString(String.valueOf(fps + " fps"), 0, HEIGHT * SCALE - 18);
+//			g.setFont(new Font("Verdana", Font.BOLD, 12));
+		}
+		
+		g.dispose();
+		bs.show();
+		
+	}
+	
 	public void render() {
 		
 		if (GameState.IN_GAME == gameState || GameState.CHOICE == gameState) {
@@ -310,9 +380,9 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		}else if (GameState.MENU == gameState) {
 			renderMenu();
 		}else if (GameState.END == gameState) {
-			// TODO: render the end
+			renderEnd();
 		}else if (GameState.CREDITS == gameState) {
-			// TODO: render the credits
+			renderCredits();
 		}
 		
 	}
@@ -323,9 +393,27 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			keyBoard.update();
 			level.tick();
 			hud.tick();
+		}else if (gameState == GameState.CREDITS) {
+			credits.tick();
+		}else if (gameState == GameState.END) {
+			endCutscene.tick();
 		}
 //		too slow, so light map can't be dynamic
 //		level.updateLightMap();
+	}
+	
+	public void initEndScene() {
+		gameState = GameState.LEVEL_CHANGING;
+		this.endCutscene = new EndCutscene(this);
+		this.endCutscene.init();
+		this.gameState = GameState.END;
+	}
+	
+	public void initCredits() {
+		gameState = GameState.LEVEL_CHANGING;
+		this.credits = new Credits(this);
+		this.credits.init();
+		this.gameState = GameState.CREDITS;
 	}
 	
 	private void initBuffer() {
@@ -490,6 +578,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			if (gameState == GameState.MENU) {
 				menu.select();
 			}
+		}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
+			this.cutsceneRunning = true;
 		}
 		
 		// debug buttons
@@ -500,10 +590,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 				hud.choiceMenu.go("test_choice");
 			} else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
 				playSound("honorforall");
-			} else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
-				// TODO: add cut scene starting stuff here
-//			loadLevel("OpheliaConfrontationLevel");
-                this.cutsceneRunning = true;
+			} else if (keyEvent.getKeyCode() == KeyEvent.VK_L) {
+				initCredits();
 			}
 		}
 		

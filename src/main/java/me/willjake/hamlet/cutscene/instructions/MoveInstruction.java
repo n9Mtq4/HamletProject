@@ -13,6 +13,7 @@ public class MoveInstruction extends Instruction {
     private int x, y;
     private String spriteString;
     private boolean hidden = false;
+    private boolean noHiddenUpdate = false;
 
     public MoveInstruction(Node rawInstruction) {
         super(rawInstruction);
@@ -20,11 +21,15 @@ public class MoveInstruction extends Instruction {
 
     @Override
     public void run() {
-	    ((Mob) Display.veryBad.level.getSprite(spriteString)).cutsceneMove(x, y);
-
-	    if (this.hidden) {
-	        // TODO: Hide character
+        
+        final Mob mob = (Mob) Display.veryBad.level.getSprite(spriteString);
+        if (mob != null) {
+            mob.cutsceneMove(x, y);
+            if (!noHiddenUpdate) {
+                mob.hidden = this.hidden;
+            }
         }
+        
     }
 
     @Override
@@ -42,6 +47,9 @@ public class MoveInstruction extends Instruction {
         String rawHidden = element.getAttribute("hidden");
         if (!rawHidden.equals("")) {
             this.hidden = Boolean.parseBoolean(element.getAttribute("hidden"));
+            this.noHiddenUpdate = false;
+        }else {
+            this.noHiddenUpdate = true;
         }
     }
 }
