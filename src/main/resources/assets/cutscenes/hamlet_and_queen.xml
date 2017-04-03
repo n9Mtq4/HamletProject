@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+    <frame>
+        <level>HamletAndQueen</level>
+    </frame>
+
+    <frame>
+        <!-- Example text -->
+        <text>subfolder/text_name</text> <!-- Evaluates to text/subfolder/text_name.xml -->
+    </frame>
+    <frame>
+        <!-- Example move -->
+        <move x="0" y="-20">hamlet</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
+    </frame>
+    <frame>
+        <!-- Example choice -->
+        <choice>mah_choice</choice> <!-- Evaluates to choices/mah_choice.xml -->
+    </frame>
+</scene>
