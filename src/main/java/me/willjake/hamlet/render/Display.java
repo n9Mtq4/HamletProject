@@ -65,6 +65,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	public static int SCALE = 2;
 	
 	public static boolean playSound = true;
+
+	private boolean cutsceneRunning = false;
 	
 	public Level level;
 	public GameState gameState;
@@ -349,7 +351,11 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		requestFocusInWindow();
 		tick();
 		while (running) {
-			
+
+		    if (this.cutsceneRunning) {
+                this.cutscene.tick();
+            }
+
 //			game loop
 			long currentTime = System.nanoTime();
 			long passedTime = currentTime - previousTime;
@@ -490,14 +496,14 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		if (DEBUG) {
 			if (keyEvent.getKeyCode() == KeyEvent.VK_E) {
 				hud.textBox.showText("test_text"); // TODO: debug stuff
-			}else if (keyEvent.getKeyCode() == KeyEvent.VK_R) {
+			} else if (keyEvent.getKeyCode() == KeyEvent.VK_R) {
 				hud.choiceMenu.go("test_choice");
-			}else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
+			} else if (keyEvent.getKeyCode() == KeyEvent.VK_N) {
 				playSound("honorforall");
-			}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
+			} else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
 				// TODO: add cut scene starting stuff here
 //			loadLevel("OpheliaConfrontationLevel");
-				this.cutscene.tick();
+                this.cutsceneRunning = true;
 			}
 		}
 		

@@ -10,7 +10,8 @@ import org.w3c.dom.Node;
 public class TextInstruction extends Instruction {
 	
 	private String textName;
-	
+	private boolean running = false;
+
 	public TextInstruction(Node rawInstruction) {
 		super(rawInstruction);
 	}
@@ -18,8 +19,17 @@ public class TextInstruction extends Instruction {
 	@Override
 	public void run() {
 		// TODO: Display textbox
-		Display.veryBad.hud.textBox.showText(textName);
+        if (!this.running) {
+            Display.veryBad.hud.textBox.showText(textName);
+        }
+
+		this.running = true;
 	}
+
+	@Override
+    public boolean isDone() {
+	    return this.running && !Display.veryBad.hud.textBox.show;
+    }
 	
 	@Override
 	public void parseInstruction(Node rawInstruction) {

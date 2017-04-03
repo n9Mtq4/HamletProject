@@ -23,6 +23,11 @@ public class MoveInstruction extends Instruction {
     }
 
     @Override
+    public boolean isDone() {
+        return ((Mob) Display.veryBad.level.getSprite(spriteString)).isAnimationDone;
+    }
+
+    @Override
     public void parseInstruction(Node rawInstruction) {
         Element element  = (Element) rawInstruction;
         this.x = Integer.parseInt(element.getAttribute("x"));

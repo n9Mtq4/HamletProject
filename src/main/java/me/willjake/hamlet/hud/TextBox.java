@@ -19,11 +19,11 @@ public class TextBox {
 	private static final int BORDERY = 50;
 	private static final int CHARACTERS_PER_LINE = 97;
 	private static final int LINE_PADDING = 3; //px
-	private static final double LIFE_MODIFIER = 0.1; // % of a second for each character
+	private static final double LIFE_MODIFIER = 0.05; // % of a second for each character
 	private static final int FONT_SIZE = 14;
 	private static final String FONT_TYPE = Font.SANS_SERIF;
 	
-	private boolean show = false;
+	public boolean show = false; // I'm so sorry that this is public
 	private int life = 0;
 	private int xOff = 0;
 	private int yOff = 0;
@@ -49,10 +49,10 @@ public class TextBox {
 	}
 	
 	public void tick() {
-		life--;
+		this.life--;
 		
 		if (life <= 0) {
-			show = false;
+			this.show = false;
 		}
 	}
 
@@ -63,7 +63,6 @@ public class TextBox {
     }
 	
 	private void go(String text, String name) {
-		
 		this.text.clear();
 		this.font = new Font(FONT_TYPE, Font.PLAIN, FONT_SIZE);
 		
@@ -78,7 +77,7 @@ public class TextBox {
 		this.life = (int) (text.length() * LIFE_MODIFIER) * 100; // Totally random formula, pls ignore
 	}
 	
-	// Purposely ignores splitting words, sorta unnecessary
+	// Purposely ignores splitting words properly, sorta unnecessary
 	private ArrayList<String> splitTextIntoLines(String text) {
 		ArrayList<String> lines = new ArrayList<String>();
 		
@@ -116,7 +115,7 @@ public class TextBox {
 				graphics.setFont(new Font(FONT_TYPE, Font.BOLD, FONT_SIZE));
 				graphics.drawString(string, BORDERX * 2, startY + (i * height));
 				graphics.setFont(new Font(FONT_TYPE, Font.PLAIN, FONT_SIZE));
-			}else {
+			} else {
 				graphics.drawString(string, BORDERX * 2, startY + (i * height));
 			}
 		}
@@ -130,7 +129,7 @@ public class TextBox {
 			}
 			
 			return totalHeight;
-		}catch (ConcurrentModificationException e) {
+		} catch (ConcurrentModificationException e) {
 			return 60; // TODO: want to fix this rather than doing some crazy work around. This should never happen outside debug testing
 		}
 	}
