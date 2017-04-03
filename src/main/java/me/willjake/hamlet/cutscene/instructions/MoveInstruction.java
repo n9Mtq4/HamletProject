@@ -9,8 +9,10 @@ import org.w3c.dom.Node;
  * Move sprite to an x and y value
  */
 public class MoveInstruction extends Instruction {
+
     private int x, y;
     private String spriteString;
+    private boolean hidden = false;
 
     public MoveInstruction(Node rawInstruction) {
         super(rawInstruction);
@@ -18,8 +20,11 @@ public class MoveInstruction extends Instruction {
 
     @Override
     public void run() {
-        // TODO: Move the sprite around
 	    ((Mob) Display.veryBad.level.getSprite(spriteString)).cutsceneMove(x, y);
+
+	    if (this.hidden) {
+	        // TODO: Hide character
+        }
     }
 
     @Override
@@ -33,5 +38,10 @@ public class MoveInstruction extends Instruction {
         this.x = Integer.parseInt(element.getAttribute("x"));
         this.y = Integer.parseInt(element.getAttribute("y"));
         this.spriteString = element.getTextContent();
+
+        String rawHidden = element.getAttribute("hidden");
+        if (rawHidden != "") {
+            this.hidden = Boolean.parseBoolean(element.getAttribute("hidden"));
+        }
     }
 }
