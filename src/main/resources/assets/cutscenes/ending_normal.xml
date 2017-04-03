@@ -2,6 +2,7 @@
 <scene>
     <frame>
         <level>DuelEndingLevel</level>
+        <move x="0" y="0" hidden="true">fortinbras</move>
     </frame>
 
     <!-- Hamlet + Laertes fight -->

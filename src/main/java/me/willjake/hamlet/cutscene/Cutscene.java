@@ -12,9 +12,12 @@ public class Cutscene {
 	
 	public Cutscene(String sceneName) {
 		this.parseScene(sceneName);
+		this.onFrame = 0;
 	}
 	
 	public void tick() {
+	    if (this.frames.size() == 0) return;
+
 		if (this.onFrame < this.frames.size()) {
             if (this.frames.get(this.onFrame).isDone()) {
                 this.onFrame++;
@@ -25,11 +28,7 @@ public class Cutscene {
 		    System.out.println("Cutscene is complete");
         }
 	}
-	
-	public void pause() {
-		
-	}
-	
+
 	private void parseScene(String sceneName) {
 		CutsceneParser cutsceneParser = new CutsceneParser(sceneName);
 		this.frames = cutsceneParser.getFrames();

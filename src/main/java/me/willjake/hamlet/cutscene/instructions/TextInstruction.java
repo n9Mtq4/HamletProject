@@ -14,11 +14,12 @@ public class TextInstruction extends Instruction {
 
 	public TextInstruction(Node rawInstruction) {
 		super(rawInstruction);
+
+        this.running = false;
 	}
 	
 	@Override
 	public void run() {
-		// TODO: Display textbox
         if (!this.running) {
             Display.veryBad.hud.textBox.showText(textName);
         }

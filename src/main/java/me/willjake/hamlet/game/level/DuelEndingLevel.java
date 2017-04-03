@@ -33,7 +33,7 @@ public class DuelEndingLevel extends Level {
 		
 		Guard guard = new Guard(6, 5);
 		
-		Fortinbras fortinbras = new Fortinbras(6, 13);
+		Fortinbras fortinbras = new Fortinbras(6, 10);
 		
 		add(laertes);
 		add(claudius);
