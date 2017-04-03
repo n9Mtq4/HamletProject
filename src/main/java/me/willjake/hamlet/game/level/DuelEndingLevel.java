@@ -1,12 +1,7 @@
 package me.willjake.hamlet.game.level;
 
 import me.willjake.hamlet.entity.Direction;
-import me.willjake.hamlet.game.entity.Claudius;
-import me.willjake.hamlet.game.entity.Fortinbras;
-import me.willjake.hamlet.game.entity.Gertrude;
-import me.willjake.hamlet.game.entity.Guard;
-import me.willjake.hamlet.game.entity.Hamlet;
-import me.willjake.hamlet.game.entity.Laertes;
+import me.willjake.hamlet.game.entity.*;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.level.Tile;
 
@@ -34,6 +29,9 @@ public class DuelEndingLevel extends Level {
 		Guard guard = new Guard(6, 5);
 		
 		Fortinbras fortinbras = new Fortinbras(6, 10);
+
+        Ophelia ophelia = new Ophelia(4, 7);
+        ophelia.dir = Direction.BACKWARDS;
 		
 		add(laertes);
 		add(claudius);
@@ -41,14 +39,11 @@ public class DuelEndingLevel extends Level {
 		add(hamlet);
 		add(guard);
 		add(fortinbras);
+		add(ophelia);
 	}
 	
 	@Override
 	public Tile tileTranslator(int tile) {
-		
 		return TileTranslator.tileTranslator(tile);
-		
 	}
-	
-	
 }
