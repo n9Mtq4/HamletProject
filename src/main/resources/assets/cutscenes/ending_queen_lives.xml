@@ -62,7 +62,7 @@
 
     <!-- Queen takes poison -->
     <frame>
-        <text>ending_normal/claudius_gertrude_about_to_drink</text>
+        <text>ending_queen_lives/queen_nobody_drinks</text>
     </frame>
 
     <!-- Laertes dies -->
