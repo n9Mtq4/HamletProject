@@ -5,7 +5,7 @@
     </frame>
     <frame>
         <move x="1" y="1">hamlet</move>
-        <move x="1" y="1">claudius</move>
+        <move x="1" y="1" hidden="true">claudius</move>
     </frame>
     <frame>
         <text>test_text</text>
