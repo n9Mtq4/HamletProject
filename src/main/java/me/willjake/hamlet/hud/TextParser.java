@@ -6,13 +6,14 @@ import org.w3c.dom.Element;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * Created by jakekinsella on 3/26/17.
  */
 public class TextParser {
 
-    private static final String XML_FOLDER = "assets/text";
+    private static final String XML_FOLDER = "/assets/text";
 
     private Element element;
 
@@ -29,19 +30,17 @@ public class TextParser {
     }
 
     private void setupParser(String textName) {
-        File file = new File(this.getPathToXML(textName));
-
         DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            Document document = documentBuilder.parse(file);
+            Document document = documentBuilder.parse(this.getPathToXML(textName));
             this.element = (Element) document.getElementsByTagName("textbox").item(0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private String getPathToXML(String sceneName) {
-        return ClassLoader.getSystemClassLoader().getResource(XML_FOLDER + "/" + sceneName + ".xml").getFile();
+    private InputStream getPathToXML(String sceneName) {
+        return getClass().getResourceAsStream(XML_FOLDER + "/" + sceneName + ".xml");
     }
 }

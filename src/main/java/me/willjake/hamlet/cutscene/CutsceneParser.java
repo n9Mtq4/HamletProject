@@ -6,7 +6,10 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +17,7 @@ import java.util.ArrayList;
  */
 public class CutsceneParser {
 	
-	private static final String XML_FOLDER = "assets/cutscenes";
+	private static final String XML_FOLDER = "/assets/cutscenes";
 	
 	private Element element;
 	
@@ -34,19 +37,17 @@ public class CutsceneParser {
 	}
 	
 	private void setupParsing(String sceneName) {
-		File file = new File(this.getPathToXML(sceneName));
-		
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-			Document document = documentBuilder.parse(file);
+			Document document = documentBuilder.parse(this.getPathToXML(sceneName));
 			this.element = (Element) document.getElementsByTagName("scene").item(0);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	private String getPathToXML(String sceneName) {
-		return ClassLoader.getSystemClassLoader().getResource(XML_FOLDER + "/" + sceneName + ".xml").getFile();
+	private InputStream getPathToXML(String sceneName) {
+	    return getClass().getResourceAsStream(XML_FOLDER + "/" + sceneName + ".xml");
 	}
 }
