@@ -20,6 +20,7 @@ public class OpheliaConfrontationLevel extends Level {
 	public OpheliaConfrontationLevel() {
 		super("/assets/world/greathall.png", "/assets/world/greathallfront.png");
 		
+		
 		Ophelia ophelia = new Ophelia(7, 7);
         ophelia.dir = Direction.BACKWARDS;
 
