@@ -579,7 +579,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			if (gameState == GameState.MENU) {
 				menu.select();
 			}
-		} else {
+		} else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
             this.hud.textBox.skip();
         }
 		
