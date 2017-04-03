@@ -36,7 +36,8 @@ public class Mob extends Entity {
 	public int playX;
 	public int playY;
 	public boolean isAnimationDone = true;
-	private static final int CUTSCENE_SPEED = 1; // TODO: this better only be a 1, delta must be multiple of this, may fix later if issue
+	private static final int CUTSCENE_SPEED = 1; // bigger = slower
+	private static final int CUTSCENE_MOVE_SPEED = 1; // really don't change this
 	
 	public Mob(int x, int y) {
 		this.spawnX = x;
@@ -47,12 +48,13 @@ public class Mob extends Entity {
 	
 	@Override
 	public void render(Screen screen) {
-		if (!hidden) renderSpriteRel(screen, sprite);
+		if (!hidden) {
+			renderSpriteRel(screen, sprite);
+		}
 	}
 	
 	public void tick() {
 		
-		time++;
 		level.getTileBack((x) >> Screen.TILE_SIZE, (y) >> Screen.TILE_SIZE).mobIn(this);
 		if (isOutSideLevel()) {
 			x = spawnX;
@@ -62,32 +64,36 @@ public class Mob extends Entity {
 		if (movingLife > 0) movingLife--;
 		else moving = false;
 		
-		// cut scene playing
-		if (playX != 0) {
-			if (playX > 0) {
-				// positive
-				move(CUTSCENE_SPEED, 0);
-				playX -= CUTSCENE_SPEED;
-			}else {
-				// negative
-				move(-CUTSCENE_SPEED, 0);
-				playX += CUTSCENE_SPEED;
+		if (time % CUTSCENE_SPEED == 0) {
+			// cut scene playing
+			if (playX != 0) {
+				if (playX > 0) {
+					// positive
+					move(CUTSCENE_MOVE_SPEED, 0);
+					playX -= CUTSCENE_MOVE_SPEED;
+				}else {
+					// negative
+					move(-CUTSCENE_MOVE_SPEED, 0);
+					playX += CUTSCENE_MOVE_SPEED;
+				}
 			}
-		}
-		
-		if (playY != 0) {
-			if (playY > 0) {
-				// positive
-				move(0, CUTSCENE_SPEED);
-				playY -= CUTSCENE_SPEED;
-			}else {
-				// negative
-				move(0, -CUTSCENE_SPEED);
-				playY += CUTSCENE_SPEED;
+			
+			if (playY != 0) {
+				if (playY > 0) {
+					// positive
+					move(0, CUTSCENE_MOVE_SPEED);
+					playY -= CUTSCENE_MOVE_SPEED;
+				}else {
+					// negative
+					move(0, -CUTSCENE_MOVE_SPEED);
+					playY += CUTSCENE_MOVE_SPEED;
+				}
 			}
 		}
 		
 		if (playX == 0 && playY == 0) isAnimationDone = true;
+		
+		time++;
 		
 	}
 	
