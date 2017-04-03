@@ -40,7 +40,7 @@ public class MoveInstruction extends Instruction {
         this.spriteString = element.getTextContent();
 
         String rawHidden = element.getAttribute("hidden");
-        if (rawHidden != "") {
+        if (!rawHidden.equals("")) {
             this.hidden = Boolean.parseBoolean(element.getAttribute("hidden"));
         }
     }

@@ -39,7 +39,7 @@ public class ChoiceInstruction extends Instruction {
 
 		String rawSanityChange = element.getAttribute("sanity");
 
-		if (rawSanityChange == "") {
+		if (rawSanityChange.equals("")) {
 		    this.sanityChange = 0;
         } else {
             this.sanityChange = Integer.parseInt(rawSanityChange);
