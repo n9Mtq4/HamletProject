@@ -27,6 +27,8 @@ public class ChoiceInstruction extends Instruction {
         Display.veryBad.sanity -= (sanityChange * GConstants.SANITY_COEF);
         
 		Display.veryBad.hud.choiceMenu.go(choiceName);
+
+        this.isDone = true;
 	}
 	
 	@Override

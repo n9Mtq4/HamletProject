@@ -9,7 +9,8 @@ import java.util.ArrayList;
  * Created by jakekinsella on 3/25/17.
  */
 public class Frame {
-	
+
+    private boolean isDone = false;
 	private ArrayList<Instruction> instructions;
 	
 	public Frame(Node rawFrame) {
@@ -17,11 +18,19 @@ public class Frame {
 	}
 	
 	public void play() {
+        this.isDone = true;
 		for (Instruction instruction : this.instructions) {
-			instruction.run();
+		    if (!instruction.isDone()) {
+                instruction.run();
+                this.isDone = false;
+            }
 		}
 	}
-	
+
+	public boolean isDone() {
+        return this.isDone;
+    }
+
 	private void parseFrame(Node rawFrame) {
 		FrameParser frameParser = new FrameParser(rawFrame);
 		this.instructions = frameParser.getInstructions();

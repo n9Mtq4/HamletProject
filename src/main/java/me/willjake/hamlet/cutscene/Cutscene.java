@@ -14,10 +14,13 @@ public class Cutscene {
 		this.parseScene(sceneName);
 	}
 	
-	public void playNextFrame() {
+	public void tick() {
 		if (this.onFrame < this.frames.size()) {
-            this.frames.get(this.onFrame).play();
-            this.onFrame++;
+            if (this.frames.get(this.onFrame).isDone()) {
+                this.onFrame++;
+            } else {
+                this.frames.get(this.onFrame).play();
+            }
         } else {
 		    System.out.println("Cutscene is complete");
         }

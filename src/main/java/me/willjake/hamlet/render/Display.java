@@ -497,7 +497,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
 				// TODO: add cut scene starting stuff here
 //			loadLevel("OpheliaConfrontationLevel");
-				this.cutscene.playNextFrame();
+				this.cutscene.tick();
 			}
 		}
 		
