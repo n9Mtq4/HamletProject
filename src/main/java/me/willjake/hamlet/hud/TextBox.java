@@ -56,6 +56,10 @@ public class TextBox {
 		}
 	}
 
+	public void skip() {
+	    this.life = 0;
+    }
+
 	public void showText(String textName) {
 	    TextParser textParser = new TextParser(textName);
 

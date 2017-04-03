@@ -550,7 +550,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	}
 	
 	public void keyPress(KeyEvent keyEvent) {
-		
+
 		// game buttons
 		if (keyEvent.getKeyCode() == KeyEvent.VK_M) {
 			if (this.musicPlaying) {
@@ -579,9 +579,9 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			if (gameState == GameState.MENU) {
 				menu.select();
 			}
-		}else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
-			this.cutsceneRunning = true;
-		}
+		} else {
+            this.hud.textBox.skip();
+        }
 		
 		// debug buttons
 		if (DEBUG) {
@@ -593,8 +593,10 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 				playSound("honorforall");
 			} else if (keyEvent.getKeyCode() == KeyEvent.VK_L) {
 				initCredits();
-			}
-		}
+			} else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
+                this.cutsceneRunning = true;
+            }
+        }
 		
 		// TODO: add key events here
 	}
