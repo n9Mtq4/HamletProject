@@ -34,6 +34,7 @@ public class Mob extends Entity {
 	
 	public int playX;
 	public int playY;
+	public boolean isAnimationDone = true;
 	private static final int CUTSCENE_SPEED = 1; // TODO: this better only be a 1, delta must be multiple of this, may fix later if issue
 	
 	public Mob(int x, int y) {
@@ -85,6 +86,8 @@ public class Mob extends Entity {
 			}
 		}
 		
+		if (playX == 0 && playY == 0) isAnimationDone = true;
+		
 	}
 	
 	protected boolean isOutSideLevel() {
@@ -101,6 +104,7 @@ public class Mob extends Entity {
 		
 		playX = xd;
 		playY = yd;
+		isAnimationDone = false;
 		
 	}
 	
