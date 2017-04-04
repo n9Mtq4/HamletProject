@@ -4,6 +4,7 @@ import me.willjake.hamlet.entity.Direction;
 import me.willjake.hamlet.game.entity.*;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.level.Tile;
+import me.willjake.hamlet.render.Display;
 
 /**
  * Created by will on 3/26/17 at 6:35 PM.
@@ -32,14 +33,15 @@ public class DuelEndingLevel extends Level {
 
         Ophelia ophelia = new Ophelia(4, 7);
         ophelia.dir = Direction.BACKWARDS;
-		
-		add(laertes);
-		add(claudius);
-		add(gertrude);
-		add(hamlet);
-		add(guard);
+
+        if (!Display.veryBad.isDead("laertes")) add(laertes);
+        if (!Display.veryBad.isDead("claudius")) add(claudius);
+        if (!Display.veryBad.isDead("gertrude")) add(gertrude);
+        if (!Display.veryBad.isDead("hamlet")) add(hamlet);
+
+        add(guard);
 		add(fortinbras);
-		add(ophelia);
+        if (!Display.veryBad.isDead("ophelia")) add(ophelia);
 	}
 	
 	@Override
