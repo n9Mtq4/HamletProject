@@ -91,7 +91,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
-	public Cutscene cutscene = new Cutscene("ending_normal");
+	public Cutscene cutscene = new Cutscene("ophelia_confrontation_scene");
 	public EndCutscene endCutscene;
 	public Credits credits;
 	

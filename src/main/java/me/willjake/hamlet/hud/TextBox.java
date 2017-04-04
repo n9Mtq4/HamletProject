@@ -16,11 +16,12 @@ import java.util.ConcurrentModificationException;
 public class TextBox {
 	
 	private static final int BORDERX = 10;
-	private static final int BORDERY = 50;
-	private static final int CHARACTERS_PER_LINE = 97;
-	private static final int LINE_PADDING = 3; //px
+	private static final int BORDERY = (int) (50 * ((Display.SCALE - 1) * 0.7));
+	private static final int RANDOM_FUCKING_VALUE_THAT_POPS_UP_ALOT = (int) (60 * ((Display.SCALE - 1) * 0.71)); // Am I a monster? It's definitely a possibility. Maybe you should stop looking at this code and move on. The rest of my code is pretty alright. It's just that the quarter ends tomorrow and I don't really care about the code neatness. Maybe I should spend the time that I spent writing this on clean code but... Nah, we good
+	private static final int CHARACTERS_PER_LINE = (int) (11 * (Math.pow(5 - Display.SCALE, 2)));
+	private static final int LINE_PADDING = 3 * (Display.SCALE - 1); //px
 	private static final double LIFE_MODIFIER = 0.08; // % of a second for each character
-	private static final int FONT_SIZE = 14;
+	private static final int FONT_SIZE = 14 * (Display.SCALE - 1);
 	private static final String FONT_TYPE = Font.SANS_SERIF;
 	
 	public boolean show = false; // I'm so sorry that this is public
@@ -33,7 +34,7 @@ public class TextBox {
 	private Font font;
 	
 	public TextBox() {
-		this.font = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
+		this.font = new Font(Font.SANS_SERIF, Font.PLAIN, FONT_SIZE);
 	}
 	
 	public void render(Screen screen) {}
@@ -107,7 +108,7 @@ public class TextBox {
 		graphics.setColor(Color.BLACK);
 		graphics.setFont(this.font);
 		
-		int startY = BORDERX + 60;
+		int startY = BORDERX + RANDOM_FUCKING_VALUE_THAT_POPS_UP_ALOT;
 		for (int i = 0; i < this.text.size(); i++) {
 			String string = this.text.get(i);
 			int height = (int) this.getTextHeight(string, fontRenderContext);
@@ -131,7 +132,7 @@ public class TextBox {
 			
 			return totalHeight;
 		} catch (ConcurrentModificationException e) {
-			return 60; // TODO: want to fix this rather than doing some crazy work around. This should never happen outside debug testing
+			return RANDOM_FUCKING_VALUE_THAT_POPS_UP_ALOT; // TODO: want to fix this rather than doing some crazy work around. This should never happen outside debug testing
 		}
 	}
 	
