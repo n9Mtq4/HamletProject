@@ -10,9 +10,25 @@
     </frame>
     <frame>
         <!-- Example move -->
-        <move x="-10" y="0">polonius</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
-        <move x="-10" y="0">gertrude</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
+        <move x="-800" y="0">polonius</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
+        <move x="-800" y="0">gertrude</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
+        <text>hamlet_and_queen/hamlet_calls</text>
+    </frame>
+    <frame>
+        <move x="0" y="-120">polonius</move>
         <text>hamlet_and_queen/queen_alert_polonius</text>
+    </frame>
+    <frame>
+        <move x="0" y="0" hidden="true">polonius</move> <!-- TODO: make polonius hide -->
+    </frame>
+    <frame>
+        <move x="-1200" y="-500">hamlet</move>
+    </frame>
+    <frame>
+        <text>hamlet_and_queen/hamlet_sit_her</text>
+    </frame>
+    <frame>
+        <move x="0" y="-110">gertrude</move>
     </frame>
     <frame>
         <!-- Example choice -->

@@ -23,7 +23,7 @@ import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
-import me.willjake.hamlet.game.level.OpheliaConfrontationLevel;
+import me.willjake.hamlet.game.level.HamletAndQueenLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.launcher.GameLauncher;
 import me.willjake.hamlet.level.Level;
@@ -90,7 +90,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
-	public Cutscene cutscene = new Cutscene("ending_normal");
+	public Cutscene cutscene = new Cutscene("hamlet_and_queen");
 	public EndCutscene endCutscene;
 	public Credits credits;
 	
@@ -138,11 +138,11 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		
 		player = new GhostPlayer(4, 4, keyBoard);
 		
-		level = new OpheliaConfrontationLevel();
+		level = new HamletAndQueenLevel();
 		level.display = this;
 		level.add(player);
 		level.load();
-//		level.playerInit(player); // TODO: remove me????
+		level.playerInit(player); // TODO: remove me????
 	}
 	
 	public static int getWindowWidth() {

@@ -19,9 +19,9 @@ public class HamletAndQueenLevel extends Level {
 		
 		super("/assets/world/bedroom_back.png", "/assets/world/bedroom_front.png");
 		
-		final Polonius polonius = new Polonius(8, 8);
-		final Gertrude gertrude = new Gertrude(8, 8);
-		final Hamlet hamlet = new Hamlet(8, 8);
+		final Polonius polonius = new Polonius(29, 8);
+		final Gertrude gertrude = new Gertrude(29, 10);
+		final Hamlet hamlet = new Hamlet(28, 12);
 		
 		add(polonius);
 		add(gertrude);
@@ -32,8 +32,8 @@ public class HamletAndQueenLevel extends Level {
 	@Override
 	public Player playerInit(Player player) {
 		
-		player.x = 10 * Screen.ABS_TILE_SIZE;
-		player.y = 10 * Screen.ABS_TILE_SIZE;
+		player.x = 29 * Screen.ABS_TILE_SIZE;
+		player.y = 6 * Screen.ABS_TILE_SIZE;
 		
 		return player;
 		
