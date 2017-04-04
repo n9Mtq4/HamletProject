@@ -48,9 +48,7 @@ public class ChoiceMenu {
 	
 	public void fireSelect() {
 		final ChoiceOption selected = options.get(selectedOption);
-		
-		// TODO: trigger the next cut scene with selected.
-		
+
 		// clean up after ourselves.
 		display.gameState = GameState.IN_GAME;
 		this.show = false;

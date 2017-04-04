@@ -132,7 +132,6 @@ public class Level {
 	}
 	
 	public double getLightValue(int x, int y) {
-		// TODO: Lets avoid light for now
 		return 1.0D;
 	}
 	

@@ -17,7 +17,6 @@ public class LevelInstruction extends Instruction {
 	
 	@Override
 	public void run() {
-		// TODO: Change level
 		Display.veryBad.loadLevel(levelName);
 		this.isDone = true;
 	}

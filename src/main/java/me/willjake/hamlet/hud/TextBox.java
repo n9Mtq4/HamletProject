@@ -36,10 +36,7 @@ public class TextBox {
 		this.font = new Font(Font.SANS_SERIF, Font.PLAIN, 14);
 	}
 	
-	public void render(Screen screen) {
-//		xOff = screen.xOff; // TODO: very bad
-//		yOff = screen.yOff;
-	}
+	public void render(Screen screen) {}
 	
 	public void render(Graphics graphics) {
 		if (!show) return;

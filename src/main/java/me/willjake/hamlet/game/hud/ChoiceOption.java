@@ -27,16 +27,6 @@ public class ChoiceOption {
         return cutsceneName;
     }
 
-    /*
-    public void choose() {
-        // TODO: Switch to different cutscene
-    }
-
-    public void render(Graphics graphics) {
-        // TODO: Render option
-    }
-*/
-
     private void setup(Element rawOption) {
         this.text = rawOption.getTextContent();
         this.cutsceneName = rawOption.getAttribute("cutscene");

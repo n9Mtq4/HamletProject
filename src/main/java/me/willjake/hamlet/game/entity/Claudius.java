@@ -16,7 +16,7 @@ public class Claudius extends AnimatedMob {
 		
 		this.forward = Sprites.kingBackward;
 		this.backwards = Sprites.kingForward;
-		this.backwardStanding = Sprites.kingStand; // TODO: maybe wrong sprite
+		this.backwardStanding = Sprites.kingStand; // Wrong sprite but we don't care cause everything accounts for it
 		
 		doYourBestOnTheRest();
 		
