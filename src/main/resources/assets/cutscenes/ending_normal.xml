@@ -94,7 +94,7 @@
 
     <!-- Fortinbras rules -->
     <frame>
-        <move x="0" y="-80">fortinbras</move>
+        <move x="0" y="-70">fortinbras</move>
     </frame>
     <frame>
         <text>ending_normal/fortinbras_end</text>

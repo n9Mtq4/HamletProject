@@ -39,7 +39,9 @@ public class AnimatedMob extends Mob {
 	
 	@Override
 	public void render(Screen screen) {
-		
+
+		if (this.hidden) return;
+
 		try {
 			if (!moving) {
 				

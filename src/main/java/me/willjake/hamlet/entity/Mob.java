@@ -27,7 +27,7 @@ public class Mob extends Entity {
 	public int movingLife = 0;
 	public int spawnX;
 	public int spawnY;
-	public boolean hidden = false;
+	public boolean hidden;
 	protected int xd;
 	protected int yd;
 	protected int time;
@@ -44,11 +44,12 @@ public class Mob extends Entity {
 		this.spawnY = y;
 		this.x = x * Screen.ABS_TILE_SIZE;
 		this.y = y * Screen.ABS_TILE_SIZE;
+		this.hidden = false;
 	}
 	
 	@Override
 	public void render(Screen screen) {
-		if (!hidden) {
+		if (!this.hidden) {
 			renderSpriteRel(screen, sprite);
 		}
 	}
