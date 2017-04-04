@@ -22,7 +22,7 @@
         <move x="0" y="0" hidden="true">polonius</move> <!-- TODO: make polonius hide -->
     </frame>
     <frame>
-        <move x="-1200" y="-500">hamlet</move>
+        <move x="-800" y="-180">hamlet</move>
     </frame>
     <frame>
         <text>hamlet_and_queen/hamlet_sit_her</text>
@@ -31,7 +31,24 @@
         <move x="0" y="-110">gertrude</move>
     </frame>
     <frame>
-        <!-- Example choice -->
+        <text>hamlet_and_queen/gertrude_help</text>
+    </frame>
+    <frame>
+        <text>hamlet_and_queen/polonius_responds_help</text>
+    </frame>
+    <frame>
+        <text>hamlet_and_queen/hamlet_hears_polonius</text>
+    </frame>
+    <frame>
+        <move x="20" y="-20">hamlet</move>
+    </frame>
+    <frame>
+        <!-- TODO: kill polonius -->
+    </frame>
+    <frame>
+        <text>hamlet_and_queen/queen_scream</text>
+    </frame>
+    <frame>
         <choice>show_yourself_choice</choice> <!-- Evaluates to choices/mah_choice.xml -->
     </frame>
 </scene>

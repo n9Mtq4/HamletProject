@@ -25,7 +25,7 @@ public class Credits {
 	
 	private static final Font MAIN_FONT = new Font(Font.SANS_SERIF, Font.BOLD, 40);
 	private static final int FONT_MULTI = 60;
-	private static final double SPEED = 1.0; // bigger = slower
+	private static final double SPEED = 2.0; // bigger = slower
 	
 	private Display display;
 	private int time = 0;

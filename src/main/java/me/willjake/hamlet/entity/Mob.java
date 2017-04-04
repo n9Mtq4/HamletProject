@@ -36,8 +36,8 @@ public class Mob extends Entity {
 	public int playX;
 	public int playY;
 	public boolean isAnimationDone = true;
-	private static final int CUTSCENE_SPEED = 1; // bigger = slower (default = 2)
-	private static final int CUTSCENE_MOVE_SPEED = 2; // really don't change this (default = 1)
+	private static final int CUTSCENE_SPEED = 2; // bigger = slower (default = 2, 1 for fast)
+	private static final int CUTSCENE_MOVE_SPEED = 1; // really don't change this (default = 1, 2 for fast)
 	
 	public Mob(int x, int y) {
 		this.spawnX = x;

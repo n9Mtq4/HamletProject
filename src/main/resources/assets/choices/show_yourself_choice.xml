@@ -2,6 +2,6 @@
 <choice>
     Show yourself to:
     <option cutscene="queen_show_hamlet">Hamlet</option>
-    <option cutscene="queen_show_queen">Queen</option>
-    <option cutscene="queen_show_both">Both</option>
+    <option cutscene="queen_show_both">Hamlet and Queen</option>
+    <option cutscene="queen_show_none">Stay Hidden</option>
 </choice>

@@ -83,6 +83,7 @@ public class GameLauncher {
 		
 //		Media media = new Media(GameLauncher.class.getResource("/assets/video/gource.flv").toString());
 		// TODO: update the url to a final flv of the gource timelapse thing
+		// video is about 1 minute and 55 seconds long
 		Media media = new Media("http://download.oracle.com/otndocs/products/javafx/oow2010-2.flv");
 		MediaPlayer mediaPlayer = new MediaPlayer(media);
 		mediaPlayer.setAutoPlay(true);

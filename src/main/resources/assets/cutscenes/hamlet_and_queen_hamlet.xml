@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+    <frame>
+        <level>HamletAndQueenLevel</level>
+    </frame>
+
+    <frame>
+        <text>hamlet_and_queen/showtohamlet/hamlet_reaction</text>
+    </frame>
+
+    <frame>
+        <text>hamlet_and_queen/showtohamlet/ghost_response</text>
+    </frame>
+    
+    <!-- TODO: next scene, nothing really changes -->
+    
+</scene>

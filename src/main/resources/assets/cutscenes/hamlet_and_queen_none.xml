@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+    <frame>
+        <level>HamletAndQueenLevel</level>
+    </frame>
+
+    <frame>
+        <text>hamlet_and_queen/showtonone/hamlet_threat</text>
+    </frame>
+    
+    <frame>
+        <move x="40" y="0">hamlet</move>
+    </frame>
+    
+    <frame>
+        <text>hamlet_and_queen/showtohamlet/queen_scream</text>
+    </frame>
+    
+    <frame>
+        <!-- TODO: kill queen -->
+    </frame>
+    
+</scene>
