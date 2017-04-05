@@ -1,5 +1,6 @@
 package me.willjake.hamlet.credits;
 
+import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.render.Display;
 
 import java.awt.Color;
@@ -59,7 +60,10 @@ public class Credits {
 		
 		if (!done) time++;
 		
-		if (time >= TICK_LIMIT) System.out.println("Warning: Credits is past the desired length of end scene");
+		if (time >= TICK_LIMIT) {
+			System.out.println("Warning: Credits is past the desired length of end scene");
+			display.gameState = GameState.LEVEL_CHANGING;
+		}
 		
 	}
 	

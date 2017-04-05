@@ -56,7 +56,10 @@ public class GameLauncher {
 	
 	public void showGource() {
 		
+		System.out.println("Called!");
+		
 		game.setVisible(false);
+//		game.stop();
 		frame.remove(game);
 		
 		final JFXPanel fxPanel = new JFXPanel();
@@ -75,13 +78,14 @@ public class GameLauncher {
 	public void initFx(JFXPanel fxPanel) {
 		final Scene scene = createScene();
 		fxPanel.setScene(scene);
+		System.out.println("Video playing");
 	}
 	
 	private static Scene createScene() {
 		Group root = new Group();
 		Scene scene = new Scene(root, Color.ALICEBLUE);
 		
-//		Media media = new Media(GameLauncher.class.getResource("/assets/video/gource.flv").toString());
+//		Media media = new Media(GameLauncher.class.gxetResource("/assets/video/gource.flv").toString());
 		// TODO: update the url to a final flv of the gource timelapse thing
 		// video is about 1 minute and 55 seconds long
 		Media media = new Media("http://download.oracle.com/otndocs/products/javafx/oow2010-2.flv");

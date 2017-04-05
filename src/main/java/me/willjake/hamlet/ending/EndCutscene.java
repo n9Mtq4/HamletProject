@@ -21,15 +21,15 @@ public class EndCutscene {
 	
 	// this thing should run for 81 seconds (1 min, 21 seconds)?
 	private static final int TICK_LIMIT = 81 * 60;
-	private static final int ANIMATION_SPEED = 3; // bigger = slower
+	private static final int ANIMATION_SPEED = 2; // bigger = slower
 	private static final int ANIMATION_SPEED_TICK = 1; // bigger = faster
-	private static final int FADE_TIME = 4 * 60;
+	private static final int FADE_TIME = 2 * 60;
 	
 	private static final int FADE_IN_DEFAULT_VALUE = 0x00;
 	private static final int FADE_OUT_DEFAULT_VALUE = 0x0;
 	
-	private static final int TICKS_PER_IMAGE = (int) ((((228 * 5.7) * ANIMATION_SPEED) / ANIMATION_SPEED_TICK) - (288 * 5.7));
-	private static final int TICKS_PER_IMAGE_FADE = TICKS_PER_IMAGE + 2 * FADE_TIME;
+	private static final int TICKS_PER_IMAGE = (int) (((((228 * 5.7) * ANIMATION_SPEED) / ANIMATION_SPEED_TICK)) - (228 * 5.7));
+	private static final int TICKS_PER_IMAGE_FADE = TICKS_PER_IMAGE + 2 * FADE_TIME; // gives us 3 images is ANIMATION_SPEED = 2, FADE_TIME = 2 * 60;
 	
 	private Display display;
 	private int time = 0;
@@ -67,7 +67,11 @@ public class EndCutscene {
 	private void loadImages() {
 		
 		frames[0] = upscaleImage(loadImage("rg_dead"), 5.7d);
-		frames[1] = frames[0];
+		frames[1] = upscaleImage(loadImage("just_ghost"), 5.7d);
+		frames[2] = upscaleImage(loadImage("hamlet_dead_queen_alive"), 5.7d);
+		frames[3] = upscaleImage(loadImage("hamlet_queen_alive"), 5.7d);
+		frames[4] = upscaleImage(loadImage("both_dead"), 5.7d);
+//		frames[5] = upscaleImage(loadImage(""), 5.7d);
 		
 	}
 	
@@ -128,6 +132,22 @@ public class EndCutscene {
 			yOff = 0;
 		}else if (time == (FADE_TIME + (1 * TICKS_PER_IMAGE_FADE))) {
 			// second frame
+			frame = 1;
+			yOff = 0;
+		}else if (time == (FADE_TIME + (2 * TICKS_PER_IMAGE_FADE))) {
+			// third frame
+			if (display.isDead("hamlet") && !display.isDead("gertude")) {
+				// hamlet's dead frame, gertude alive
+				frame = 2;
+			}else if (display.isDead("hamlet") && display.isDead("gertrude")) {
+				// hamlet and gertrude dead
+				frame = 4;
+			}else {
+				// no one is dead
+				frame = 3;
+			}
+			frame = 3;
+			yOff = 0;
 		}
 		
 		// last, fade out

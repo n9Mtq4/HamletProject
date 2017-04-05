@@ -57,6 +57,7 @@ public class MainMenu {
 		if (musicPlaying) return;
 		musicPlaying = true;
 		music = display.playSound("mainmenu");
+		display.music = music; // TODO: jake removed this, so it may cause a bug?
 		music.loop(Clip.LOOP_CONTINUOUSLY);
 	}
 	
