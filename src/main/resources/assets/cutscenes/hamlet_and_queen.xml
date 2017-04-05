@@ -15,7 +15,6 @@
         <!-- Example move -->
         <move x="-800" y="0">polonius</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
         <move x="-800" y="0">gertrude</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
-        <text>hamlet_and_queen/hamlet_calls</text>
     </frame>
     <frame>
         <move x="0" y="-120">polonius</move>
@@ -25,6 +24,7 @@
         <move x="0" y="0" hidden="true">polonius</move>
     </frame>
     <frame>
+        <text>hamlet_and_queen/hamlet_calls</text>
         <move x="-800" y="-180" hidden="false">hamlet</move>
     </frame>
     <frame>

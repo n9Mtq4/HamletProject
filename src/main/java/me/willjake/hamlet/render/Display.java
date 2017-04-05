@@ -448,6 +448,12 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		    if (this.cutsceneRunning) {
 		        if (this.cutscenes.get(onCutscene).isDone()) {
                     this.onCutscene++;
+
+                    if (this.onCutscene == 2) { // Kill me. I'm so sorry this is disgusting
+                        if (this.cutscenes.get(this.onCutscene - 1).getSceneName().equals("hamlet_and_queen_both")) {
+                            this.cutscenes.set(this.onCutscene, new Cutscene("ending_queen_lives"));
+                        }
+                    }
 		        }
 
                 if (this.onCutscene < this.cutscenes.size()) {
