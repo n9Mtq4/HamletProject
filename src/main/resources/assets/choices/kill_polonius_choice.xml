@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice>
+    Stop Hamlet?
+    <option cutscene="hamlet_and_queen_polonius_dead" sanity="-3" death="polonius">Woooo violence! Keep it up Hamlet!</option>
+    <option cutscene="hamlet_and_queen_polonius_alive" sanity="-5">Slow down there Hamlet. Don't be rash</option>
+</choice>

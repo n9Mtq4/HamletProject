@@ -37,21 +37,14 @@
         <text>hamlet_and_queen/gertrude_help</text>
     </frame>
     <frame>
+        <move x="0" y="0" hidden="false">polonius</move>
         <text>hamlet_and_queen/polonius_respond_help</text>
     </frame>
     <frame>
         <text>hamlet_and_queen/hamlet_hear_polonius</text>
     </frame>
+
     <frame>
-        <move x="20" y="-20">hamlet</move>
-    </frame>
-    <frame>
-        <!-- TODO: kill polonius -->
-    </frame>
-    <frame>
-        <text>hamlet_and_queen/queen_scream</text>
-    </frame>
-    <frame>
-        <choice>show_yourself_choice</choice>
+        <choice>kill_polonius_choice</choice>
     </frame>
 </scene>

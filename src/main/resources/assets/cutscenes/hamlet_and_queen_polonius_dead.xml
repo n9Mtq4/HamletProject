@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+    <frame>
+        <move x="20" y="-40">hamlet</move>
+    </frame>
+
+    <frame>
+        <text>hamlet_and_queen/queen_scream</text>
+    </frame>
+
+    <frame>
+        <text>hamlet_and_queen/polonius_dead/polonius_dies</text>
+    </frame>
+
+    <frame>
+        <choice>show_yourself_choice</choice>
+    </frame>
+</scene>

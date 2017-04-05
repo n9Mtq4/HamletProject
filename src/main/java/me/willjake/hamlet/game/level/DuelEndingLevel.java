@@ -34,10 +34,13 @@ public class DuelEndingLevel extends Level {
         Ophelia ophelia = new Ophelia(4, 7);
         ophelia.dir = Direction.BACKWARDS;
 
+        Polonius polonius = new Polonius(8, 7);
+
         if (!Display.veryBad.isDead("laertes")) add(laertes);
         if (!Display.veryBad.isDead("claudius")) add(claudius);
         if (!Display.veryBad.isDead("gertrude")) add(gertrude);
         if (!Display.veryBad.isDead("hamlet")) add(hamlet);
+		if (!Display.veryBad.isDead("polonius")) add(polonius);
 
         add(guard);
 		add(fortinbras);
