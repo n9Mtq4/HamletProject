@@ -448,11 +448,15 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		while (running) {
 		    if (this.cutsceneRunning) {
 		        if (this.cutscenes.get(onCutscene).isDone()) {
-		        	System.out.println("TEST");
                     this.onCutscene++;
 		        }
 
-                this.cutscenes.get(this.onCutscene).tick();
+                if (this.onCutscene < this.cutscenes.size()) {
+                    this.cutscenes.get(this.onCutscene).tick();
+                } else {
+		            this.initEndScene();
+		            cutsceneRunning = false;
+                }
             }
 
 //			game loop
