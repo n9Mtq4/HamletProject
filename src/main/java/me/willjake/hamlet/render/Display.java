@@ -24,6 +24,7 @@ import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
 import me.willjake.hamlet.game.level.DuelEndingLevel;
+import me.willjake.hamlet.game.level.OpheliaConfrontationLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.launcher.GameLauncher;
 import me.willjake.hamlet.level.Level;
@@ -136,14 +137,14 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
         this.cutscenes.add(new Cutscene("ophelia_confrontation_scene"));
         this.cutscenes.add(new Cutscene("hamlet_and_queen"));
         this.cutscenes.add(new Cutscene("ending_normal"));
-	}
+    }
 	
 	public void loadGameOrSomething() {
 		hud = new HudImplementation(this);
 		
 		player = new GhostPlayer(4, 4, keyBoard);
 		
-		level = new DuelEndingLevel();
+		level = new OpheliaConfrontationLevel();
 		level.display = this;
 		level.add(player);
 		level.load();

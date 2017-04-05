@@ -3,4 +3,12 @@
     <frame>
         <text>hamlet_and_queen/polonius_alive/hamlet_whoa</text>
     </frame>
+
+    <frame>
+        <text>hamlet_and_queen/polonius_alive/hamlet_im_outta_here</text>
+    </frame>
+
+    <frame>
+        <move x="100" y="-40">hamlet</move>
+    </frame>
 </scene>
