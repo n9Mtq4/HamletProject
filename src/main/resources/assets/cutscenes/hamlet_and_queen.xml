@@ -19,7 +19,7 @@
         <text>hamlet_and_queen/queen_alert_polonius</text>
     </frame>
     <frame>
-        <move x="0" y="0" hidden="true">polonius</move> <!-- TODO: make polonius hide -->
+        <move x="0" y="0" hidden="true">polonius</move>
     </frame>
     <frame>
         <move x="-800" y="-180">hamlet</move>
@@ -34,7 +34,7 @@
         <text>hamlet_and_queen/gertrude_help</text>
     </frame>
     <frame>
-        <text>hamlet_and_queen/polonius_responds_help</text>
+        <text>hamlet_and_queen/polonius_respond_help</text>
     </frame>
     <frame>
         <text>hamlet_and_queen/hamlet_hears_polonius</text>

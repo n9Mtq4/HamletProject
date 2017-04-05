@@ -31,6 +31,16 @@ public class Frame {
         return this.isDone;
     }
 
+    public boolean hasChoice() {
+		for (Instruction instruction : this.instructions) {
+			if (instruction.getType().equals("CHOICE")) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	private void parseFrame(Node rawFrame) {
 		FrameParser frameParser = new FrameParser(rawFrame);
 		this.instructions = frameParser.getInstructions();

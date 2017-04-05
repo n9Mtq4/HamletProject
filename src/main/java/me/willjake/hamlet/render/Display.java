@@ -446,9 +446,9 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		requestFocusInWindow();
 		tick();
 		while (running) {
-
 		    if (this.cutsceneRunning) {
 		        if (this.cutscenes.get(onCutscene).isDone()) {
+		        	System.out.println("TEST");
                     this.onCutscene++;
 		        }
 
@@ -462,34 +462,28 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 			unprocessedSeconds += passedTime / 1000000000.0;
 			
 			while (unprocessedSeconds > clockSpeed) {
-				
 				tick();
 				unprocessedSeconds -= clockSpeed;
 				ticked = true;
 				tickCount++;
+
 				if (tickCount % GAME_SPEED == 0) {
-					
 					System.out.println(tickCount + " ups, " + frames + " fps");
 					previousTime += 1000;
 					fps = frames;
 					frames = 0;
 					tickCount = 0;
-					
 				}
-				
 			}
 			
 			if (ticked) {
-				
 				render();
 				frames++;
 				ticked = false;
-				
 			}
 			
 			render();
 			frames++;
-			
 		}
 	}
 	

@@ -19,5 +19,7 @@ public abstract class Instruction {
         return this.isDone;
     }
 
+    public abstract String getType();
+
 	abstract void parseInstruction(Node rawInstruction);
 }

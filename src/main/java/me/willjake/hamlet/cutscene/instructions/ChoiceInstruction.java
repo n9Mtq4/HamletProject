@@ -30,7 +30,12 @@ public class ChoiceInstruction extends Instruction {
 
         this.isDone = true;
 	}
-	
+
+	@Override
+	public String getType() {
+		return "CHOICE";
+	}
+
 	@Override
 	public void parseInstruction(Node rawInstruction) {
 		Element element = (Element) rawInstruction;

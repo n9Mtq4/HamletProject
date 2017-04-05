@@ -20,7 +20,12 @@ public class LevelInstruction extends Instruction {
 		Display.veryBad.loadLevel(levelName);
 		this.isDone = true;
 	}
-	
+
+	@Override
+	public String getType() {
+		return "LEVEL";
+	}
+
 	@Override
 	public void parseInstruction(Node rawInstruction) {
 		Element element = (Element) rawInstruction;

@@ -31,7 +31,12 @@ public class TextInstruction extends Instruction {
     public boolean isDone() {
 	    return this.running && !Display.veryBad.hud.textBox.show;
     }
-	
+
+	@Override
+	public String getType() {
+		return "TEXT";
+	}
+
 	@Override
 	public void parseInstruction(Node rawInstruction) {
 		Element element = (Element) rawInstruction;

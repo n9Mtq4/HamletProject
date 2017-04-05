@@ -16,7 +16,7 @@ public class Cutscene {
 	}
 
 	public boolean isDone() {
-	    return this.onFrame > this.frames.size();
+	    return this.onFrame >= this.frames.size() && !this.frames.get(this.frames.size() - 1).hasChoice();
     }
 
 	public void tick() {

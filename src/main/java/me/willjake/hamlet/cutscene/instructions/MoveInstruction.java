@@ -40,6 +40,11 @@ public class MoveInstruction extends Instruction {
     }
 
     @Override
+    public String getType() {
+        return "MOVE";
+    }
+
+    @Override
     public void parseInstruction(Node rawInstruction) {
         Element element  = (Element) rawInstruction;
         this.x = Integer.parseInt(element.getAttribute("x"));
