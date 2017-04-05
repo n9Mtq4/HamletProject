@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <textbox>
     <speaker>Polonius</speaker>
-    <text>What help!</text>
+    <text>What help!              </text> <!-- Right now you're thinking, "These spaces must be a mistake", but, my friend, they are not. Seriously... Don't ask... -->
 </textbox>

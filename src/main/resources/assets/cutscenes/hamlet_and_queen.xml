@@ -37,7 +37,7 @@
         <text>hamlet_and_queen/polonius_respond_help</text>
     </frame>
     <frame>
-        <text>hamlet_and_queen/hamlet_hears_polonius</text>
+        <text>hamlet_and_queen/hamlet_hear_polonius</text>
     </frame>
     <frame>
         <move x="20" y="-20">hamlet</move>
@@ -49,6 +49,6 @@
         <text>hamlet_and_queen/queen_scream</text>
     </frame>
     <frame>
-        <choice>show_yourself_choice</choice> <!-- Evaluates to choices/mah_choice.xml -->
+        <choice>show_yourself_choice</choice>
     </frame>
 </scene>
