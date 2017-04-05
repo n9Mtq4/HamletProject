@@ -9,11 +9,6 @@
     </frame>
     
     <frame>
-        <text>hamlet_and_queen/showtohamlet/queen_scream</text>
+        <text>hamlet_and_queen/showtonone/queen_scream</text>
     </frame>
-    
-    <frame>
-        <!-- TODO: kill queen -->
-    </frame>
-    
 </scene>

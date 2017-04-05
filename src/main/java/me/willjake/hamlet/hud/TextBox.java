@@ -1,5 +1,7 @@
 package me.willjake.hamlet.hud;
 
+import me.willjake.hamlet.entity.AnimatedMob;
+import me.willjake.hamlet.entity.Mob;
 import me.willjake.hamlet.render.Display;
 import me.willjake.hamlet.render.Screen;
 
