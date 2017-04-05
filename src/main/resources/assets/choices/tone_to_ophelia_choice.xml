@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <choice>
     Step in?
-    <option cutscene="ophelia_confrontation_normal" sanity="-3">Just let it all out Hamlet!</option>
+    <option cutscene="ophelia_confrontation_normal" sanity="-3" dead="ophelia">Just let it all out Hamlet!</option>
     <option cutscene="ophelia_confrontation_positive" sanity="1">Hey just take a step back now...</option>
 </choice>

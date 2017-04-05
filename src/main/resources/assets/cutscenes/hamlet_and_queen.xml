@@ -5,6 +5,9 @@
     </frame>
 
     <frame>
+        <move x="0" y="0" hidden="true">hamlet</move>
+    </frame>
+    <frame>
         <!-- Example text -->
         <text>hamlet_and_queen/polonius_intro</text> <!-- Evaluates to text/subfolder/text_name.xml -->
     </frame>
@@ -12,7 +15,6 @@
         <!-- Example move -->
         <move x="-800" y="0">polonius</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
         <move x="-800" y="0">gertrude</move> <!-- Moves hamlet by 0 in the x direction and negative 20 in the y direction -->
-        <text>hamlet_and_queen/hamlet_calls</text>
     </frame>
     <frame>
         <move x="0" y="-120">polonius</move>
@@ -22,7 +24,8 @@
         <move x="0" y="0" hidden="true">polonius</move>
     </frame>
     <frame>
-        <move x="-800" y="-180">hamlet</move>
+        <text>hamlet_and_queen/hamlet_calls</text>
+        <move x="-800" y="-180" hidden="false">hamlet</move>
     </frame>
     <frame>
         <text>hamlet_and_queen/hamlet_sit_her</text>
@@ -34,21 +37,14 @@
         <text>hamlet_and_queen/gertrude_help</text>
     </frame>
     <frame>
+        <move x="0" y="0" hidden="false">polonius</move>
         <text>hamlet_and_queen/polonius_respond_help</text>
     </frame>
     <frame>
         <text>hamlet_and_queen/hamlet_hear_polonius</text>
     </frame>
+
     <frame>
-        <move x="20" y="-20">hamlet</move>
-    </frame>
-    <frame>
-        <!-- TODO: kill polonius -->
-    </frame>
-    <frame>
-        <text>hamlet_and_queen/queen_scream</text>
-    </frame>
-    <frame>
-        <choice>show_yourself_choice</choice>
+        <choice>kill_polonius_choice</choice>
     </frame>
 </scene>

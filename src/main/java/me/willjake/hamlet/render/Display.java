@@ -24,6 +24,7 @@ import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
 import me.willjake.hamlet.game.level.DuelEndingLevel;
+import me.willjake.hamlet.game.level.OpheliaConfrontationLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.launcher.GameLauncher;
 import me.willjake.hamlet.level.Level;
@@ -136,14 +137,14 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
         this.cutscenes.add(new Cutscene("ophelia_confrontation_scene"));
         this.cutscenes.add(new Cutscene("hamlet_and_queen"));
         this.cutscenes.add(new Cutscene("ending_normal"));
-	}
+    }
 	
 	public void loadGameOrSomething() {
 		hud = new HudImplementation(this);
 		
 		player = new GhostPlayer(4, 4, keyBoard);
 		
-		level = new DuelEndingLevel();
+		level = new OpheliaConfrontationLevel();
 		level.display = this;
 		level.add(player);
 		level.load();
@@ -448,6 +449,12 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		    if (this.cutsceneRunning) {
 		        if (this.cutscenes.get(onCutscene).isDone()) {
                     this.onCutscene++;
+
+                    if (this.onCutscene == 2) { // Kill me. I'm so sorry this is disgusting
+                        if (this.cutscenes.get(this.onCutscene - 1).getSceneName().equals("hamlet_and_queen_both")) {
+                            this.cutscenes.set(this.onCutscene, new Cutscene("ending_queen_lives"));
+                        }
+                    }
 		        }
 
                 if (this.onCutscene < this.cutscenes.size()) {

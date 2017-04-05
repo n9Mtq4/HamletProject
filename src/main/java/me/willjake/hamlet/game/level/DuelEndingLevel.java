@@ -1,10 +1,12 @@
 package me.willjake.hamlet.game.level;
 
 import me.willjake.hamlet.entity.Direction;
+import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.entity.*;
 import me.willjake.hamlet.level.Level;
 import me.willjake.hamlet.level.Tile;
 import me.willjake.hamlet.render.Display;
+import me.willjake.hamlet.render.Screen;
 
 /**
  * Created by will on 3/26/17 at 6:35 PM.
@@ -34,15 +36,29 @@ public class DuelEndingLevel extends Level {
         Ophelia ophelia = new Ophelia(4, 7);
         ophelia.dir = Direction.BACKWARDS;
 
+
+        Polonius polonius = new Polonius(8, 7);
+        polonius.dir = Direction.BACKWARDS;
+
         if (!Display.veryBad.isDead("laertes")) add(laertes);
         if (!Display.veryBad.isDead("claudius")) add(claudius);
         if (!Display.veryBad.isDead("gertrude")) add(gertrude);
         if (!Display.veryBad.isDead("hamlet")) add(hamlet);
+		if (!Display.veryBad.isDead("polonius")) add(polonius);
 
         add(guard);
 		add(fortinbras);
         if (!Display.veryBad.isDead("ophelia")) add(ophelia);
 	}
+
+    @Override
+    public Player playerInit(Player player) {
+        player.x = 5 * Screen.ABS_TILE_SIZE;
+        player.y = 8 * Screen.ABS_TILE_SIZE;
+        player.dir = Direction.RIGHT;
+
+        return player;
+    }
 	
 	@Override
 	public Tile tileTranslator(int tile) {

@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scene>
     <frame>
-        <level>HamletAndQueenLevel</level>
-    </frame>
-    
-    <frame>
         <text>hamlet_and_queen/showtoboth/ghost_to_queen</text>
     </frame>
     
@@ -13,5 +9,5 @@
     </frame>
     
     <!-- TODO: next cut scene!!!, queen and hamlet are teamed up now! -->
-    
+
 </scene>

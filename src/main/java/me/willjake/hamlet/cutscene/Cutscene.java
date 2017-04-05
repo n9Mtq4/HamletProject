@@ -9,10 +9,16 @@ public class Cutscene {
 	
 	private ArrayList<Frame> frames = new ArrayList<Frame>();
 	private int onFrame = 0;
+	private String sceneName;
 
 	public Cutscene(String sceneName) {
 		this.parseScene(sceneName);
 		this.onFrame = 0;
+		this.sceneName = sceneName;
+	}
+
+	public String getSceneName() {
+		return this.sceneName;
 	}
 
 	public boolean isDone() {
