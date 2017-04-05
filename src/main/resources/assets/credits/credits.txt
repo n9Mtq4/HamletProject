@@ -5,8 +5,6 @@ A Hamlet Project
 
 
 
-
-
 Programming:
 Will Bresnahan
 Jake Kinsella
@@ -52,3 +50,5 @@ Thank You for playing.
 Now sit back and watch
 a visualization of us
 working on this project.
+(it may not work so you can
+open gource.mp4 if you want)

@@ -4,6 +4,7 @@ import me.willjake.hamlet.render.Display;
 
 import javax.imageio.ImageIO;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -31,12 +32,19 @@ public class EndCutscene {
 	private static final int TICKS_PER_IMAGE = (int) (((((228 * 5.7) * ANIMATION_SPEED) / ANIMATION_SPEED_TICK)) - (228 * 5.7));
 	private static final int TICKS_PER_IMAGE_FADE = TICKS_PER_IMAGE + 2 * FADE_TIME; // gives us 3 images is ANIMATION_SPEED = 2, FADE_TIME = 2 * 60;
 	
+	private static final Font DRAW_FONT = new Font(Font.SANS_SERIF, Font.BOLD, 20);
+	private static final String[][] text = new String[][] {
+			{"I don't know about you but I've had a lovely time."," Intrigue and mystery, butchery and betrayal.", "The death throes of a country!"},
+			{"It's just as well, the country was dying already. Hamlet was right,", "Denmark was completely rotten. All it took was the right", "person to knock it over the edge."},
+			{"I wonder, was all this worth it?"}};
+	
 	private Display display;
 	private int time = 0;
 	
 	private BufferedImage[] frames = new BufferedImage[10]; // change this size to the actual size
 	private int frame = 0;
 	private int yOff = 0;
+	private int textIndex = 0;
 	
 	private boolean fadeIn = true;
 	private int fadeInVal = FADE_IN_DEFAULT_VALUE;
@@ -130,10 +138,12 @@ public class EndCutscene {
 			}
 			frame = 0; // TODO: this cause r & g can't live currently in this version. change it when adding r and g choice
 			yOff = 0;
+			textIndex = 0;
 		}else if (time == (FADE_TIME + (1 * TICKS_PER_IMAGE_FADE))) {
 			// second frame
 			frame = 1;
 			yOff = 0;
+			textIndex = 1;
 		}else if (time == (FADE_TIME + (2 * TICKS_PER_IMAGE_FADE))) {
 			// third frame
 			if (display.isDead("hamlet") && !display.isDead("gertude")) {
@@ -148,6 +158,7 @@ public class EndCutscene {
 			}
 			frame = 3;
 			yOff = 0;
+			textIndex = 2;
 		}
 		
 		// last, fade out
@@ -184,6 +195,12 @@ public class EndCutscene {
 		if (fadeOut) {
 			g.setColor(new Color(0, 0, 0, fadeOutVal)); // slowly increase alpha
 			g.fillRect(0, 0, Display.WIDTH * Display.SCALE, Display.HEIGHT * Display.SCALE);
+		}
+		
+		for (int i = 0; i < text[textIndex].length; i++) {
+			g.setColor(Color.RED);
+			g.setFont(DRAW_FONT);
+			g.drawString(text[textIndex][i], 0, (i + 1) * 40);
 		}
 		
 		g.setColor(backupColor);

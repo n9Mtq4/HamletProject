@@ -23,7 +23,6 @@ import me.willjake.hamlet.entity.Player;
 import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
-import me.willjake.hamlet.game.level.DuelEndingLevel;
 import me.willjake.hamlet.game.level.OpheliaConfrontationLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.launcher.GameLauncher;
@@ -65,8 +64,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	
 	public static final double GAME_SPEED = 60.0d;
 	public static boolean DEBUG = true;
-	public static int WIDTH = 360;
-	public static int HEIGHT = (WIDTH / 16) * 9; // 16:9
+	public static int WIDTH = 360; // 720
+	public static int HEIGHT = (WIDTH / 16) * 9; // 16:9 // 405
 	public static int SCALE = 2;
 	
 	public static boolean playSound = true;
@@ -350,31 +349,34 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	@SuppressWarnings("Duplicates")
 	public void renderCredits() {
 		
-		BufferStrategy bs = this.getBufferStrategy();
-		if (bs == null) {
-			createBufferStrategy(3);
-			return;
-		}
-		
-		Graphics g = bs.getDrawGraphics();
-		
-		for (int i = 0; i < pixels.length; i++) {
-			pixels[i] = 0xffffff;
-		}
-		
-		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-		
-		credits.render(g);
-		
-		if (DEBUG) {
-			g.setColor(new Color(255, 255, 0));
-			g.setFont(new Font("Verdana", Font.BOLD, 24));
-			g.drawString(String.valueOf(fps + " fps"), 0, HEIGHT * SCALE - 18);
+		try {
+			BufferStrategy bs = this.getBufferStrategy();
+			if (bs == null) {
+				createBufferStrategy(3);
+				return;
+			}
+			
+			Graphics g = bs.getDrawGraphics();
+			
+			for (int i = 0; i < pixels.length; i++) {
+				pixels[i] = 0xffffff;
+			}
+			
+			g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+			
+			credits.render(g);
+			
+			if (DEBUG) {
+				g.setColor(new Color(255, 255, 0));
+				g.setFont(new Font("Verdana", Font.BOLD, 24));
+				g.drawString(String.valueOf(fps + " fps"), 0, HEIGHT * SCALE - 18);
 //			g.setFont(new Font("Verdana", Font.BOLD, 12));
+			}
+			
+			g.dispose();
+			bs.show();
+		}catch (NullPointerException e) {
 		}
-		
-		g.dispose();
-		bs.show();
 		
 	}
 	
