@@ -53,6 +53,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -91,7 +92,8 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	
-	public Cutscene cutscene = new Cutscene("ophelia_confrontation_scene");
+	public ArrayList<Cutscene> cutscenes = new ArrayList<Cutscene>();
+	public int onCutscene = 0;
 	public EndCutscene endCutscene;
 	public Credits credits;
 	
@@ -131,7 +133,10 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		this.menu = new MainMenu(this);
 		
 		veryBad = this;
-		
+
+        this.cutscenes.add(new Cutscene("ophelia_confrontation_scene"));
+        this.cutscenes.add(new Cutscene("hamlet_and_queen"));
+        this.cutscenes.add(new Cutscene("ending_normal"));
 	}
 	
 	public void loadGameOrSomething() {
@@ -443,7 +448,11 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 		while (running) {
 
 		    if (this.cutsceneRunning) {
-                this.cutscene.tick();
+		        if (this.cutscenes.get(onCutscene).isDone()) {
+                    this.onCutscene++;
+		        }
+
+                this.cutscenes.get(this.onCutscene).tick();
             }
 
 //			game loop
@@ -512,7 +521,7 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 	}
 	
 	public void switchCutscene(String cutsceneName) {
-	    this.cutscene = new Cutscene(cutsceneName);
+	    this.cutscenes.set(this.onCutscene, new Cutscene(cutsceneName));
     }
 
 	@Override

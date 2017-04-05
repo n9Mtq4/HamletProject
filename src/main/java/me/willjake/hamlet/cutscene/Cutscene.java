@@ -9,12 +9,16 @@ public class Cutscene {
 	
 	private ArrayList<Frame> frames = new ArrayList<Frame>();
 	private int onFrame = 0;
-	
+
 	public Cutscene(String sceneName) {
 		this.parseScene(sceneName);
 		this.onFrame = 0;
 	}
-	
+
+	public boolean isDone() {
+	    return this.onFrame > this.frames.size();
+    }
+
 	public void tick() {
 	    if (this.frames.size() == 0) return;
 
