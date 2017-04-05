@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <choice>
     Show yourself to:
-    <option cutscene="queen_show_hamlet">Hamlet</option>
-    <option cutscene="queen_show_both">Hamlet and Queen</option>
-    <option cutscene="queen_show_none">Stay Hidden</option>
+    <option cutscene="queen_show_hamlet" sanity="-4">Hamlet</option>
+    <option cutscene="queen_show_both" sanity="2">Hamlet and Queen</option>
+    <option cutscene="queen_show_none" sanity="-2">Stay Hidden</option>
 </choice>

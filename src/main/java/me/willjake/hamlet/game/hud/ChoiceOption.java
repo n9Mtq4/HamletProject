@@ -9,6 +9,8 @@ public class ChoiceOption {
 
     private String text;
     private String cutsceneName;
+    private String deathName;
+    private int sanityChange;
 
     public ChoiceOption(Element rawOption) {
         this.setup(rawOption);
@@ -20,16 +22,34 @@ public class ChoiceOption {
     }
 
     public String getText() {
-        return text;
+        return this.text;
+    }
+
+    public String getDeathName() {
+        return this.deathName;
+    }
+
+    public int getSanityChange() {
+        return this.sanityChange;
     }
 
     public String getCutsceneName() {
-        return cutsceneName;
+        return this.cutsceneName;
     }
 
     private void setup(Element rawOption) {
         this.text = rawOption.getTextContent();
         this.cutsceneName = rawOption.getAttribute("cutscene");
+
+        this.deathName = rawOption.getAttribute("death");
+
+        String rawSanityChange = rawOption.getAttribute("sanity");
+
+        if (rawSanityChange.equals("")) {
+            this.sanityChange = 0;
+        } else {
+            this.sanityChange = Integer.parseInt(rawSanityChange);
+        }
     }
     
 }

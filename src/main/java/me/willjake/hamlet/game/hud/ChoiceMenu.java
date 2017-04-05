@@ -1,5 +1,6 @@
 package me.willjake.hamlet.game.hud;
 
+import me.willjake.hamlet.game.GConstants;
 import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.render.Display;
 import me.willjake.hamlet.render.Screen;
@@ -54,6 +55,12 @@ public class ChoiceMenu {
 		this.show = false;
 		this.options.clear();
 		this.selectedOption = 0;
+
+        if (selected.getDeathName() != null && !selected.getDeathName().equals("")) {
+            Display.veryBad.setDead(selected.getDeathName(), true);
+        }
+
+        Display.veryBad.sanity -= (selected.getSanityChange() * GConstants.SANITY_COEF);
 
 		display.switchCutscene(selected.getCutsceneName());
 	}

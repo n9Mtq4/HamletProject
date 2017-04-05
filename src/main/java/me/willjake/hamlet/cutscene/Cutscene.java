@@ -28,8 +28,6 @@ public class Cutscene {
             } else {
                 this.frames.get(this.onFrame).play();
             }
-        } else {
-		    System.out.println("Cutscene is complete");
         }
 	}
 
