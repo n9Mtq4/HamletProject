@@ -24,7 +24,6 @@ import me.willjake.hamlet.game.GameState;
 import me.willjake.hamlet.game.entity.GhostPlayer;
 import me.willjake.hamlet.game.hud.HudImplementation;
 import me.willjake.hamlet.game.level.DuelEndingLevel;
-import me.willjake.hamlet.game.level.HamletAndQueenLevel;
 import me.willjake.hamlet.input.KeyBoard;
 import me.willjake.hamlet.launcher.GameLauncher;
 import me.willjake.hamlet.level.Level;
@@ -603,7 +602,9 @@ public class Display extends Canvas implements Runnable, MouseListener, MouseMot
 				initCredits();
 			} else if (keyEvent.getKeyCode() == KeyEvent.VK_SPACE) {
                 this.cutsceneRunning = true;
-            }
+            } else if (keyEvent.getKeyCode() == KeyEvent.VK_K) {
+				initEndScene();
+			}
         }
 		
 		// TODO: add key events here
