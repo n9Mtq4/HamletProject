@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scene>
     <frame>
-        <level>HamletAndQueenLevel</level>
-    </frame>
-    
-    <frame>
         <text>hamlet_and_queen/showtoboth/ghost_to_queen</text>
     </frame>
     

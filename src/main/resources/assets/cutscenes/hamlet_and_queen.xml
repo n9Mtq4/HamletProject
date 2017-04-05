@@ -5,6 +5,9 @@
     </frame>
 
     <frame>
+        <move x="0" y="0" hidden="true">hamlet</move>
+    </frame>
+    <frame>
         <!-- Example text -->
         <text>hamlet_and_queen/polonius_intro</text> <!-- Evaluates to text/subfolder/text_name.xml -->
     </frame>
@@ -22,7 +25,7 @@
         <move x="0" y="0" hidden="true">polonius</move>
     </frame>
     <frame>
-        <move x="-800" y="-180">hamlet</move>
+        <move x="-800" y="-180" hidden="false">hamlet</move>
     </frame>
     <frame>
         <text>hamlet_and_queen/hamlet_sit_her</text>
